@@ -17,20 +17,31 @@ const Navbar = () => {
     if (name === "/") {
       return "Dashboard";
     } else {
-      return name;
+      return name.slice(1);
     }
   };
 
   return (
     <div className={[inter.className, styles.main].join(" ")}>
-      <h1>{getName()}</h1>
+      <div className={styles.namesec}>
+        <h1>{getName()}</h1>
+      </div>
       <div className={styles.usersec}>
         <div>
-          <Icon icon="mdi:bell-badge-outline" />
-          <Icon icon="mdi:bell-outline" />
+          {true ? (
+            <Icon icon="mdi:bell-badge-outline" height={50} />
+          ) : (
+            <Icon icon="mdi:bell-outline" height={50} />
+          )}
         </div>
         <div className={styles.profile}>
-          <Image src={"/blank-profile-picture-973460.svg"} fill />
+          <Image
+            src={"/blank-profile-picture-973460.svg"}
+            width={80}
+            height={80}
+            className={styles.im}
+            style={{ objectFit: "cover" }}
+          />
         </div>
       </div>
     </div>
