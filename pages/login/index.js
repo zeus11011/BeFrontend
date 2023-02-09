@@ -10,50 +10,50 @@ function login() {
         <Image src={"/gec.png"} height={330} width={400} />
       </div>
       <div className={styles.container2}>
-        <div className={styles.h1container}>
-          <h1 className={styles.h1}> Login</h1>
-        </div>
-        <div className={styles.box}>
-          <div className={styles.box2}>
-            <h2 className={styles.h2}>Email</h2>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              className={styles.textfiled}
-            ></input>
+        <div className={styles.maincont}>
+          <div className={styles.h1container}>
+            <h1 className={styles.h1}> Login</h1>
           </div>
-        </div>
-
-        <div className={styles.box}>
-          <div className={styles.box2}>
-            <h2 className={styles.h2}>Password</h2>
-            <input
-              type="password"
-              name="email"
-              placeholder="Password"
-              className={styles.textfiled}
-            ></input>
+          <div className={styles.box}>
+            <div className={styles.box2}>
+              <h2 className={styles.h2}>Email</h2>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                className={styles.textfiled}
+              ></input>
+            </div>
           </div>
-        </div>
-        <div className={styles.box5}>
-          <input
-            type="checkbox"
-            label="checkbox"
-            value="true"
-            onChange=""
-            className={styles.checkbox}
-          ></input>
-          Remember Password?
-        </div>
 
-        <div className={styles.box4}>
-          <button name="login" onClick="" className={styles.button}>
-            Log In
-          </button>
-          <div className={styles.box3}>
-            {"Don't have account? "}
-            <Link href="/"> {"Sign Up!"}</Link>
+          <div className={styles.box}>
+            <div className={styles.box2}>
+              <h2 className={styles.h2}>Password</h2>
+              <input
+                type="password"
+                name="email"
+                placeholder="Password"
+                className={styles.textfiled}
+              ></input>
+            </div>
+          </div>
+          <div className={styles.box5}>
+            <Checkbox
+              label="checkbox"
+              value="true"
+              onChange=""
+              className={styles.checkbox}
+            ></Checkbox>
+            Remember Password?
+          </div>
+          <div className={styles.box4}>
+            <button name="login" onClick="" className={styles.button}>
+              Log In
+            </button>
+            <div className={styles.box3}>
+              {"Don't have account? "}
+              <Link href="/"> {"Sign Up!"}</Link>
+            </div>
           </div>
         </div>
       </div>

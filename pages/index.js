@@ -5,5 +5,37 @@ import Navbar from "../Components/Navbar";
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
-  return <div className={styles.main}>h11</div>;
+  return (
+    <div className={styles.main}>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+      <h1>asas</h1>
+    </div>
+  );
 }

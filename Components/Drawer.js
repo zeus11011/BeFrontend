@@ -16,7 +16,7 @@ function Drawer() {
   return (
     <div className={[styles.drawer, font.className].join(" ")}>
       <div className={styles.image}>
-        <Image src={"/gec.png"} height={135} width={160} />
+        <Image src={"/gec.svg"} height={185} width={210} />
       </div>
       <div
         className={styles.mainitem}
@@ -31,7 +31,7 @@ function Drawer() {
               : styles.item
           }
         >
-          <Icon icon="material-symbols:dashboard" color="white" height={30} />
+          <Icon icon="material-symbols:dashboard" color="white" height={35} />
           <p>Dashborad</p>
         </div>
       </div>
@@ -51,7 +51,7 @@ function Drawer() {
           <Icon
             icon="material-symbols:analytics-outline-rounded"
             color="white"
-            height={30}
+            height={35}
           />
           <p> Analytics</p>
         </div>
@@ -69,7 +69,7 @@ function Drawer() {
               : styles.item
           }
         >
-          <Icon icon="uil:calender" color="white" height={30} />
+          <Icon icon="uil:calender" color="white" height={35} />
           <p>Calendar</p>
         </div>
       </div>
@@ -89,7 +89,7 @@ function Drawer() {
           <Icon
             icon="material-symbols:archive-outline"
             color="white"
-            height={30}
+            height={35}
           />
           <p>Archive</p>
         </div>
@@ -110,7 +110,7 @@ function Drawer() {
           <Icon
             icon="material-symbols:person-pin-outline-sharp"
             color="white"
-            height={30}
+            height={35}
           />
           <p>Placed</p>
         </div>
