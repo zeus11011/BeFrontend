@@ -1,0 +1,131 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.cont {
+  min-height: 100vh;
+  height: 100%;
+  width: 82%;
+}
+.container {
+  width: 50%;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.container2 {
+  width: 50%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.h1 {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 43px;
+  color: #000000;
+}
+
+.h2 {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 43px;
+  color: #000000;
+  margin-top: 0;
+  margin-bottom: -5px;
+}
+
+.h1container {
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 300px;
+}
+
+.button {
+  font-size: 20px;
+  box-sizing: border-box;
+  width: 248px;
+  height: 42px;
+  left: 871px;
+  top: 672px;
+  background: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  color: white;
+  padding-top: 0px;
+  //   padding-bottom: 10px;
+}
+
+.checkbox {
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+}
+.box {
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 148px;
+  padding-bottom: 5px;
+}
+
+.box2 {
+  left: 10px;
+}
+
+.box3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  left: 20px;
+}
+
+.box4 {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-right: 147px;
+  padding-top: 20px;
+  font-family: "Montserrat";
+}
+.box5 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: 189px;
+  font-family: "Montserrat";
+}
+
+.textfiled {
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid black;
+}
