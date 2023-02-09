@@ -59,7 +59,7 @@
 .h1container {
   display: flex;
   justify-content: flex-start;
-  padding-right: 220px;
+  padding-right: 300px;
 }
 
 .button {
@@ -86,7 +86,7 @@
 .box {
   display: flex;
   justify-content: flex-start;
-  padding-right: 70px;
+  padding-right: 148px;
   padding-bottom: 5px;
 }
 
@@ -106,15 +106,16 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  padding-right: 68px;
+  padding-right: 147px;
   padding-top: 20px;
+  font-family: "Montserrat";
 }
 .box5 {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-right: 150px;
-  //   padding-top: 0px;
+  padding-right: 189px;
+  font-family: "Montserrat";
 }
 
 .textfiled {
