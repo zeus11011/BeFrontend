@@ -1,0 +1,21 @@
+.main {
+  min-width: 100wv;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  background-color: black;
+}
+
+.cont {
+  background-color: white;
+  // margin-left: 38vh;
+  width: 80%;
+
+  padding-top: 0;
+}
+
+.child {
+  // padding-top: 10vh;
+  // padding: 3rem
+}
