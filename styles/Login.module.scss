@@ -28,11 +28,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  @media screen and (max-widht: 1020px) {
-    width: 50%;
-    height: 100vh;
-  }
 }
 
 .h1 {
@@ -86,7 +81,7 @@
   top: 0;
   left: 0;
   height: 25px;
-  width: 25px;
+  width: 35px;
 }
 .box {
   display: flex;
@@ -113,7 +108,7 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  padding-right: 16rem;
+  padding-right: 15.5rem;
   padding-top: 3rem;
   font-family: "Montserrat";
 }

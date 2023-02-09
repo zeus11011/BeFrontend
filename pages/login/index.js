@@ -7,7 +7,7 @@ function login() {
   return (
     <div className={styles.main}>
       <div className={styles.container}>
-        <Image src={"/gec.png"} height={150} width={180} />
+        <Image src={"/gec.png"} height={330} width={400} />
       </div>
       <div className={styles.container2}>
         <div className={styles.h1container}>
@@ -37,12 +37,13 @@ function login() {
           </div>
         </div>
         <div className={styles.box5}>
-          <Checkbox
+          <input
+            type="checkbox"
             label="checkbox"
             value="true"
             onChange=""
             className={styles.checkbox}
-          ></Checkbox>
+          ></input>
           Remember Password?
         </div>
 
