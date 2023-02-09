@@ -1,0 +1,65 @@
+.h1 {
+  font-size: 50px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.container {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container2 {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5%;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100px;
+}
+.div1 {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10%;
+  flex-direction: column;
+  width: auto;
+}
+.div2 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.border {
+  border-right: 1px solid black;
+}
+
+.container3 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.button {
+  background-color: black;
+  font-size: 30px;
+  color: white;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
