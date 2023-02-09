@@ -8,6 +8,7 @@ const DrawerLayout = ({ children }) => {
   return (
     <div className={styles.main}>
       <Drawer />
+      <div className={styles.empty}></div>
       <div className={styles.cont}>
         <Navbar />
         <div className={styles.child}>{children}</div>
