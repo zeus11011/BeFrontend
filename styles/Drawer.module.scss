@@ -1,0 +1,13 @@
+.drawer {
+  display: flex;
+  padding: 3rem;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  background-color: black;
+  width: 18%;
+  min-height: 100vh;
+  h1 {
+    color: white;
+  }
+}
