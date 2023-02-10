@@ -16,6 +16,8 @@ const Navbar = () => {
     console.log(name);
     if (name === "/") {
       return "Dashboard";
+    } else if (name === "/Profile") {
+      return "My Profile";
     } else {
       return name.slice(1);
     }
@@ -40,7 +42,7 @@ const Navbar = () => {
             width={80}
             height={80}
             className={styles.im}
-            style={{ borderRadius: "50%" }}
+            style={{ borderRadius: "50%", marginTop: "1rem" }}
           />
         </div>
       </div>
