@@ -7,7 +7,7 @@ function login() {
   return (
     <div className={styles.main}>
       <div className={styles.container}>
-        <Image src={"/gec.png"} height={330} width={400} />
+        <Image src={"/gec.svg"} height={330} width={400} />
       </div>
       <div className={styles.container2}>
         <div className={styles.maincont}>
@@ -62,3 +62,7 @@ function login() {
 }
 
 export default login;
+
+login.getLayout = function PageLayout(page) {
+  return <> {page}</>;
+};

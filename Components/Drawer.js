@@ -15,104 +15,110 @@ function Drawer() {
   }, [router]);
   return (
     <div className={[styles.drawer, font.className].join(" ")}>
-      <div className={styles.image}>
-        <Image src={"/gec.svg"} height={185} width={210} />
-      </div>
-      <div
-        className={styles.mainitem}
-        onClick={() => {
-          router.push("/");
-        }}
-      >
-        <div
-          className={
-            currentpage === "/"
-              ? [styles.selected, styles.item].join(" ")
-              : styles.item
-          }
-        >
-          <Icon icon="material-symbols:dashboard" color="white" height={35} />
-          <p>Dashborad</p>
+      <div className={styles.contmain}>
+        <div className={styles.image}>
+          <Image src={"/gec.svg"} height={185} width={210} />
         </div>
-      </div>
-      <div
-        className={styles.mainitem}
-        onClick={() => {
-          router.push("Analytics");
-        }}
-      >
         <div
-          className={
-            currentpage === "/Analytics"
-              ? [styles.selected, styles.item].join(" ")
-              : styles.item
-          }
+          className={styles.mainitem}
+          onClick={() => {
+            router.push("/");
+          }}
         >
-          <Icon
-            icon="material-symbols:analytics-outline-rounded"
-            color="white"
-            height={35}
-          />
-          <p> Analytics</p>
+          <div
+            className={
+              currentpage === "/"
+                ? [styles.selected, styles.item].join(" ")
+                : styles.item
+            }
+          >
+            <Icon
+              icon="material-symbols:dashboard"
+              color="white"
+              width={"2.5rem"}
+            />
+            <p>Dashborad</p>
+          </div>
         </div>
-      </div>
-      <div
-        className={styles.mainitem}
-        onClick={() => {
-          router.push("Calendar");
-        }}
-      >
         <div
-          className={
-            currentpage === "/Calendar"
-              ? [styles.selected, styles.item].join(" ")
-              : styles.item
-          }
+          className={styles.mainitem}
+          onClick={() => {
+            router.push("Analytics");
+          }}
         >
-          <Icon icon="uil:calender" color="white" height={35} />
-          <p>Calendar</p>
+          <div
+            className={
+              currentpage === "/Analytics"
+                ? [styles.selected, styles.item].join(" ")
+                : styles.item
+            }
+          >
+            <Icon
+              icon="material-symbols:analytics-outline-rounded"
+              color="white"
+              width={"2.5rem"}
+            />
+            <p> Analytics</p>
+          </div>
         </div>
-      </div>
-      <div
-        className={styles.mainitem}
-        onClick={() => {
-          router.push("Archive");
-        }}
-      >
         <div
-          className={
-            currentpage === "/Archive"
-              ? [styles.selected, styles.item].join(" ")
-              : styles.item
-          }
+          className={styles.mainitem}
+          onClick={() => {
+            router.push("Calendar");
+          }}
         >
-          <Icon
-            icon="material-symbols:archive-outline"
-            color="white"
-            height={35}
-          />
-          <p>Archive</p>
+          <div
+            className={
+              currentpage === "/Calendar"
+                ? [styles.selected, styles.item].join(" ")
+                : styles.item
+            }
+          >
+            <Icon icon="uil:calender" color="white" width={"2.5rem"} />
+            <p>Calendar</p>
+          </div>
         </div>
-      </div>
-      <div
-        className={styles.mainitem}
-        onClick={() => {
-          router.push("Placed");
-        }}
-      >
         <div
-          className={
-            currentpage === "/Placed"
-              ? [styles.selected, styles.item].join(" ")
-              : styles.item
-          }
+          className={styles.mainitem}
+          onClick={() => {
+            router.push("Archive");
+          }}
         >
-          <Icon
-            icon="material-symbols:person-pin-outline-sharp"
-            color="white"
-            height={35}
-          />
-          <p>Placed</p>
+          <div
+            className={
+              currentpage === "/Archive"
+                ? [styles.selected, styles.item].join(" ")
+                : styles.item
+            }
+          >
+            <Icon
+              icon="material-symbols:archive-outline"
+              color="white"
+              width={"2.5rem"}
+            />
+            <p>Archive</p>
+          </div>
+        </div>
+        <div
+          className={styles.mainitem}
+          onClick={() => {
+            router.push("Placed");
+          }}
+        >
+          <div
+            className={
+              currentpage === "/Placed"
+                ? [styles.selected, styles.item].join(" ")
+                : styles.item
+            }
+          >
+            <Icon
+              icon="material-symbols:person-pin-outline-sharp"
+              color="white"
+              width={"2.5rem"}
+            />
+            <p>Placed</p>
+          </div>
         </div>
       </div>
     </div>

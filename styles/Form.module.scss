@@ -1,16 +1,78 @@
 .container {
+  width: 100wv;
+  min-height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   background-color: black;
 }
-.form {
-  width: 60%;
-  margin-top: 200px;
-  font-size: 25px;
+
+.main {
+  margin-top: 120px;
+  margin-bottom: 120px;
+
+  width: 70%;
   background-color: white;
-  min-width: 700px;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .p {
+    font-size: 1.8rem;
+  }
+  .h1 {
+    font-size: 3rem;
+  }
 }
 
-.div1 {
+.cont1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 2rem;
+
+  .img {
+  }
+}
+
+.contAddjobs {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 2rem;
+  width: 100%;
+  p {
+    width: 50%;
+  }
+  .input {
+    padding-left: 20px;
+    width: 50%;
+    input {
+      font-size: 1.8rem;
+    }
+    button {
+      margin-left: 50px;
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.buttons {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  padding-top: 4rem;
+  button {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1.8rem;
+  }
 }

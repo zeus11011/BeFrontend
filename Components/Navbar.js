@@ -29,18 +29,18 @@ const Navbar = () => {
       <div className={styles.usersec}>
         <div>
           {true ? (
-            <Icon icon="mdi:bell-badge-outline" height={50} />
+            <Icon icon="mdi:bell-badge-outline" height={"4rem"} />
           ) : (
-            <Icon icon="mdi:bell-outline" height={50} />
+            <Icon icon="mdi:bell-outline" height={"4rem"} />
           )}
         </div>
         <div className={styles.profile}>
           <Image
-            src={"/blank-profile-picture-973460.svg"}
+            src={"/pp.svg"}
             width={80}
             height={80}
             className={styles.im}
-            style={{ objectFit: "cover" }}
+            style={{ borderRadius: "50%" }}
           />
         </div>
       </div>

@@ -3,10 +3,14 @@ import DrawerLayout from "../Layout/DrawerLayout";
 
 const path = require("path");
 function MyApp({ Component, pageProps }) {
+  if (Component.getLayout) {
+    return Component.getLayout(<Component {...pageProps} />);
+  }
+
   return (
-    // <DrawerLayout>
-    <Component {...pageProps} />
-    // </DrawerLayout>
+    <DrawerLayout>
+      <Component {...pageProps} />
+    </DrawerLayout>
   );
 }
 
