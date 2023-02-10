@@ -18,17 +18,12 @@
   width: 80%;
 
   padding-top: 0;
-
-  .child {
-    padding-top: 6%;
-  }
 }
 
 .child {
   overflow: hidden;
   height: auto;
-  width: 80%;
+  width: 100%;
   max-width: 80vw;
-  // padding-top: 10vh;
-  // padding: 3rem;
+  margin-top: 10rem;
 }
