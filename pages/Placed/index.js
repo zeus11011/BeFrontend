@@ -332,7 +332,7 @@ const StudentList = () => {
             ></Select>
           </div>
           <div className={styles.container3}>
-            <TableScrollbar height={1000}>
+            <TableScrollbar>
               <table className={styles.table} scro>
                 <thead className={styles.thead}>
                   <tr className={styles.tr}>
@@ -345,7 +345,7 @@ const StudentList = () => {
                     <th className={styles.th}>Email</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className={styles.tbody}>
                   {students.map((student) => (
                     <tr key={student.roll}>
                       <td className={styles.td}>{student.roll}</td>
