@@ -12,6 +12,22 @@
   color: #000000;
   margin-bottom: 0.3rem;
   font-weight: 700;
+  padding-bottom: 3rem;
+}
+.h1x {
+  margin-bottom: 1rem;
+  margin-top: 0rem;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 3.7rem;
+  line-height: 43px;
+  color: #000000;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
 }
 
 .h2 {
@@ -40,18 +56,26 @@
 .container2 {
   width: auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+
   margin-bottom: 5%;
+  margin-right: 38%;
 }
 
 .image {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  justify-content: flex-start;
   width: 100px;
+  padding-right: 5rem;
 }
 
 .div1 {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.div2 {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -60,13 +84,13 @@
   margin-right: 5rem;
 }
 
-.div2 {
+.div3 {
   // width: 50%;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   padding-left: 15rem;
-  padding-bottom: 3.5rem;
+  padding-bottom: 3.6rem;
 }
 
 .border {
@@ -103,8 +127,8 @@
 .box {
   display: flex;
   justify-content: center;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 4%;
+  margin-bottom: 2%;
 }
 
 .personal1 {
@@ -168,14 +192,23 @@
 
 .academic1 {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: row;
+
+  // padding-top: 5%;
 }
 
-.year {
+.yearS {
   display: flex;
-  justify-content: center;
+  justify-content: end;
   flex-direction: column;
+}
+
+.yearE {
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+  margin-left: 10.4rem;
 }
 
 .textfield_3 {
@@ -218,6 +251,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding-top: 1.8%;
 }
 
 .textfield_5 {
@@ -232,4 +266,18 @@
   outline: none;
   border: 1px solid black;
   margin-right: 1.5rem;
+}
+
+.dropdown {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1.8rem;
+}
+
+.dropdown1 {
+}
+
+.dropdown2 {
 }
