@@ -5,6 +5,8 @@ import styles from "../../styles/Placed.module.scss";
 import TableScrollbar from "react-table-scrollbar";
 const data = [
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "John Doe",
     roll: "101",
     department: "Computer Science",
@@ -12,13 +14,18 @@ const data = [
     email: "johndoe@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Jane Doe",
     roll: "102",
     department: "Mechanical Engineering",
     package: "5 LPA",
     email: "janedoe@email.com",
   },
+
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Jim Smith",
     roll: "103",
     department: "Electronics Engineering",
@@ -26,6 +33,8 @@ const data = [
     email: "jimsmith@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Sarah Johnson",
     roll: "104",
     department: "Civil Engineering",
@@ -33,6 +42,8 @@ const data = [
     email: "sarahjohnson@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Bob Wilson",
     roll: "105",
     department: "Computer Science",
@@ -40,6 +51,8 @@ const data = [
     email: "bobwilson@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Emily Davis",
     roll: "106",
     department: "Mechanical Engineering",
@@ -47,6 +60,8 @@ const data = [
     email: "emilydavis@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Michael Brown",
     roll: "107",
     department: "Electronics Engineering",
@@ -54,20 +69,28 @@ const data = [
     email: "michaelbrown@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "John Doe",
     roll: "101",
     department: "Computer Science",
     package: "6 LPA",
     email: "johndoe@email.com",
   },
+
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Jane Doe",
     roll: "102",
     department: "Mechanical Engineering",
     package: "5 LPA",
     email: "janedoe@email.com",
   },
+
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Jim Smith",
     roll: "103",
     department: "Electronics Engineering",
@@ -75,6 +98,8 @@ const data = [
     email: "jimsmith@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Sarah Johnson",
     roll: "104",
     department: "Civil Engineering",
@@ -82,6 +107,8 @@ const data = [
     email: "sarahjohnson@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Bob Wilson",
     roll: "105",
     department: "Computer Science",
@@ -89,6 +116,8 @@ const data = [
     email: "bobwilson@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Emily Davis",
     roll: "106",
     department: "IT Engineering",
@@ -96,6 +125,8 @@ const data = [
     email: "emilydavis@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Michael Brown",
     roll: "107",
     department: "IT Engineering",
@@ -103,6 +134,8 @@ const data = [
     email: "michaelbrown@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Jennifer Clark",
     roll: "108",
     department: "Civil Engineering",
@@ -110,6 +143,8 @@ const data = [
     email: "jenniferclark@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "William Jones",
     roll: "109",
     department: "Computer Science",
@@ -117,6 +152,8 @@ const data = [
     email: "williamjones@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Amanda Smith",
     roll: "110",
     department: "Mechanical Engineering",
@@ -124,6 +161,8 @@ const data = [
     email: "amandasmith@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "David Johnson",
     roll: "111",
     department: "Electronics Engineering",
@@ -131,6 +170,8 @@ const data = [
     email: "davidjohnson@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "James Davis",
     roll: "112",
     department: "Civil Engineering",
@@ -138,6 +179,8 @@ const data = [
     email: "jamesdavis@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Daniel Wilson",
     roll: "113",
     department: "Computer Science",
@@ -145,6 +188,8 @@ const data = [
     email: "danielwilson@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Emily Jones",
     roll: "114",
     department: "Mechanical Engineering",
@@ -152,6 +197,8 @@ const data = [
     email: "emilyjones@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Michael Smith",
     roll: "115",
     department: "Electronics Engineering",
@@ -159,6 +206,8 @@ const data = [
     email: "michaelsmith@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Jennifer Davis",
     roll: "116",
     department: "Civil Engineering",
@@ -166,6 +215,8 @@ const data = [
     email: "jenniferdavis@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "William Clark",
     roll: "117",
     department: "Computer Science",
@@ -174,6 +225,8 @@ const data = [
   },
 
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "John Doe",
     roll: "101",
     department: "Computer Science",
@@ -181,6 +234,8 @@ const data = [
     email: "johndoe@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Jane Doe",
     roll: "102",
     department: "Mechanical Engineering",
@@ -188,6 +243,8 @@ const data = [
     email: "janedoe@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Jim Smith",
     roll: "103",
     department: "Electronics Engineering",
@@ -195,6 +252,8 @@ const data = [
     email: "jimsmith@email.com",
   },
   {
+    cgpa: "8.5",
+    company: "TCS",
     name: "Sarah Johnson",
     roll: "104",
     department: "Civil Engineering",
@@ -273,14 +332,15 @@ const StudentList = () => {
             ></Select>
           </div>
           <div className={styles.container3}>
-            <TableScrollbar height={2000}>
+            <TableScrollbar height={1000}>
               <table className={styles.table} scro>
-                <thead>
+                <thead className={styles.thead}>
                   <tr className={styles.tr}>
+                    <th className={styles.th}>Roll No.</th>
                     <th className={styles.th}>Name</th>
-                    <th className={styles.th}>Roll Number</th>
+                    <th className={styles.th}>CGPA</th>
                     <th className={styles.th}>Department</th>
-
+                    <th className={styles.th}>Company</th>
                     <th className={styles.th}>Package</th>
                     <th className={styles.th}>Email</th>
                   </tr>
@@ -288,9 +348,11 @@ const StudentList = () => {
                 <tbody>
                   {students.map((student) => (
                     <tr key={student.roll}>
-                      <td className={styles.td}>{student.name}</td>
                       <td className={styles.td}>{student.roll}</td>
+                      <td className={styles.td}>{student.name}</td>
+                      <td className={styles.td}>{student.cgpa}</td>
                       <td className={styles.td}>{student.department}</td>
+                      <td className={styles.td}>{student.company}</td>
                       <td className={styles.td}>{student.package}</td>
                       <td className={styles.td}>{student.email}</td>
                     </tr>
@@ -303,18 +365,36 @@ const StudentList = () => {
       </div>
       <div className={styles.profile}>
         <div className={styles.main2}>
-          <p className={styles.p}>Student</p>
           <div className={styles.dp}>
             <Image
               alt=""
-              src={"/pp.svg"}
-              width={100}
-              height={100}
+              src={"/dp.jpg"}
+              width={150}
+              height={150}
               className={styles.img}
               style={{
                 borderRadius: "50%",
               }}
             />
+          </div>
+          <h1 className={styles.h1}>John Doe</h1>
+          <p className={styles.p}>91+ 6969696969</p>
+          <p className={styles.p}>roma@gmail.com</p>
+          <div className={styles.card}>
+            <p className={styles.p1}>Company</p>
+            <p className={styles.p2}>TCS</p>
+          </div>
+          <div className={styles.card}>
+            <p className={styles.p1}>Department</p>
+            <p className={styles.p2}>CS</p>
+          </div>
+          <div className={styles.card}>
+            <p className={styles.p1}>CGPA</p>
+            <p className={styles.p2}>6.5</p>
+          </div>
+          <div className={styles.card}>
+            <p className={styles.p1}>Package</p>
+            <p className={styles.p2}>7 LPA</p>
           </div>
         </div>
       </div>

@@ -6,21 +6,20 @@
   display: flex;
   flex-direction: row;
 }
-.list {
-}
 
 .main1 {
   display: flex;
   flex-direction: column;
   width: 75rem;
   font-size: 11px;
-  margin-left: 5rem;
-  border-radius: 5px;
+  margin-left: 7.5rem;
+  border-radius: 15px;
+  border: solid 1px black;
 }
 .main2 {
-  height: 60%;
-  background-color: gray;
-  border-radius: 10px;
+  height: 100%;
+  border: 1px solid black;
+  border-radius: 15px;
 }
 .dropdown {
   font-size: 1.5rem;
@@ -38,27 +37,35 @@
   height: 50%;
   height: 60vh;
   font-size: 1.6rem;
+  border-top: solid 1.5px black;
 }
 .table {
   width: 100%;
   border-collapse: collapse;
 }
-
-.th,
-.td {
-  padding: 18px;
+.th {
+  padding: 0.5rem;
   text-align: center;
   border-bottom: 1px solid #ddd;
+  background-color: #ddd;
+  border-bottom: solid 1px black;
 }
 
-.th {
-  background-color: #ddd;
+.td {
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
 }
 
 .tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+.h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
 .h2 {
   text-align: center;
   margin-top: 50px;
@@ -67,6 +74,8 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
+  color: black;
+  font-size: 1.5rem;
 }
 
 .profile {
@@ -74,17 +83,32 @@
   justify-content: safe;
   display: flex;
   flex-direction: column;
-  margin-right: 5rem;
-  margin-top: 5rem;
+  margin-right: 7.5rem;
   border-radius: 10px;
 }
 .dp {
-  margin-left: 6.5rem;
-  margin-top: 1rem;
-  width: 100px;
-  height: 100px;
+  margin-left: 4.7rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   .img {
     border-radius: 150px !important;
   }
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: 1.7rem;
+}
+
+.p1 {
+  padding-left: 2rem;
+  font-weight: bold;
+}
+.p2 {
+  padding-right: 2rem;
 }
