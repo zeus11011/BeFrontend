@@ -73,8 +73,13 @@ const Analytics = () => {
           <p className={styles.p}>1600</p>
         </div>
         <div className={styles.box}>
-          <p className={styles.head}>Total Students</p>
-          <p className={styles.p}>1600</p>
+          <div className={styles.mainicon}>
+            <div className={styles.icon}>
+              <Icon icon="mdi:handshake" width={"4rem"} />
+            </div>
+          </div>
+          <p className={styles.head}>Students Placed</p>
+          <p className={styles.p}>160/1600</p>
         </div>
         <div className={styles.box}>
           <div className={styles.mainicon}>
@@ -82,7 +87,7 @@ const Analytics = () => {
               <Icon icon="mdi:company" width={"4rem"} />
             </div>
           </div>
-          <p className={styles.head}>Total Students</p>
+          <p className={styles.head}>Company Arrived</p>
           <p className={styles.p}>1600</p>
         </div>
       </div>

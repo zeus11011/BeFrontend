@@ -38,7 +38,11 @@ const Navbar = () => {
         </div>
         <div className={styles.profile}>
           <Image
-            src={"/pp.svg"}
+            onClick={() => {
+              router.push("Profile");
+            }}
+            alt=""
+            src={"/dp.jpg"}
             width={80}
             height={80}
             className={styles.im}

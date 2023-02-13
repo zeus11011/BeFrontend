@@ -13,15 +13,17 @@ const index = () => {
         <div className={styles.container2}>
           <div className={styles.image}>
             <Image
-              src={"/blank-profile-picture-973460.svg"}
-              height={110}
-              width={100}
+              alt=""
+              src={"/dp.jpg"}
+              height={160}
+              width={160}
               style={{ borderRadius: "50%" }}
             ></Image>
           </div>
-          <div className={styles.div1}>
-            <h1 className={styles.h1x}>Profile</h1>
-            <h2>Update your photo and other details</h2>
+          <div className={styles.div}>
+            <h1 className={styles.h1x}>Don Joe</h1>
+            <h2 className={styles.h2x}>Update your photo and other details</h2>
+
           </div>
         </div>
         <div className={styles.container3}>

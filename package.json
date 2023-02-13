@@ -13,11 +13,17 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.14",
     "@next/font": "^13.1.6",
+    "canvasjs": "^1.8.3",
     "chart.js": "^4.2.1",
+    "date-fns": "^2.29.3",
     "next": "13.0.4",
     "react": "18.2.0",
+    "react-calendar": "^4.0.0",
     "react-chartjs-2": "^5.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-responsive-carousel": "^3.2.23",
+    "react-select": "^5.7.0",
+    "react-table-scrollbar": "^0.1.11"
   },
   "devDependencies": {
     "@iconify/react": "^4.1.0",
