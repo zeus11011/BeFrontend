@@ -1,7 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import styles from "../../styles/Profile.module.scss";
+
 const index = () => {
+  const options = ["2000", "2001", "2002", "2003", "2004"];
+  const onOptionChangeHandler = (event) => {
+    console.log("User Selected Value - ", event.target.value);
+  };
   return (
     <div>
       <div className={styles.container}>
@@ -18,10 +23,11 @@ const index = () => {
           <div className={styles.div}>
             <h1 className={styles.h1x}>Don Joe</h1>
             <h2 className={styles.h2x}>Update your photo and other details</h2>
+
           </div>
         </div>
         <div className={styles.container3}>
-          <div className={[styles.div1, styles.border].join(" ")}>
+          <div className={[styles.div2, styles.border].join(" ")}>
             <h1 className={styles.h1}>Personal</h1>
             <div className={styles.personal1}>
               <div className={styles.name}>
@@ -83,30 +89,48 @@ const index = () => {
             </div>
           </div>
           <div className={styles.container4}>
-            <div className={styles.div2}>
+            <div className={styles.div3}>
               <h1 className={styles.h1}>Academic</h1>
               <div className={styles.academic1}>
-                <div className={styles.year}>
+                <div className={styles.yearS}>
                   <div>
                     <h2 className={styles.h2}>Year</h2>
                   </div>
-                  <div>
-                    <input
+                  <div className={styles.dropdown1}>
+                    {/* <input
                       type="number"
                       name="yearS"
                       placeholder="Start"
                       className={styles.textfield_3}
-                    ></input>
+                    ></input> */}
+                    <select
+                      onChange={onOptionChangeHandler}
+                      className={styles.dropdown}
+                    >
+                      <option>Start</option>
+                      {options.map((option, index) => {
+                        return <option key={index}>{option}</option>;
+                      })}
+                    </select>
                   </div>
                 </div>
-                <div className={styles.year}>
-                  <div>
-                    <input
+                <div className={styles.yearE}>
+                  <div className={styles.dropdown2}>
+                    {/* <input
                       type="number"
                       name="yearE"
                       placeholder="End"
                       className={styles.textfield_4}
-                    ></input>
+                    ></input> */}
+                    <select
+                      onChange={onOptionChangeHandler}
+                      className={styles.dropdown}
+                    >
+                      <option>End</option>
+                      {options.map((option, index) => {
+                        return <option key={index}>{option}</option>;
+                      })}
+                    </select>
                   </div>
                 </div>
               </div>
