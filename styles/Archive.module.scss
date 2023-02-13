@@ -1,0 +1,130 @@
+.main {
+}
+
+.container {
+}
+.con1 {
+  padding: 50px;
+  margin-top: 8rem;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+.con2 {
+  padding: 50px;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+.graCon {
+  width: 30rem;
+  font-size: 2rem;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 4rem;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+  p {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+  }
+}
+.overCon {
+  width: 30rem;
+  font-size: 2rem;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 4rem;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+  p {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+  }
+}
+.listCon {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+
+.dpCon {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.dropdown {
+  font-size: 1.5rem;
+  width: 20rem;
+  margin-left: 2rem;
+}
+.list {
+  //   margin-top: 2rem;
+  //   width: 60vh;
+  height: 40vh;
+  font-size: 1.7rem;
+}
+
+.table {
+  border-collapse: collapse;
+}
+.th {
+  padding: 0.5rem;
+
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  background-color: #ddd;
+  border-bottom: solid 1px black;
+}
+
+.td {
+  padding: 0.5rem;
+
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.barCon {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: end;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 4rem;
+  p {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  .barchartcont {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+  }
+}
