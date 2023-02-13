@@ -86,6 +86,26 @@ const data = [
     name: "John Doe",
     department: "Computer Science",
   },
+  {
+    company: "TCS",
+    name: "Bob Wilson",
+    department: "Computer Science",
+  },
+  {
+    company: "TCS",
+    name: "Emily Davis",
+    department: "Mechanical Engineering",
+  },
+  {
+    company: "TCS",
+    name: "Michael Brown",
+    department: "Electronics Engineering",
+  },
+  {
+    company: "TCS",
+    name: "John Doe",
+    department: "Computer Science",
+  },
 ];
 const data2 = {
   labels: labels,
@@ -104,6 +124,7 @@ const data2 = {
   ],
 };
 const optionsB = [
+  { value: "Year", label: "Year" },
   { value: "Year", label: "2000" },
   { value: "Year", label: "2001" },
   { value: "Year", label: "2002" },

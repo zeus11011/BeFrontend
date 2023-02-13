@@ -1,15 +1,24 @@
 import { useRouter } from "next/router";
-import React from "react";
-
 import styles from "../styles/Navbar.module.scss";
 import { Inter } from "@next/font/google";
-
 import { Icon } from "@iconify/react";
 import Image from "next/image";
+import React, { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleBackdropClick = (event) => {
+    if (event.target === event.currentTarget) {
+      setIsOpen(false);
+    }
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      setIsOpen(false);
+    }
+  };
   const router = useRouter();
   const getName = () => {
     const name = router.pathname;
@@ -21,6 +30,21 @@ const Navbar = () => {
     } else {
       return name.slice(1);
     }
+  };
+
+  const drawerStyles = {
+    backgroundColor: "white",
+    width: "350px",
+    height: "60vh",
+    marginTop: "9.5rem",
+    marginRight: "2rem",
+    padding: "20px",
+    boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+    position: "fixed",
+    right: isOpen ? "0" : "-300px",
+    top: "0",
+    transition: "right 0.3s ease-out",
+    zIndex: "10",
   };
 
   return (
@@ -48,6 +72,31 @@ const Navbar = () => {
             className={styles.im}
             style={{ borderRadius: "50%", marginTop: "1rem" }}
           />
+        </div>
+        <div>
+          <p>Don Joe</p>
+          <div>
+            {isOpen && (
+              <div
+                className={styles.backdropstyles}
+                onClick={handleBackdropClick}
+                onKeyDown={handleKeyDown}
+                tabIndex={0}
+              >
+                <div style={drawerStyles}>
+                  <button onClick={handleBackdropClick}>CLOSE</button>
+                  <p>SETTINGS</p>
+                  <p>CONTACT US</p>
+                </div>
+              </div>
+            )}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={styles.button}
+            >
+              Open Drawer
+            </button>
+          </div>
         </div>
       </div>
     </div>
