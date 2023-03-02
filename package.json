@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@mobiscroll/react": "https://npm.mobiscroll.com/@mobiscroll/react-trial/-/react-trial-5.22.1.tgz",
     "@mui/material": "^5.10.14",
     "@next/font": "^13.1.6",
     "canvasjs": "^1.8.3",

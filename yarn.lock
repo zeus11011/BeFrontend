@@ -242,6 +242,11 @@
   "resolved" "https://registry.npmjs.org/@kurkle/color/-/color-0.3.2.tgz"
   "version" "0.3.2"
 
+"@mobiscroll/react@https://npm.mobiscroll.com/@mobiscroll/react-trial/-/react-trial-5.22.1.tgz":
+  "integrity" "sha512-k+hgJ7bnEfas0hkMtRXTduzbKZtndpOL6x6/9ux+A3xD1V1AwFkbC2b44MxG9JE45nWoZ7CGoyKM7tLK8lQujw=="
+  "resolved" "https://npm.mobiscroll.com/@mobiscroll/react-trial/-/react-trial-5.22.1.tgz"
+  "version" "5.22.1"
+
 "@mui/base@5.0.0-alpha.106":
   "integrity" "sha512-xJQQtwPCPwr6hGWTBdvDwHYwExn3Bw7nPQkN8Fuz8kHpZqoMVWQvvaFS557AIkkI2AFLV3DxVIMjbCvrIntBWg=="
   "resolved" "https://registry.npmjs.org/@mui/base/-/base-5.0.0-alpha.106.tgz"

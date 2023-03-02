@@ -17,7 +17,7 @@ function Drawer() {
     <div className={[styles.drawer, font.className].join(" ")}>
       <div className={styles.contmain}>
         <div className={styles.image}>
-          <Image src={"/gec.svg"} height={185} width={210} />
+          <Image src={"/gec.svg"} alt="" height={185} width={210} />
         </div>
         <div
           className={styles.mainitem}

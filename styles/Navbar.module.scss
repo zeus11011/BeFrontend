@@ -40,3 +40,19 @@
     font-family: inherit;
   }
 }
+
+.backdropstyles {
+  background-color: "rgba(0, 0, 0, 0.5)";
+  display: "flex";
+  align-items: "center";
+  justify-content: "center";
+  font-size: 2rem;
+}
+
+.button {
+  background-color: "lightgray";
+  border: "none";
+  border-radius: "5px";
+  padding: "10px 20px";
+  cursor: "pointer";
+}

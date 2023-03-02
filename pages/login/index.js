@@ -7,7 +7,7 @@ function login() {
   return (
     <div className={styles.main}>
       <div className={styles.container}>
-        <Image src={"/gec.svg"} height={330} width={400} />
+        <Image src={"/gec.svg"} alt="" height={330} width={400} />
       </div>
       <div className={styles.container2}>
         <div className={styles.maincont}>
@@ -16,7 +16,7 @@ function login() {
           </div>
           <div className={styles.box}>
             <div className={styles.box2}>
-              <h2 className={styles.h2}>Email</h2>
+              <h2 className={styles.h2}>User Name</h2>
               <input
                 type="email"
                 name="email"
