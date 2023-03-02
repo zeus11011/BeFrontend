@@ -3,20 +3,33 @@ import Image from "next/image";
 import Drawer from "../Components/Drawer";
 import Navbar from "../Components/Navbar";
 import styles from "../styles/Home.module.scss";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { Icon } from "@iconify/react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const [currentpage, setCurrentpage] = useState("/");
+  const router = useRouter();
+  useEffect(() => {
+    console.log(router.pathname, "name");
+    setCurrentpage(router.pathname);
+  }, [router]);
   return (
     <div className={styles.main}>
       <div className={styles.descboxes}>
         <div className={styles.box}>
           <div className={styles.mainicon}>
             <div className={styles.icon}>
-              <Icon icon="mdi:account-school-outline" width={"4rem"} />
+              <Icon
+                icon="mdi:account-school-outline"
+                width={"4rem"}
+                onClick={() => {
+                  router.push("Analytics");
+                }}
+              />
             </div>
           </div>
           <p className={styles.head}>Total Students</p>
@@ -25,7 +38,13 @@ export default function Home() {
         <div className={styles.box}>
           <div className={styles.mainicon}>
             <div className={styles.icon}>
-              <Icon icon="mdi:handshake" width={"4rem"} />
+              <Icon
+                icon="mdi:handshake"
+                width={"4rem"}
+                onClick={() => {
+                  router.push("Placed");
+                }}
+              />
             </div>
           </div>
           <p className={styles.head}>Students Placed</p>
@@ -34,7 +53,13 @@ export default function Home() {
         <div className={styles.box}>
           <div className={styles.mainicon}>
             <div className={styles.icon}>
-              <Icon icon="mdi:company" width={"4rem"} />
+              <Icon
+                icon="mdi:company"
+                width={"4rem"}
+                onClick={() => {
+                  router.push("Archive");
+                }}
+              />
             </div>
           </div>
           <p className={styles.head}>Company Arrived</p>

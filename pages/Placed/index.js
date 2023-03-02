@@ -263,7 +263,7 @@ const data = [
   // Add more dummy student data as needed
 ];
 
-const StudentList = () => {
+const Placed = () => {
   const [students, setStudents] = useState(data);
 
   const sortByName = () => {
@@ -402,4 +402,4 @@ const StudentList = () => {
   );
 };
 
-export default StudentList;
+export default Placed;

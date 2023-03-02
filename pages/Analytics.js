@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/Analytics.module.scss";
 import { Icon } from "@iconify/react";
+import { useRouter } from "next/router";
 import { Bar, Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -60,13 +61,25 @@ const data = {
 };
 
 const Analytics = () => {
+  const [currentpage, setCurrentpage] = useState("/Analytics");
+  const router = useRouter();
+  useEffect(() => {
+    console.log(router.pathname, "name");
+    setCurrentpage(router.pathname);
+  }, [router]);
   return (
     <div className={styles.main}>
       <div className={styles.descboxes}>
         <div className={styles.box}>
           <div className={styles.mainicon}>
             <div className={styles.icon}>
-              <Icon icon="mdi:account-school-outline" width={"4rem"} />
+              <Icon
+                icon="mdi:account-school-outline"
+                width={"4rem"}
+                onClick={() => {
+                  router.push("Analytics");
+                }}
+              />
             </div>
           </div>
           <p className={styles.head}>Total Students</p>
@@ -75,7 +88,13 @@ const Analytics = () => {
         <div className={styles.box}>
           <div className={styles.mainicon}>
             <div className={styles.icon}>
-              <Icon icon="mdi:handshake" width={"4rem"} />
+              <Icon
+                icon="mdi:handshake"
+                width={"4rem"}
+                onClick={() => {
+                  router.push("Placed");
+                }}
+              />
             </div>
           </div>
           <p className={styles.head}>Students Placed</p>
@@ -84,7 +103,13 @@ const Analytics = () => {
         <div className={styles.box}>
           <div className={styles.mainicon}>
             <div className={styles.icon}>
-              <Icon icon="mdi:company" width={"4rem"} />
+              <Icon
+                icon="mdi:company"
+                width={"4rem"}
+                onClick={() => {
+                  router.push("Archive");
+                }}
+              />
             </div>
           </div>
           <p className={styles.head}>Company Arrived</p>
