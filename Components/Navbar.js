@@ -85,7 +85,9 @@ const Navbar = () => {
               >
                 <div style={drawerStyles}>
                   <button onClick={handleBackdropClick}>CLOSE</button>
+                  <p>MY PROFILE</p>
                   <p>SETTINGS</p>
+                  <p>LOG OUT</p>
                   <p>CONTACT US</p>
                 </div>
               </div>

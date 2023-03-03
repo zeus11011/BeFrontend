@@ -52,7 +52,9 @@ function login() {
             </button>
             <div className={styles.box3}>
               {"Don't have account? "}
-              <Link href="/"> {"Sign Up!"}</Link>
+              <div className={styles.link}>
+                <Link href="/"> {"Sign Up!"}</Link>
+              </div>
             </div>
           </div>
         </div>
