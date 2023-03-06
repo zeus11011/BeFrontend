@@ -11,15 +11,14 @@
   position: fixed;
   content: "";
   z-index: 10;
-  border-bottom: 2px solid white;
-  border-left: 2px solid white;
+  border-bottom: 0 solid white;
+  border-left: 0 solid white;
   background-color: white;
   bottom: 57%;
   right: 78.7%;
-  width: 50px;
-  height: 50px;
+  width: 3.5rem;
+  height: 3.5rem;
   transform: rotate(45deg);
-  margin-top: -24px;
 }
 
 .descboxes {
