@@ -5,22 +5,18 @@
   width: 100vw;
 }
 
-.cont {
-  min-height: 100vh;
-  height: 100vh;
-  width: 82%;
-}
 .container {
   width: 50%;
   height: 100vh;
   background-color: black;
+  box-shadow: -5px 0 30px 12px black;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
 }
 .maincont {
-  // width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -29,12 +25,12 @@
 .container2 {
   width: 50%;
   height: 100vh;
-
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  // padding-left: 5rem;
 }
 
 .h1 {
@@ -69,16 +65,34 @@
 .h1container {
   display: flex;
   justify-content: flex-start;
-  padding-right: 35.5rem;
   h1 {
     margin-bottom: 3 rem;
+    width: 25%;
   }
+  h2 {
+    margin-top: 3rem;
+    padding-left: 1rem;
+    width: 45%;
+  }
+}
+
+.h2C {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #000000;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
 }
 
 .button {
   font-size: 2.2rem;
   box-sizing: border-box;
-  width: 28rem;
+  width: 32rem;
   height: 5rem;
   left: 871px;
   top: 672px;
@@ -109,13 +123,24 @@
 
 .box3 {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   padding-top: 1rem;
   left: 20px;
   font-size: 1.7rem;
 }
-
+.link {
+  padding-left: 0.8rem;
+}
+.link2 {
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  padding-left: 6rem;
+}
 .box4 {
   display: flex;
   justify-content: flex-start;
@@ -128,6 +153,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-top: 0.5rem;
   padding-right: 25rem;
   font-family: "Montserrat";
   font-size: 1.6rem;

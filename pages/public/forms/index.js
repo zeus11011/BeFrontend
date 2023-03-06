@@ -20,6 +20,7 @@ const index = () => {
           </div>
           <div className={styles.img}>
             <Image
+              alt=""
               src={"/pp.svg"}
               width={250}
               height={250}
@@ -28,7 +29,7 @@ const index = () => {
           </div>
         </div>
         <div className={styles.contAddjobs}>
-          <p className={[styles.p, inter.className].join(" ")}>JOB</p>
+          <p className={[styles.p, inter.className].join(" ")}>Job</p>
           <div className={styles.input}>
             <input />
             <button>+ Add more</button>
@@ -49,14 +50,14 @@ const index = () => {
           </div>
         </div>
         <div className={styles.contAddjobs}>
-          <p className={[styles.p, inter.className].join(" ")}>SKILLS/ROLES</p>
+          <p className={[styles.p, inter.className].join(" ")}>Skills</p>
           <div className={styles.input}>
             <input />
             <button>+ Add more</button>
           </div>
         </div>
         <div className={styles.contAddjobs}>
-          <p className={[styles.p, inter.className].join(" ")}>ADD CTC</p>
+          <p className={[styles.p, inter.className].join(" ")}>Add CTC</p>
           <div className={styles.input}>
             <input />
             <button>+ Add more</button>
@@ -64,7 +65,7 @@ const index = () => {
         </div>
         <div className={styles.contAddjobs}>
           <p className={[styles.p, inter.className].join(" ")}>
-            Date of Interview
+            Date Of Interview
           </p>
           <div className={styles.input}>
             <input type={"date"} />

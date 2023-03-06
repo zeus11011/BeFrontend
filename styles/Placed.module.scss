@@ -1,10 +1,24 @@
-.container {
+.main {
   margin-top: 6.5rem;
   overflow: "auto";
   height: "800px";
   justify-content: space-between;
   display: flex;
   flex-direction: row;
+}
+.main::after {
+  position: fixed;
+  content: "";
+  z-index: 10;
+  border-bottom: 2px solid white;
+  border-left: 2px solid white;
+  background-color: white;
+  bottom: 31%;
+  right: 78.7%;
+  width: 50px;
+  height: 50px;
+  transform: rotate(45deg);
+  margin-top: -24px;
 }
 
 .main1 {

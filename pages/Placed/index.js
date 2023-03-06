@@ -314,7 +314,7 @@ const Placed = () => {
   ];
 
   return (
-    <div className={styles.container}>
+    <div className={styles.main}>
       <div className={styles.list}>
         <div className={styles.main1}>
           <div className={styles.container2}>

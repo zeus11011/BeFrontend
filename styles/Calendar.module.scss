@@ -1,5 +1,4 @@
 .container {
-  margin-top: 5rem;
   overflow: "auto";
 
   justify-content: space-between;
@@ -7,8 +6,27 @@
   flex-direction: row;
 }
 
+.main {
+  padding: 7rem;
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+.main::after {
+  position: fixed;
+  content: "";
+  z-index: 10;
+  border-bottom: 2px solid white;
+  border-left: 2px solid white;
+  background-color: white;
+  bottom: 48%;
+  right: 78.7%;
+  width: 50px;
+  height: 50px;
+  transform: rotate(45deg);
+  margin-top: -24px;
+}
+
 .main1 {
-  margin-left: 6rem;
   display: flex;
   flex-direction: column;
   height: 60rem;
@@ -19,16 +37,17 @@
 
 .main2 {
   background: #ffffff;
-  height: 97%;
+  height: 100%;
   border-radius: 15px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .updates {
   width: 20rem;
+
   justify-content: safe;
   display: flex;
   flex-direction: column;
-  margin-right: 6rem;
+
   border-radius: 10px;
 }

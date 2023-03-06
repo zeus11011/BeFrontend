@@ -12,7 +12,11 @@ function login() {
       <div className={styles.container2}>
         <div className={styles.maincont}>
           <div className={styles.h1container}>
-            <h1 className={styles.h1}> Login</h1>
+            <h1 className={styles.h1}> LOGIN</h1>
+            <h2 className={styles.h2C}>STUDENT | ADMIN</h2>
+          </div>
+          <div className={styles.link2}>
+            <Link href="/"> {"Click here for admin login"}</Link>
           </div>
           <div className={styles.box}>
             <div className={styles.box2}>
@@ -51,8 +55,10 @@ function login() {
               Log In
             </button>
             <div className={styles.box3}>
-              {"Don't have account? "}
-              <Link href="/"> {"Sign Up!"}</Link>
+              {"Forgot "}
+              <div className={styles.link}>
+                <Link href="/"> {"Username / Password?"}</Link>
+              </div>
             </div>
           </div>
         </div>
