@@ -16,11 +16,14 @@ function login() {
             <h2 className={styles.h2C}>STUDENT | ADMIN</h2>
           </div>
           <div className={styles.link2}>
-            <Link href="/"> {"Click here for admin login"}</Link>
+            <Link href="/" style={{ color: "black" }}>
+              {" "}
+              {"Click here for admin login"}
+            </Link>
           </div>
           <div className={styles.box}>
             <div className={styles.box2}>
-              <h2 className={styles.h2}>User Name</h2>
+              <h2 className={styles.h2}>Username</h2>
               <input
                 type="email"
                 name="email"
@@ -57,7 +60,10 @@ function login() {
             <div className={styles.box3}>
               {"Forgot "}
               <div className={styles.link}>
-                <Link href="/"> {"Username / Password?"}</Link>
+                <Link href="/" style={{ color: "black" }}>
+                  {" "}
+                  {"Username / Password?"}
+                </Link>
               </div>
             </div>
           </div>
