@@ -315,87 +315,83 @@ const Placed = () => {
 
   return (
     <div className={styles.main}>
-      <div className={styles.list}>
-        <div className={styles.main1}>
-          <div className={styles.container2}>
-            <Select
-              onChange={filterByDepartment}
-              className={styles.dropdown}
-              placeholder={"Filter"}
-              options={optionsf}
-            ></Select>
-            <Select
-              className={styles.dropdown}
-              placeholder={"Sort"}
-              options={optionss}
-              onChange={sortByName}
-            ></Select>
-          </div>
-          <div className={styles.container3}>
-            <TableScrollbar>
-              <table className={styles.table} scro>
-                <thead className={styles.thead}>
-                  <tr className={styles.tr}>
-                    <th className={styles.th}>Roll No.</th>
-                    <th className={styles.th}>Name</th>
-                    <th className={styles.th}>CGPA</th>
-                    <th className={styles.th}>Department</th>
-                    <th className={styles.th}>Company</th>
-                    <th className={styles.th}>Package</th>
-                    <th className={styles.th}>Email</th>
+      <div className={styles.main1}>
+        <div className={styles.container2}>
+          <Select
+            onChange={filterByDepartment}
+            className={styles.dropdown}
+            placeholder={"Filter"}
+            options={optionsf}
+          ></Select>
+          <Select
+            className={styles.dropdown}
+            placeholder={"Sort"}
+            options={optionss}
+            onChange={sortByName}
+          ></Select>
+        </div>
+        <div className={styles.container3}>
+          <TableScrollbar>
+            <table className={styles.table} scro>
+              <thead className={styles.thead}>
+                <tr className={styles.tr}>
+                  <th className={styles.th}>Roll No.</th>
+                  <th className={styles.th}>Name</th>
+                  <th className={styles.th}>CGPA</th>
+                  <th className={styles.th}>Department</th>
+                  <th className={styles.th}>Company</th>
+                  <th className={styles.th}>Package</th>
+                  <th className={styles.th}>Email</th>
+                </tr>
+              </thead>
+              <tbody className={styles.tbody}>
+                {students.map((student) => (
+                  <tr key={student.roll}>
+                    <td className={styles.td}>{student.roll}</td>
+                    <td className={styles.td}>{student.name}</td>
+                    <td className={styles.td}>{student.cgpa}</td>
+                    <td className={styles.td}>{student.department}</td>
+                    <td className={styles.td}>{student.company}</td>
+                    <td className={styles.td}>{student.package}</td>
+                    <td className={styles.td}>{student.email}</td>
                   </tr>
-                </thead>
-                <tbody className={styles.tbody}>
-                  {students.map((student) => (
-                    <tr key={student.roll}>
-                      <td className={styles.td}>{student.roll}</td>
-                      <td className={styles.td}>{student.name}</td>
-                      <td className={styles.td}>{student.cgpa}</td>
-                      <td className={styles.td}>{student.department}</td>
-                      <td className={styles.td}>{student.company}</td>
-                      <td className={styles.td}>{student.package}</td>
-                      <td className={styles.td}>{student.email}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </TableScrollbar>
-          </div>
+                ))}
+              </tbody>
+            </table>
+          </TableScrollbar>
         </div>
       </div>
-      <div className={styles.profile}>
-        <div className={styles.main2}>
-          <div className={styles.dp}>
-            <Image
-              alt=""
-              src={"/dp.jpg"}
-              width={150}
-              height={150}
-              className={styles.img}
-              style={{
-                borderRadius: "50%",
-              }}
-            />
-          </div>
-          <h1 className={styles.h1}>John Doe</h1>
-          <p className={styles.p}>91+ 6969696969</p>
-          <p className={styles.p}>roma@gmail.com</p>
-          <div className={styles.card}>
-            <p className={styles.p1}>Company</p>
-            <p className={styles.p2}>TCS</p>
-          </div>
-          <div className={styles.card}>
-            <p className={styles.p1}>Department</p>
-            <p className={styles.p2}>CS</p>
-          </div>
-          <div className={styles.card}>
-            <p className={styles.p1}>CGPA</p>
-            <p className={styles.p2}>6.5</p>
-          </div>
-          <div className={styles.card}>
-            <p className={styles.p1}>Package</p>
-            <p className={styles.p2}>7 LPA</p>
-          </div>
+      <div className={styles.main2}>
+        <div className={styles.dp}>
+          <Image
+            alt=""
+            src={"/dp.jpg"}
+            width={150}
+            height={150}
+            className={styles.img}
+            style={{
+              borderRadius: "50%",
+            }}
+          />
+        </div>
+        <h1 className={styles.h1}>John Doe</h1>
+        <p className={styles.p}>91+ 6969696969</p>
+        <p className={styles.p}>roma@gmail.com</p>
+        <div className={styles.card}>
+          <p className={styles.p1}>Company</p>
+          <p className={styles.p2}>TCS</p>
+        </div>
+        <div className={styles.card}>
+          <p className={styles.p1}>Department</p>
+          <p className={styles.p2}>CS</p>
+        </div>
+        <div className={styles.card}>
+          <p className={styles.p1}>CGPA</p>
+          <p className={styles.p2}>6.5</p>
+        </div>
+        <div className={styles.card}>
+          <p className={styles.p1}>Package</p>
+          <p className={styles.p2}>7 LPA</p>
         </div>
       </div>
     </div>
