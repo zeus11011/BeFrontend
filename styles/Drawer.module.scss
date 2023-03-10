@@ -53,7 +53,28 @@
     );
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 20px;
+    // transition-delay: 1s;
   }
+  // .selected::after {
+  //   position: fixed;
+  //   content: "";
+  //   // z-index: 1;
+  //   // border-bottom: solid white;
+  //   // border-left: solid white;
+  //   // background-color: white;
+  //   // bottom: 18%;
+  //   // right: -10.1rem;
+  //   // width: 3.5rem;
+  //   // height: 3.5rem;
+  //   transform: rotate(180deg);
+  //   // box-shadow: none;
+  //   width: 0px;
+  //   height: 0px;
+  //   right: -8em;
+  //   border-top: 3rem solid transparent;
+  //   border-bottom: 3rem solid transparent;
+  //   border-left: 3rem solid white;
+  // }
 }
 
 .image {

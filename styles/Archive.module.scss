@@ -3,19 +3,6 @@
   padding-left: 8rem;
   padding-right: 8rem;
 }
-.main::after {
-  position: fixed;
-  content: "";
-  z-index: 10;
-  border-bottom: solid white;
-  border-left: solid white;
-  background-color: white;
-  bottom: 40%;
-  right: 78.7%;
-  width: 3.5rem;
-  height: 3.5rem;
-  transform: rotate(45deg);
-}
 
 .container {
 }

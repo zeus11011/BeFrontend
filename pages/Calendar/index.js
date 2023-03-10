@@ -55,21 +55,19 @@ const Calendar = () => {
   return (
     <div className={styles.main}>
       <div className={styles.container}>
-        <div className={styles.calendar}>
-          <div className={styles.main1}>
-            <Eventcalendar
-              theme="ios"
-              themeVariant="light"
-              clickToCreate={true}
-              dragToCreate={false}
-              dragToMove={true}
-              dragToResize={false}
-              eventDelete={false}
-              data={myEvents}
-              view={view}
-              onEventClick={onEventClick}
-            />
-          </div>
+        <div className={styles.main1}>
+          <Eventcalendar
+            theme="ios"
+            themeVariant="light"
+            clickToCreate={true}
+            dragToCreate={false}
+            dragToMove={true}
+            dragToResize={false}
+            eventDelete={false}
+            data={myEvents}
+            view={view}
+            onEventClick={onEventClick}
+          />
         </div>
         <div className={styles.updates}>
           <div className={styles.main2}></div>
