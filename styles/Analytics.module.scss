@@ -2,25 +2,16 @@
   padding: 7rem;
   padding-left: 8rem;
   padding-right: 8rem;
-}
-.main::after {
-  position: fixed;
-  content: "";
-  z-index: 10;
-  border-bottom: solid white;
-  border-left: solid white;
-  background-color: white;
-  bottom: 57%;
-  right: 78.7%;
-  width: 3.5rem;
-  height: 3.5rem;
-  transform: rotate(45deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .descboxes {
   display: flex;
   justify-content: space-between;
-
+  width: 100%;
   .box {
     background-color: black;
     elevation: 10;
@@ -70,6 +61,7 @@
 .barchartsection {
   margin-top: 8rem;
 
+  width: 80%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -79,6 +71,8 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   padding: 4rem;
+  padding-left: 0;
+  padding-right: 0;
   p {
     font-size: 3rem;
     font-weight: 700;
@@ -92,6 +86,7 @@
 }
 
 .bottomsec {
+  width: 100%;
   margin-top: 3rem;
   padding: 8rem;
   display: flex;
