@@ -5,7 +5,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import interactionPlugin from "@fullcalendar/interaction";
 import styled from "@emotion/styled";
-export const StyleWrapper = styled.div`
+const StyleWrapper = styled.div`
   .fc-button.fc-prev-button,
   .fc-button.fc-next-button,
   .fc-button.fc-button-primary {
@@ -51,15 +51,20 @@ const Calendar = () => {
   return (
     <StyleWrapper>
       <FullCalendar
-        plugins={[dayGridPlugin]}
+        plugins={[dayGridPlugin, interactionPlugin]}
         headerToolbar={{
           left: "prev,next today",
           center: "title",
           right: "dayGridMonth,dayGridWeek,dayGridDay,listWeek",
         }}
+        selectable={true}
+        select={() => {
+          alert("im click");
+        }}
         eventColor="skyblue"
         eventTextColor="black"
         eventBorderColor="black"
+        height={"70vh"}
         //   initialView="DayGridMonth"
 
         //   views={"dayGridMonth,timeGridWeek"}
