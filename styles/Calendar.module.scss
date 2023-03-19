@@ -1,9 +1,13 @@
 .container {
+
   justify-content: space-between;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
-
+.calendar {
+  display: flex;
+  justify-content: center;
+}
 .main {
   padding: 7rem;
   padding-left: 8rem;
@@ -13,8 +17,9 @@
 .main1 {
   display: flex;
   flex-direction: column;
-  height: 60rem;
-  width: 70%;
+  height: 67rem;
+  width: 85rem;
+
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -27,11 +32,11 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .updates {
-  width: 25%;
+
+  margin-top: 10rem;
+  width: 100%;
+  height: 50rem;
 
   justify-content: safe;
-  display: flex;
-  flex-direction: column;
-
   border-radius: 10px;
 }

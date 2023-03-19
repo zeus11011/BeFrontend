@@ -9,3 +9,12 @@ body {
   font-family: "Montserrat", sans-serif;
   // font-family: "Poppins", sans-serif;
 }
+
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: blue;
+  text-decoration: underline blue;
+}
