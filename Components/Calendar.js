@@ -65,7 +65,12 @@ const Calendar = () => {
         //   views={"dayGridMonth,timeGridWeek"}
         eventContent={renderEventContent}
         events={[
-          { title: "event 1", date: "2023-03-13" },
+          {
+            title: "Long Event",
+            start: "2023-03-07",
+            end: "2023-03-10",
+            color: "purple",
+          },
           { title: "event 2", date: "2023-03-15" },
           { title: "event 2", date: "2023-03-15" },
           { title: "event 2", date: "2023-03-15" },
