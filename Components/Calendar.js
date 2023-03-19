@@ -79,12 +79,12 @@ const Calendar = () => {
     </StyleWrapper>
   );
 };
-function renderEventContent(eventInfo) {
+const renderEventContent = (eventInfo) => {
   return (
     <>
       <b>{eventInfo.timeText}</b>
       <i>{eventInfo.event.title}</i>
     </>
   );
-}
+};
 export default Calendar;
