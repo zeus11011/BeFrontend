@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
+import dynamic from "next/dynamic";
 import styles from "../../styles/Archive.module.scss";
 import { Icon } from "@iconify/react";
 import TableScrollbar from "react-table-scrollbar";
@@ -23,7 +24,7 @@ ChartJS.register(
   Legend,
   ArcElement
 );
-
+const Chart = dynamic(() => import("../../Components/Chart/Chart"));
 const options = {
   maintainAspectRatio: false,
   responsive: true,
@@ -141,7 +142,7 @@ const Archive = () => {
         <div className={styles.con1}>
           <div className={styles.graCon}>
             <p>Overview</p>
-            <Doughnut data={data2} />
+            <Chart />
           </div>
           <div className={styles.overCon}>
             <p>Overview</p>

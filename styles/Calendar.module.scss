@@ -38,3 +38,49 @@
   justify-content: safe;
   border-radius: 10px;
 }
+
+.h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.h2 {
+  text-align: center;
+  margin-top: 50px;
+}
+.p {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  color: black;
+  font-size: 1.5rem;
+}
+.profile {
+  display: flex;
+  justify-content: center;
+  .dp {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    .img {
+      border-radius: 150px !important;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: 1.7rem;
+}
+
+.p1 {
+  padding-left: 2rem;
+  font-weight: bold;
+}
+.p2 {
+  padding-right: 2rem;
+}

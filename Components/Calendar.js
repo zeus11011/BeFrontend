@@ -51,7 +51,7 @@ const Calendar = () => {
   return (
     <StyleWrapper>
       <FullCalendar
-        plugins={[dayGridPlugin, interactionPlugin]}
+        plugins={[dayGridPlugin, interactionPlugin, listPlugin]}
         headerToolbar={{
           left: "prev,next today",
           center: "title",
