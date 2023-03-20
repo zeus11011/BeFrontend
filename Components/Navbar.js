@@ -74,7 +74,7 @@ const Navbar = () => {
           />
         </div>
         <div>
-          <p>Don Joe</p>
+          <h1 style={{ fontWeight: "bold", fontFamily: "inherit" }}>Don Joe</h1>
           <div>
             {isOpen && (
               <div
