@@ -3,6 +3,9 @@
   display: flex;
   flex-direction: row;
   height: 70vh;
+  width: 70vw;
+  margin-left: 4rem;
+  // margin-left: 5rem;
 }
 .calendar {
   width: 70%;
@@ -13,6 +16,10 @@
   padding: 6rem;
   padding-left: 8rem;
   padding-right: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .main1 {
@@ -64,6 +71,7 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    border: 1px solid black;
     .img {
       border-radius: 150px !important;
     }

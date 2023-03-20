@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Analytics.module.scss";
 import { Icon } from "@iconify/react";
+import TableScrollbar from "react-table-scrollbar";
 import { useRouter } from "next/router";
 import { Bar, Doughnut } from "react-chartjs-2";
 import {
@@ -59,8 +60,70 @@ const data = {
     },
   ],
 };
-
+const Sdata = [
+  {
+    company: "TCS",
+    name: "John Doe",
+    department: "Computer Science",
+  },
+  {
+    company: "TCS",
+    name: "Jane Doe",
+    department: "Mechanical Engineering",
+  },
+  {
+    company: "TCS",
+    name: "Jim Smith",
+    department: "Electronics Engineering",
+  },
+  {
+    company: "TCS",
+    name: "Sarah Johnson",
+    department: "Civil Engineering",
+  },
+  {
+    company: "TCS",
+    name: "Bob Wilson",
+    department: "Computer Science",
+  },
+  {
+    company: "TCS",
+    name: "Emily Davis",
+    department: "Mechanical Engineering",
+  },
+  {
+    company: "TCS",
+    name: "Michael Brown",
+    department: "Electronics Engineering",
+  },
+  {
+    company: "TCS",
+    name: "John Doe",
+    department: "Computer Science",
+  },
+  {
+    company: "TCS",
+    name: "Bob Wilson",
+    department: "Computer Science",
+  },
+  {
+    company: "TCS",
+    name: "Emily Davis",
+    department: "Mechanical Engineering",
+  },
+  {
+    company: "TCS",
+    name: "Michael Brown",
+    department: "Electronics Engineering",
+  },
+  {
+    company: "TCS",
+    name: "John Doe",
+    department: "Computer Science",
+  },
+];
 const Analytics = () => {
+  const [students, setStudents] = useState(Sdata);
   const [currentpage, setCurrentpage] = useState("/Analytics");
   const router = useRouter();
   useEffect(() => {
@@ -124,9 +187,31 @@ const Analytics = () => {
       </div>
 
       <div className={styles.bottomsec}>
-        <div className={styles.list}>
-          <div></div>
+        <div className={styles.listCon}>
+          <div className={styles.list}>
+            <TableScrollbar>
+              <table className={styles.table} scro>
+                <thead className={styles.thead}>
+                  <tr className={styles.tr}>
+                    <th className={styles.th}>Name</th>
+                    <th className={styles.th}>Department</th>
+                    <th className={styles.th}>Company</th>
+                  </tr>
+                </thead>
+                <tbody className={styles.tbody}>
+                  {students.map((student) => (
+                    <tr key={student.roll}>
+                      <td className={styles.td}>{student.name}</td>
+                      <td className={styles.td}>{student.department}</td>
+                      <td className={styles.td}>{student.company}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </TableScrollbar>
+          </div>
         </div>
+
         <div className={styles.doughnut}>
           <p>Analysis</p>
           <Doughnut data={data} />

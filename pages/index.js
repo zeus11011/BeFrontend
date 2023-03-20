@@ -66,93 +66,95 @@ export default function Home() {
           <p className={styles.p}>1600</p>
         </div>
       </div>
-      <div className={styles.carobox}>
-        <Carousel showStatus={false}>
-          <div className={styles.box1}>
-            <div className={styles.box2}>
-              <Image
-                className={styles.img}
-                alt=""
-                width={100}
-                height={200}
-                src="/Infosys_logo.svg.png"
-              />
-              <p className={styles.legend}>
-                Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                8-9Lk
-              </p>
+      <div className={styles.boxCon}>
+        <div className={styles.carobox}>
+          <Carousel showStatus={false}>
+            <div className={styles.box1}>
+              <div className={styles.box2}>
+                <Image
+                  className={styles.img}
+                  alt=""
+                  width={100}
+                  height={200}
+                  src="/Infosys_logo.svg.png"
+                />
+                <p className={styles.legend}>
+                  Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
+                  8-9Lk
+                </p>
+              </div>
+              <div className={styles.box3}>
+                <Image
+                  className={styles.img}
+                  alt=""
+                  width={100}
+                  height={200}
+                  src="/Tata_Consultancy_Services_Logo.svg.png"
+                />
+                <p className={styles.legend}>
+                  Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
+                  8-9Lk
+                </p>
+              </div>
             </div>
-            <div className={styles.box3}>
-              <Image
-                className={styles.img}
-                alt=""
-                width={100}
-                height={200}
-                src="/Tata_Consultancy_Services_Logo.svg.png"
-              />
-              <p className={styles.legend}>
-                Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                8-9Lk
-              </p>
+            <div className={styles.box1}>
+              <div className={styles.box2}>
+                <Image
+                  className={styles.img}
+                  alt=""
+                  width={100}
+                  height={200}
+                  src="/Infosys_logo.svg.png"
+                />
+                <p className={styles.legend}>
+                  Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
+                  8-9Lk
+                </p>
+              </div>
+              <div className={styles.box3}>
+                <Image
+                  className={styles.img}
+                  alt=""
+                  width={100}
+                  height={200}
+                  src="/Tata_Consultancy_Services_Logo.svg.png"
+                />
+                <p className={styles.legend}>
+                  Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
+                  8-9Lk
+                </p>
+              </div>
             </div>
-          </div>
-          <div className={styles.box1}>
-            <div className={styles.box2}>
-              <Image
-                className={styles.img}
-                alt=""
-                width={100}
-                height={200}
-                src="/Infosys_logo.svg.png"
-              />
-              <p className={styles.legend}>
-                Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                8-9Lk
-              </p>
+            <div className={styles.box1}>
+              <div className={styles.box2}>
+                <Image
+                  className={styles.img}
+                  alt=""
+                  width={100}
+                  height={200}
+                  src="/Infosys_logo.svg.png"
+                />
+                <p className={styles.legend}>
+                  Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
+                  8-9Lk
+                </p>
+              </div>
+              <div className={styles.box3}>
+                <Image
+                  className={styles.img}
+                  alt=""
+                  width={100}
+                  height={200}
+                  src="/Tata_Consultancy_Services_Logo.svg.png"
+                />
+                <p className={styles.legend}>
+                  Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
+                  8-9Lk
+                </p>
+              </div>
             </div>
-            <div className={styles.box3}>
-              <Image
-                className={styles.img}
-                alt=""
-                width={100}
-                height={200}
-                src="/Tata_Consultancy_Services_Logo.svg.png"
-              />
-              <p className={styles.legend}>
-                Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                8-9Lk
-              </p>
-            </div>
-          </div>
-          <div className={styles.box1}>
-            <div className={styles.box2}>
-              <Image
-                className={styles.img}
-                alt=""
-                width={100}
-                height={200}
-                src="/Infosys_logo.svg.png"
-              />
-              <p className={styles.legend}>
-                Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                8-9Lk
-              </p>
-            </div>
-            <div className={styles.box3}>
-              <Image
-                className={styles.img}
-                alt=""
-                width={100}
-                height={200}
-                src="/Tata_Consultancy_Services_Logo.svg.png"
-              />
-              <p className={styles.legend}>
-                Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                8-9Lk
-              </p>
-            </div>
-          </div>
-        </Carousel>
+          </Carousel>
+        </div>
       </div>
     </div>
   );

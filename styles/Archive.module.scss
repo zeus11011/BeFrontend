@@ -2,15 +2,21 @@
   padding: 7rem;
   padding-left: 8rem;
   padding-right: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70vw;
 }
 
 .container {
 }
 .con1 {
+  margin-left: 2rem;
   position: relative;
   z-index: 20;
-  padding: 50px;
-
+  width: 70vw;
+  padding: 3rem;
   display: flex;
   justify-content: space-between;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -23,6 +29,7 @@
   z-index: 20;
   padding: 50px;
   margin-top: 10rem;
+  margin-left: 2rem;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -31,7 +38,7 @@
   border-radius: 15px;
 }
 .graCon {
-  width: 40rem;
+  width: 50rem;
   font-size: 2rem;
   text-align: center;
   background: #ffffff;
@@ -72,6 +79,7 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
+  padding-bottom: 0.5rem;
 }
 
 .dpCon {
@@ -96,6 +104,8 @@
 
 .table {
   // border-collapse: collapse;
+  // border: 1px solid black;
+  // border-radius: 15px;
   width: 100%;
 }
 .th {
@@ -129,6 +139,7 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   padding: 4rem;
+  margin-left: 1rem;
   p {
     font-size: 3rem;
     font-weight: 700;
