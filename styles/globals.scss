@@ -5,9 +5,13 @@ html {
 body {
   margin: 0 !important;
 }
+
 * {
   font-family: "Montserrat", sans-serif;
   // font-family: "Poppins", sans-serif;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 a {
