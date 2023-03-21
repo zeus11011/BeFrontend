@@ -30,16 +30,10 @@ const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: "right",
-      labels: {
-        font: {
-          size: "3rem",
-        },
-      },
+      display: false,
     },
     title: {
       display: true,
-      text: "DEPARTMENT VIEW",
     },
   },
 };

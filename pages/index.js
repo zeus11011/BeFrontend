@@ -68,7 +68,7 @@ export default function Home() {
       </div>
       <div className={styles.boxCon}>
         <div className={styles.carobox}>
-          <Carousel showStatus={false}>
+          <Carousel showStatus={false} showThumbs={false} showArrows={true}>
             <div className={styles.box1}>
               <div className={styles.box2}>
                 <Image

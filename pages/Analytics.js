@@ -29,16 +29,17 @@ const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: "right",
-      labels: {
-        font: {
-          size: "3rem",
-        },
-      },
+      // position: "top",
+      // labels: {
+      //   font: {
+      //     size: "13rem",
+      //   },
+      // },
+      display: false,
     },
     title: {
       display: true,
-      text: "DEPARTMENT VIEW",
+      // text: "DEPARTMENT VIEW",
     },
   },
 };
@@ -48,6 +49,7 @@ const data = {
   labels: labels,
   datasets: [
     {
+      // label: "Students Placed",
       data: [40, 38, 10, 11, 8, 15],
       backgroundColor: [
         "#806BFF",
