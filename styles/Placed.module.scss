@@ -98,11 +98,12 @@
   border-radius: 10px;
 }
 .dp {
-  margin-left: 4.7rem;
-  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   margin-bottom: 2rem;
-  width: 150px;
-  height: 150px;
+  // width: 150px;
+  // height: 150px;
   border-radius: 50%;
   .img {
     border-radius: 150px !important;
@@ -113,12 +114,15 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  align-items: center;
   font-size: 1.7rem;
+  // font-size: 1rem;
 }
 
 .p1 {
   padding-left: 2rem;
   font-weight: bold;
+  // margin-right: 15px;
 }
 .p2 {
   padding-right: 2rem;
@@ -128,4 +132,8 @@
   // display: flex;
   justify-content: space-between;
   // flex-direction: row;
+}
+
+.e-grid * {
+  font-size: 50px !important;
 }
