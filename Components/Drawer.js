@@ -141,6 +141,23 @@ function Drawer() {
             <p>Students</p>
           </div>
         </div>
+        <div
+          className={styles.mainitem}
+          onClick={() => {
+            router.push("Company");
+          }}
+        >
+          <div
+            className={
+              currentpage === "/Company"
+                ? [styles.selected, styles.item].join(" ")
+                : styles.item
+            }
+          >
+            <Icon icon="ri:building-2-line" color="white" width={"2.5rem"} />
+            <p>Company</p>
+          </div>
+        </div>
       </div>
     </div>
   );
