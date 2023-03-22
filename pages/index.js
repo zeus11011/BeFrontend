@@ -9,6 +9,12 @@ import { Icon } from "@iconify/react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useRouter } from "next/router";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/scss";
+import "swiper/scss/navigation";
+import "swiper/scss/pagination";
+
+import { Navigation, Pagination } from "swiper";
 
 export default function Home() {
   const [currentpage, setCurrentpage] = useState("/");
@@ -66,94 +72,113 @@ export default function Home() {
           <p className={styles.p}>1600</p>
         </div>
       </div>
-      <div className={styles.boxCon}>
-        <div className={styles.carobox}>
-          <Carousel showStatus={false} showThumbs={false} showArrows={true}>
-            <div className={styles.box1}>
-              <div className={styles.box2}>
-                <Image
-                  className={styles.img}
-                  alt=""
-                  width={100}
-                  height={200}
-                  src="/Infosys_logo.svg.png"
-                />
-                <p className={styles.legend}>
-                  Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                  8-9Lk
-                </p>
-              </div>
-              <div className={styles.box3}>
-                <Image
-                  className={styles.img}
-                  alt=""
-                  width={100}
-                  height={200}
-                  src="/Tata_Consultancy_Services_Logo.svg.png"
-                />
-                <p className={styles.legend}>
-                  Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                  8-9Lk
-                </p>
-              </div>
+      <div className={styles.mainCon1}>
+        <div className={styles.company1box}>
+          <div className={styles.carobox}>
+            <div className={styles.Carouselh1Box}>
+              <h1 className={styles.h1}>On-Going Companies</h1>
             </div>
-            <div className={styles.box1}>
-              <div className={styles.box2}>
-                <Image
-                  className={styles.img}
-                  alt=""
-                  width={100}
-                  height={200}
-                  src="/Infosys_logo.svg.png"
-                />
-                <p className={styles.legend}>
-                  Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                  8-9Lk
-                </p>
-              </div>
-              <div className={styles.box3}>
-                <Image
-                  className={styles.img}
-                  alt=""
-                  width={100}
-                  height={200}
-                  src="/Tata_Consultancy_Services_Logo.svg.png"
-                />
-                <p className={styles.legend}>
-                  Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                  8-9Lk
-                </p>
-              </div>
-            </div>
-            <div className={styles.box1}>
-              <div className={styles.box2}>
-                <Image
-                  className={styles.img}
-                  alt=""
-                  width={100}
-                  height={200}
-                  src="/Infosys_logo.svg.png"
-                />
-                <p className={styles.legend}>
-                  Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                  8-9Lk
-                </p>
-              </div>
-              <div className={styles.box3}>
-                <Image
-                  className={styles.img}
-                  alt=""
-                  width={100}
-                  height={200}
-                  src="/Tata_Consultancy_Services_Logo.svg.png"
-                />
-                <p className={styles.legend}>
-                  Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                  8-9Lk
-                </p>
-              </div>
-            </div>
-          </Carousel>
+            <Swiper
+              navigation
+              pagination={{ clickable: true }}
+              modules={[Navigation, Pagination]}
+              spaceBetween={0}
+              slidesPerView={3}
+              onSlideChange={() => console.log("slide change")}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              <SwiperSlide>
+                <div className={styles.card1box}>
+                  <div className={styles.card}>
+                    <Image
+                      alt=""
+                      src={"/Infosys_logo.svg.png"}
+                      height={80}
+                      width={100}
+                      style={styles.img}
+                    ></Image>
+                    <h1>Infosys</h1>
+                    <p className={styles.p}>
+                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
+                      8-9Lk
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={styles.card1box}>
+                  <div className={styles.card}>
+                    <Image
+                      alt=""
+                      src={"/Infosys_logo.svg.png"}
+                      height={80}
+                      width={100}
+                      style={styles.img}
+                    ></Image>
+                    <h1>Infosys</h1>
+                    <p className={styles.p}>
+                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
+                      8-9Lk
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={styles.card1box}>
+                  <div className={styles.card}>
+                    <Image
+                      alt=""
+                      src={"/Infosys_logo.svg.png"}
+                      height={80}
+                      width={100}
+                      style={styles.img}
+                    ></Image>
+                    <h1>Infosys</h1>
+                    <p className={styles.p}>
+                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
+                      8-9Lk
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={styles.card1box}>
+                  <div className={styles.card}>
+                    <Image
+                      alt=""
+                      src={"/Infosys_logo.svg.png"}
+                      height={80}
+                      width={100}
+                      style={styles.img}
+                    ></Image>
+                    <h1>Infosys</h1>
+                    <p className={styles.p}>
+                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
+                      8-9Lk
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={styles.card1box}>
+                  <div className={styles.card}>
+                    <Image
+                      alt=""
+                      src={"/Infosys_logo.svg.png"}
+                      height={80}
+                      width={100}
+                      style={styles.img}
+                    ></Image>
+                    <h1>Infosys</h1>
+                    <p className={styles.p}>
+                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
+                      8-9Lk
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </div>
       </div>
     </div>

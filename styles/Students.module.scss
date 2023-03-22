@@ -78,11 +78,12 @@
   font-size: 2rem;
   font-weight: bold;
 }
-.h1List {
+.h1LnC {
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
   margin: 0;
+  // border-bottom: 2px solid black;
 }
 .h2 {
   text-align: center;
@@ -128,12 +129,12 @@
 }
 
 .p1 {
-  padding-left: 2rem;
+  padding-left: 1rem;
   font-weight: bold;
   // margin-right: 15px;
 }
 .p2 {
-  padding-right: 2rem;
+  padding-right: 1rem;
 }
 
 .thead {
