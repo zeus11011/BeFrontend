@@ -12,7 +12,6 @@
   display: flex;
   flex-direction: column;
   width: 70%;
-  // height: 50vh;
   background: #ffffff;
   font-size: 11px;
   border-radius: 15px;
@@ -21,7 +20,6 @@
   margin-bottom: 1.5rem;
   height: 100%;
   padding: 2rem;
-  // padding-bottom: 6.9rem;
 }
 .main2 {
   width: 20%;
@@ -39,14 +37,13 @@
 }
 
 .container2 {
-  // margin-top: 2rem;
   font-size: 1rem;
   display: flex;
   justify-content: center;
 }
 .container3 {
+  //   margin-bottom: 1rem;
   margin-top: 2rem;
-
   height: 50%;
   height: 60vh;
   font-size: 1.6rem;
@@ -148,6 +145,12 @@
 .e-grid * {
   font-size: 50px !important;
 }
+.addBoxCon {
+  display: flex;
+  justify-content: center;
+  //   margin-top: 1rem;
+  padding-top: 1rem;
+}
 .buttons {
   // height: 10vh;
   display: flex;
@@ -165,7 +168,9 @@
   border-right: 3px solid;
   border-left: 3px solid;
 }
-
+.addButtonBox {
+  //   margin-top: 1rem;
+}
 .button {
   background-color: white;
   font-size: 2rem;
@@ -178,12 +183,6 @@
 
   border: 0px;
   outline: none;
-}
-.addBoxCon {
-  display: flex;
-  justify-content: center;
-  //   margin-top: 1rem;
-  padding-top: 1rem;
 }
 .addButton {
   background-color: black;

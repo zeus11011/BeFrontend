@@ -4,6 +4,7 @@ import Select from "react-select";
 import styles from "../../styles/Placed.module.scss";
 import TableScrollbar from "react-table-scrollbar";
 import { DataGrid } from "@mui/x-data-grid";
+import { Icon } from "@iconify/react";
 
 const data = [
   {
@@ -293,18 +294,22 @@ const data = [
   // Add more dummy student data as needed
 ];
 const columns = [
-  { field: "roll", headerName: "Roll no.", width: 80 },
-  { field: "name", headerName: "Name", width: 150 },
-  { field: "email", headerName: "Email", width: 200 },
-  { field: "cgpa", headerName: "CGPA", width: 80 },
-  { field: "company", headerName: "Company", width: 150 },
+  {
+    field: "roll",
+    headerName: "Roll No.",
+    width: 80,
+  },
+  { field: "name", headerName: "Name", width: 150, headerClassName: "column" },
   { field: "department", headerName: "Department", width: 180 },
-  { field: "package", headerName: "Package", width: 100 },
+  { field: "package", headerName: "Package", width: 120 },
+  { field: "company", headerName: "Company", width: 150 },
+  { field: "cgpa", headerName: "CGPA", width: 80 },
+  { field: "email", headerName: "Email", width: 220 },
 ];
 
 const Placed = () => {
   const [students, setStudents] = useState(data);
-  const [selected, setSelected] = useState(undefined);
+  const [selected, setSelected] = useState(data[0]);
 
   useEffect(() => {
     const d = data.map((element, index) => {
@@ -317,63 +322,47 @@ const Placed = () => {
     <div className={styles.main}>
       <div className={styles.main1}>
         <div className={styles.container2}>
-          {/* <Select
-            onChange={filterByDepartment}
-            className={styles.dropdown}
-            placeholder={"Filter"}
-            options={optionsf}
-          ></Select>
-          <Select
-            className={styles.dropdown}
-            placeholder={"Sort"}
-            options={optionss}
-            onChange={sortByName}
-          ></Select> */}
+          <h1 className={styles.h1List}>PLACED STUDENTS</h1>
         </div>
         <div className={styles.container3}>
-          {/* <TableScrollbar>
-            <table className={styles.table} scro>
-              <thead className={styles.thead}>
-                <tr className={styles.tr}>
-                  <th className={styles.th}>Roll No.</th>
-                  <th className={styles.th}>Name</th>
-                  <th className={styles.th}>CGPA</th>
-                  <th className={styles.th}>Department</th>
-                  <th className={styles.th}>Company</th>
-                  <th className={styles.th}>Package</th>
-                  <th className={styles.th}>Email</th>
-                </tr>
-              </thead>
-              <tbody className={styles.tbody}>
-                {students.map((student) => (
-                  <tr key={student.roll}>
-                    <td className={styles.td}>{student.roll}</td>
-                    <td className={styles.td}>{student.name}</td>
-                    <td className={styles.td}>{student.cgpa}</td>
-                    <td className={styles.td}>{student.department}</td>
-                    <td className={styles.td}>{student.company}</td>
-                    <td className={styles.td}>{student.package}</td>
-                    <td className={styles.td}>{student.email}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </TableScrollbar> */}
           <DataGrid
             rows={students}
             columns={columns}
-            sx={{ fontSize: 16, fontWeight: "500" }}
+            sx={{
+              ".MuiDataGrid-columnHeaderTitle": {
+                fontWeight: "900 !important",
+                overflow: "visible !important",
+                fontSize: "1.35rem !important",
+              },
+              ".MuiDataGrid-columnHeaderTitleContainer": {
+                display: "flex",
+                justifyContent: "center",
+              },
+              ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                { display: "flex", justifyContent: "center" },
+              fontSize: 15,
+              fontWeight: 500,
+            }}
             hideFooter
+            isColumnSelectable={(params) => {
+              setSelected(params.column);
+            }}
             isRowSelectable={(params) => {
               setSelected(params.row);
             }}
             pageSizeOptions={[10, 20, 30]}
-
-            // se
           />
+        </div>
+        <div className={styles.addBoxCon}>
+          <div className={styles.addButtonBox}>
+            <button name="add" onClick="" className={styles.addButton}>
+              Add
+            </button>
+          </div>
         </div>
       </div>
       <div className={styles.main2}>
+        <h1 className={styles.h1}>STUDENT</h1>
         {selected != undefined ? (
           <>
             <div className={styles.dp}>
@@ -405,6 +394,38 @@ const Placed = () => {
             <div className={styles.card}>
               <p className={styles.p1}>Package</p>
               <p className={styles.p2}>{selected.package}</p>
+            </div>
+            <div className={styles.buttons}>
+              <div className={styles.buttonBox}>
+                <button name="save" onClick="" className={styles.button}>
+                  <Icon
+                    style={{ color: "black", height: "30", width: "30" }}
+                    icon="mdi:edit"
+                    width={"4rem"}
+                    onClick={""}
+                  ></Icon>
+                </button>
+              </div>
+              <div className={styles.buttonBox2}>
+                <button name="save" onClick="" className={styles.button}>
+                  <Icon
+                    style={{ color: "black", height: "30", width: "30" }}
+                    icon="mdi:message-outline"
+                    width={"4rem"}
+                    onClick={""}
+                  ></Icon>
+                </button>
+              </div>
+              <div className={styles.buttonBox}>
+                <button name="save" onClick="" className={styles.button}>
+                  <Icon
+                    style={{ color: "black", height: "30", width: "30" }}
+                    icon="mdi:delete"
+                    width={"4rem"}
+                    onClick={""}
+                  ></Icon>
+                </button>
+              </div>
             </div>
           </>
         ) : (

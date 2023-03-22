@@ -1,58 +1,10 @@
-import React, { useState, Component } from "react";
-import dynamic from "next/dynamic";
-import styles from "../../styles/Archive.module.scss";
-import { Icon } from "@iconify/react";
-import TableScrollbar from "react-table-scrollbar";
-import { Bar, Doughnut } from "react-chartjs-2";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import Select from "react-select";
+import styles from "../../styles/Students.module.scss";
+import TableScrollbar from "react-table-scrollbar";
 import { DataGrid } from "@mui/x-data-grid";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-} from "chart.js";
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement
-);
-const columns = [
-  { field: "name", headerName: "Name", width: 200, headerClassName: "column" },
-  { field: "company", headerName: "Company", width: 160 },
-  { field: "department", headerName: "Department", width: 200 },
-  { field: "package", headerName: "Package", width: 140 },
-];
-const datagridSX = {
-  "& .MuiDataGrid-columnHeaders": {
-    fontSize: 16,
-  },
-};
-
-const Chart = dynamic(() => import("../../Components/Chart/Chart"));
-const options = {
-  maintainAspectRatio: false,
-  responsive: true,
-  plugins: {
-    legend: {
-      display: false,
-    },
-    title: {
-      display: true,
-    },
-  },
-};
-
-const labels = ["COMP", "IT", "MECH", "CIVIL", "ENE", "ETC"];
-
+import { Icon } from "@iconify/react";
 const data = [
   {
     id: 1,
@@ -340,99 +292,150 @@ const data = [
   },
   // Add more dummy student data as needed
 ];
-const data2 = {
-  labels: labels,
-  datasets: [
-    {
-      data: [40, 38, 10, 11, 8, 15],
-      backgroundColor: [
-        "#806BFF",
-        "#A15BF9",
-        "#23B9F9",
-        "#2200F4",
-        "#47FFDE",
-        "#002966",
-      ],
-    },
-  ],
-};
-const optionsB = [
-  { value: "Year", label: "Year" },
-  { value: "Year", label: "2000" },
-  { value: "Year", label: "2001" },
-  { value: "Year", label: "2002" },
-  { value: "Year", label: "2003" },
-  { value: "Year", label: "2004" },
-  { value: "Year", label: "2005" },
+const columns = [
+  {
+    field: "roll",
+    headerName: "Roll No.",
+    width: 80,
+  },
+  { field: "name", headerName: "Name", width: 150, headerClassName: "column" },
+  { field: "department", headerName: "Department", width: 180 },
+  { field: "package", headerName: "Package", width: 120 },
+  { field: "company", headerName: "Company", width: 150 },
+  { field: "cgpa", headerName: "CGPA", width: 80 },
+  { field: "email", headerName: "Email", width: 220 },
 ];
 
-const Archive = () => {
+const Students = () => {
   const [students, setStudents] = useState(data);
+  const [selected, setSelected] = useState(data[0]);
+
+  useEffect(() => {
+    const d = data.map((element, index) => {
+      return { ...element, id: index };
+    });
+    console.log(d);
+    setStudents(d);
+  }, []);
   return (
     <div className={styles.main}>
-      <div className={styles.container}>
-        <div className={styles.con1}>
-          <div className={styles.graCon}>
-            <p>Overview</p>
-            <Chart />
-          </div>
-          <div className={styles.overCon}>
-            <p>Overview</p>
-            <Doughnut data={data2} />
+      <div className={styles.main1}>
+        <div className={styles.container2}>
+          <h1 className={styles.h1List}>ALL STUDENTS</h1>
+        </div>
+        <div className={styles.container3}>
+          <DataGrid
+            rows={students}
+            columns={columns}
+            sx={{
+              ".MuiDataGrid-columnHeaderTitle": {
+                fontWeight: "900 !important",
+                overflow: "visible !important",
+                fontSize: "1.35rem !important",
+              },
+              ".MuiDataGrid-columnHeaderTitleContainer": {
+                display: "flex",
+                justifyContent: "center",
+              },
+              ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                { display: "flex", justifyContent: "center" },
+              fontSize: 15,
+              fontWeight: 500,
+            }}
+            hideFooter
+            isColumnSelectable={(params) => {
+              setSelected(params.column);
+            }}
+            isRowSelectable={(params) => {
+              setSelected(params.row);
+            }}
+            pageSizeOptions={[10, 20, 30]}
+
+            // se
+          />
+        </div>
+        <div className={styles.addBoxCon}>
+          <div className={styles.addButtonBox}>
+            <button name="add" onClick="" className={styles.addButton}>
+              Add
+            </button>
           </div>
         </div>
-        <div className={styles.con2}>
-          <div className={styles.listCon}>
-            <div className={styles.dpCon}>
-              <Select
-                className={styles.dropdown}
-                placeholder={"2023"}
-                options={optionsB}
-              ></Select>
-            </div>
-            <div className={styles.list}>
-              <DataGrid
-                rows={students}
-                columns={columns}
-                sx={{
-                  ".MuiDataGrid-columnHeaderTitle": {
-                    fontWeight: "900 !important",
-                    overflow: "visible !important",
-                    fontSize: "1.35rem !important",
-                  },
-                  ".MuiDataGrid-columnHeaderTitleContainer": {
-                    display: "flex",
-                    justifyContent: "center",
-                  },
-                  ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
-                    { display: "flex", justifyContent: "center" },
-                  fontSize: 15,
-                  fontWeight: 500,
-                  width: 700,
+      </div>
+      <div className={styles.main2}>
+        <h1 className={styles.h1}>STUDENT</h1>
+        {selected != undefined ? (
+          <>
+            <div className={styles.dp}>
+              <Image
+                alt=""
+                src={"/dp.jpg"}
+                width={150}
+                height={150}
+                className={styles.img}
+                style={{
+                  borderRadius: "50%",
                 }}
-                hideFooter
-                isColumnSelectable={(params) => {
-                  setSelected(params.column);
-                }}
-                isRowSelectable={(params) => {
-                  setSelected(params.row);
-                }}
-                pageSizeOptions={[10, 20, 30]}
-
-                // se
               />
             </div>
-          </div>
-          <div className={styles.barCon}>
-            <p>DEPARTMENT VIEW</p>
-            <div className={styles.barchartcont}>
-              <Bar options={options} data={data2} />
+
+            <h1 className={styles.h1}>{selected.name}</h1>
+            <p className={styles.p}>{selected.email}</p>
+            <div className={styles.card}>
+              <p className={styles.p1}>Company</p>
+              <p className={styles.p2}>{selected.company}</p>
             </div>
-          </div>
-        </div>
+            <div className={styles.card}>
+              <p className={styles.p1}>Department</p>
+              <p className={styles.p2}>{selected.department}</p>
+            </div>
+            <div className={styles.card}>
+              <p className={styles.p1}>CGPA</p>
+              <p className={styles.p2}>{selected.cgpa}</p>
+            </div>
+            <div className={styles.card}>
+              <p className={styles.p1}>Package</p>
+              <p className={styles.p2}>{selected.package}</p>
+            </div>
+            <div className={styles.buttons}>
+              <div className={styles.buttonBox}>
+                <button name="save" onClick="" className={styles.button}>
+                  <Icon
+                    style={{ color: "black", height: "30", width: "30" }}
+                    icon="mdi:edit"
+                    width={"4rem"}
+                    onClick={""}
+                  ></Icon>
+                </button>
+              </div>
+              <div className={styles.buttonBox2}>
+                <button name="save" onClick="" className={styles.button}>
+                  <Icon
+                    style={{ color: "black", height: "30", width: "30" }}
+                    icon="mdi:message-outline"
+                    width={"4rem"}
+                    onClick={""}
+                  ></Icon>
+                </button>
+              </div>
+              <div className={styles.buttonBox}>
+                <button name="save" onClick="" className={styles.button}>
+                  <Icon
+                    style={{ color: "black", height: "30", width: "30" }}
+                    icon="mdi:delete"
+                    width={"4rem"}
+                    onClick={""}
+                  ></Icon>
+                </button>
+              </div>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
 };
 
-export default Archive;
+export default Students;

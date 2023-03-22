@@ -37,7 +37,7 @@ function Drawer() {
               color="white"
               width={"2.5rem"}
             />
-            <p>Dashborad</p>
+            <p>Dashboard</p>
           </div>
         </div>
         <div
@@ -118,6 +118,44 @@ function Drawer() {
               width={"2.5rem"}
             />
             <p>Placed</p>
+          </div>
+        </div>
+        <div
+          className={styles.mainitem}
+          onClick={() => {
+            router.push("Students");
+          }}
+        >
+          <div
+            className={
+              currentpage === "/Students"
+                ? [styles.selected, styles.item].join(" ")
+                : styles.item
+            }
+          >
+            <Icon
+              icon="material-symbols:school-outline"
+              color="white"
+              width={"2.5rem"}
+            />
+            <p>Students</p>
+          </div>
+        </div>
+        <div
+          className={styles.mainitem}
+          onClick={() => {
+            router.push("Company");
+          }}
+        >
+          <div
+            className={
+              currentpage === "/Company"
+                ? [styles.selected, styles.item].join(" ")
+                : styles.item
+            }
+          >
+            <Icon icon="ri:building-2-line" color="white" width={"2.5rem"} />
+            <p>Company</p>
           </div>
         </div>
       </div>

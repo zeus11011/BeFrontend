@@ -33,6 +33,7 @@ const StyleWrapper = styled.div`
   .fc-event-title {
     display: inline;
   }
+
   .fc-daygrid-day {
     overflow: hidden;
   }
