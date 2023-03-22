@@ -14,6 +14,7 @@
 .con1 {
   margin-left: 2rem;
   margin-top: 3rem;
+  height: 50vh;
   margin-bottom: 15rem;
   position: relative;
   z-index: 20;
@@ -74,7 +75,7 @@
   }
 }
 .listCon {
-  width: 40vw;
+  width: 35.4vw;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -99,7 +100,7 @@
 }
 .list {
   //   margin-top: 2rem;
-  width: 40vw;
+  width: 35.4vw;
   height: 50vh;
   font-size: 1.7rem;
 }
@@ -134,7 +135,7 @@
 }
 
 .barCon {
-  width: 22vw;
+  width: 24.5vw;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -151,7 +152,7 @@
     text-align: center;
   }
   .barchartcont {
-    width: 23vw;
+    width: 25vw;
     height: auto;
     min-height: 400px;
   }

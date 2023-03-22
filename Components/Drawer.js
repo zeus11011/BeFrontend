@@ -37,7 +37,7 @@ function Drawer() {
               color="white"
               width={"2.5rem"}
             />
-            <p>Dashborad</p>
+            <p>Dashboard</p>
           </div>
         </div>
         <div

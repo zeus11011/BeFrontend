@@ -69,7 +69,7 @@ const Navbar = () => {
             src={"/dp.jpg"}
             width={80}
             height={80}
-            className={styles.im}
+            className={styles.img}
             style={{ borderRadius: "50%", marginTop: "1rem" }}
           />
         </div>

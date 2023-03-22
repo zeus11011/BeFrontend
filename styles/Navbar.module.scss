@@ -32,7 +32,10 @@
     }
   }
 }
-
+.img:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
 .namesec {
   margin-left: 3rem;
   h1 {

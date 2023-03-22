@@ -2,6 +2,9 @@ import React from "react";
 import styles from "../../styles/Calendar.module.scss";
 import Image from "next/image";
 import Calendar from "../../Components/Calendar";
+
+import { Icon } from "@iconify/react";
+
 const CalendarView = () => {
   return (
     <div className={styles.main}>
@@ -13,6 +16,7 @@ const CalendarView = () => {
         </div>
         <div className={styles.updates}>
           <div className={styles.main2}>
+            <h1 className={styles.h1}>Placement Drive</h1>
             <div className={styles.profile}>
               <div className={styles.dp}>
                 <Image
@@ -29,11 +33,10 @@ const CalendarView = () => {
             </div>
 
             <h1 className={styles.h1}>Infosys</h1>
-            <p className={styles.p}>91+ 6969696969</p>
-            <p className={styles.p}>infosys@gmail.com</p>
+
             <div className={styles.card}>
               <p className={styles.p1}>Company</p>
-              <p className={styles.p2}>TCS</p>
+              <p className={styles.p2}>Infosys</p>
             </div>
             <div className={styles.card}>
               <p className={styles.p1}>Date</p>
@@ -46,6 +49,38 @@ const CalendarView = () => {
             <div className={styles.card}>
               <p className={styles.p1}>Venue</p>
               <p className={styles.p2}>IT Dept</p>
+            </div>
+            <div className={styles.buttons}>
+              <div className={styles.buttonBox}>
+                <button name="save" onClick="" className={styles.button}>
+                  <Icon
+                    style={{ color: "black", height: "30", width: "30" }}
+                    icon="mdi:add"
+                    width={"4rem"}
+                    onClick={""}
+                  ></Icon>
+                </button>
+              </div>
+              <div className={styles.buttonBox2}>
+                <button name="save" onClick="" className={styles.button}>
+                  <Icon
+                    style={{ color: "black", height: "30", width: "30" }}
+                    icon="mdi:edit"
+                    width={"4rem"}
+                    onClick={""}
+                  ></Icon>
+                </button>
+              </div>
+              <div className={styles.buttonBox}>
+                <button name="save" onClick="" className={styles.button}>
+                  <Icon
+                    style={{ color: "black", height: "30", width: "30" }}
+                    icon="mdi:delete"
+                    width={"4rem"}
+                    onClick={""}
+                  ></Icon>
+                </button>
+              </div>
             </div>
           </div>
         </div>
