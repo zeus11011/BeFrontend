@@ -120,6 +120,27 @@ function Drawer() {
             <p>Placed</p>
           </div>
         </div>
+        <div
+          className={styles.mainitem}
+          onClick={() => {
+            router.push("Students");
+          }}
+        >
+          <div
+            className={
+              currentpage === "/Students"
+                ? [styles.selected, styles.item].join(" ")
+                : styles.item
+            }
+          >
+            <Icon
+              icon="material-symbols:school-outline"
+              color="white"
+              width={"2.5rem"}
+            />
+            <p>Students</p>
+          </div>
+        </div>
       </div>
     </div>
   );
