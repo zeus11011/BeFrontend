@@ -112,11 +112,7 @@ function Drawer() {
                 : styles.item
             }
           >
-            <Icon
-              icon="material-symbols:person-pin-outline-sharp"
-              color="white"
-              width={"2.5rem"}
-            />
+            <Icon icon="mdi:handshake" color="white" width={"2.5rem"} />
             <p>Placed</p>
           </div>
         </div>

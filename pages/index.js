@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import Image from "next/image";
 import Drawer from "../Components/Drawer";
@@ -60,7 +61,7 @@ export default function Home() {
           <div className={styles.mainicon}>
             <div className={styles.icon}>
               <Icon
-                icon="mdi:company"
+                icon="ri:building-2-line"
                 width={"4rem"}
                 onClick={() => {
                   router.push("Archive");
@@ -90,13 +91,11 @@ export default function Home() {
               <SwiperSlide>
                 <div className={styles.card1box}>
                   <div className={styles.card}>
-                    <Image
+                    <img
                       alt=""
                       src={"/Infosys_logo.svg.png"}
-                      height={80}
-                      width={100}
-                      style={styles.img}
-                    ></Image>
+                      className={styles.img}
+                    ></img>
                     <h1>Infosys</h1>
                     <p className={styles.p}>
                       Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
@@ -108,13 +107,11 @@ export default function Home() {
               <SwiperSlide>
                 <div className={styles.card1box}>
                   <div className={styles.card}>
-                    <Image
+                    <img
                       alt=""
                       src={"/Infosys_logo.svg.png"}
-                      height={80}
-                      width={100}
-                      style={styles.img}
-                    ></Image>
+                      className={styles.img}
+                    ></img>
                     <h1>Infosys</h1>
                     <p className={styles.p}>
                       Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
@@ -126,13 +123,11 @@ export default function Home() {
               <SwiperSlide>
                 <div className={styles.card1box}>
                   <div className={styles.card}>
-                    <Image
+                    <img
                       alt=""
                       src={"/Infosys_logo.svg.png"}
-                      height={80}
-                      width={100}
-                      style={styles.img}
-                    ></Image>
+                      className={styles.img}
+                    ></img>
                     <h1>Infosys</h1>
                     <p className={styles.p}>
                       Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
@@ -144,13 +139,11 @@ export default function Home() {
               <SwiperSlide>
                 <div className={styles.card1box}>
                   <div className={styles.card}>
-                    <Image
+                    <img
                       alt=""
                       src={"/Infosys_logo.svg.png"}
-                      height={80}
-                      width={100}
-                      style={styles.img}
-                    ></Image>
+                      className={styles.img}
+                    ></img>
                     <h1>Infosys</h1>
                     <p className={styles.p}>
                       Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
@@ -162,13 +155,11 @@ export default function Home() {
               <SwiperSlide>
                 <div className={styles.card1box}>
                   <div className={styles.card}>
-                    <Image
+                    <img
                       alt=""
                       src={"/Infosys_logo.svg.png"}
-                      height={80}
-                      width={100}
-                      style={styles.img}
-                    ></Image>
+                      className={styles.img}
+                    ></img>
                     <h1>Infosys</h1>
                     <p className={styles.p}>
                       Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />

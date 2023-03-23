@@ -99,12 +99,12 @@
 }
 
 .img {
-  height: 10rem !important;
+  height: 4rem !important;
   width: auto !important;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  // padding-left: 1rem;
+  // padding-right: 1rem;
 }
 
 .box1 {
@@ -142,6 +142,7 @@
 
 .h1 {
   color: black;
+  font-size: 2rem;
   margin-top: 0;
 }
 .Carouselh1Box {
@@ -157,8 +158,8 @@
 }
 
 .card {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  // margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;

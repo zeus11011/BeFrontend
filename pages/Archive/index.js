@@ -382,47 +382,50 @@ const Archive = () => {
           </div>
         </div>
         <div className={styles.con2}>
-          <div className={styles.listCon}>
-            <div className={styles.dpCon}>
-              <Select
-                className={styles.dropdown}
-                placeholder={"2023"}
-                options={optionsB}
-              ></Select>
-            </div>
-            <div className={styles.list}>
-              <DataGrid
-                rows={students}
-                columns={columns}
-                sx={{
-                  ".MuiDataGrid-columnHeaderTitle": {
-                    fontWeight: "900 !important",
-                    overflow: "visible !important",
-                    fontSize: "1.35rem !important",
-                  },
-                  ".MuiDataGrid-columnHeaderTitleContainer": {
-                    display: "flex",
-                    justifyContent: "center",
-                  },
-                  ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
-                    { display: "flex", justifyContent: "center" },
-                  fontSize: 15,
-                  fontWeight: 500,
-                  width: 700,
-                }}
-                hideFooter
-                isColumnSelectable={(params) => {
-                  setSelected(params.column);
-                }}
-                isRowSelectable={(params) => {
-                  setSelected(params.row);
-                }}
-                pageSizeOptions={[10, 20, 30]}
+          <div className={styles.listMainCon}>
+            <div className={styles.listCon}>
+              <div className={styles.dpCon}>
+                <Select
+                  className={styles.dropdown}
+                  placeholder={"2023"}
+                  options={optionsB}
+                ></Select>
+              </div>
+              <div className={styles.list}>
+                <DataGrid
+                  rows={students}
+                  columns={columns}
+                  sx={{
+                    ".MuiDataGrid-columnHeaderTitle": {
+                      fontWeight: "900 !important",
+                      overflow: "visible !important",
+                      fontSize: "1.35rem !important",
+                    },
+                    ".MuiDataGrid-columnHeaderTitleContainer": {
+                      display: "flex",
+                      justifyContent: "center",
+                    },
+                    ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      { display: "flex", justifyContent: "center" },
+                    fontSize: 15,
+                    fontWeight: 500,
+                    width: 700,
+                  }}
+                  hideFooter
+                  isColumnSelectable={(params) => {
+                    setSelected(params.column);
+                  }}
+                  isRowSelectable={(params) => {
+                    setSelected(params.row);
+                  }}
+                  pageSizeOptions={[10, 20, 30]}
 
-                // se
-              />
+                  // se
+                />
+              </div>
             </div>
           </div>
+
           <div className={styles.barCon}>
             <p>DEPARTMENT VIEW</p>
             <div className={styles.barchartcont}>
