@@ -10,6 +10,9 @@ import { Icon } from "@iconify/react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useRouter } from "next/router";
+import { URL } from "../creds";
+import axios from "axios";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import "swiper/scss/navigation";
@@ -19,8 +22,18 @@ import { Navigation, Pagination } from "swiper";
 
 export default function Home() {
   const [currentpage, setCurrentpage] = useState("/");
+  const [number, setNumber] = useState(undefined);
   const router = useRouter();
   useEffect(() => {
+    axios
+      .get(URL + "/student/getdashboard")
+      .then((res) => {
+        console.log(res.data);
+        setNumber(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     console.log(router.pathname, "name");
     setCurrentpage(router.pathname);
   }, [router]);
@@ -40,7 +53,11 @@ export default function Home() {
             </div>
           </div>
           <p className={styles.head}>Total Students</p>
-          <p className={styles.p}>1600</p>
+          <p className={styles.p}>
+            {number != undefined
+              ? number.student[0].count + number.student[1].count
+              : 0}
+          </p>
         </div>
         <div className={styles.box}>
           <div className={styles.mainicon}>
@@ -55,7 +72,13 @@ export default function Home() {
             </div>
           </div>
           <p className={styles.head}>Students Placed</p>
-          <p className={styles.p}>160/1600</p>
+          <p className={styles.p}>
+            {number != undefined
+              ? number.student[0].count +
+                "/" +
+                (number.student[0].count + number.student[1].count).toString()
+              : 0}
+          </p>
         </div>
         <div className={styles.box}>
           <div className={styles.mainicon}>
@@ -70,7 +93,7 @@ export default function Home() {
             </div>
           </div>
           <p className={styles.head}>Company Arrived</p>
-          <p className={styles.p}>1600</p>
+          <p className={styles.p}>{number ? number.companycount : 0}</p>
         </div>
       </div>
       <div className={styles.mainCon1}>

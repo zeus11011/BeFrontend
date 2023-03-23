@@ -47,6 +47,8 @@ const options = {
     },
     title: {
       display: true,
+      text: "Overview",
+      font: { size: 30 },
     },
   },
 };
@@ -373,12 +375,26 @@ const Archive = () => {
       <div className={styles.container}>
         <div className={styles.con1}>
           <div className={styles.graCon}>
-            <p>Overview</p>
             <Chart />
           </div>
           <div className={styles.overCon}>
-            <p>Overview</p>
-            <Doughnut data={data2} />
+            <Doughnut
+              data={data2}
+              options={{
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                  legend: {
+                    display: true,
+                  },
+                  title: {
+                    display: true,
+                    text: "Student Placed",
+                    font: { size: 30 },
+                  },
+                },
+              }}
+            />
           </div>
         </div>
         <div className={styles.con2}>
