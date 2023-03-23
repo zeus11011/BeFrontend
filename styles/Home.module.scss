@@ -19,6 +19,33 @@
   align-items: center;
 }
 
+.mainCon1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  // height: 10vh;
+  background: #ffffff;
+  font-size: 11px;
+  // border-radius: 15px;
+  // border: 1px solid rgba(0, 0, 0, 0.2);
+  // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-left: 5rem;
+  padding: 2rem;
+}
+.company1box {
+  display: flex;
+  flex-direction: column;
+  width: 68vw;
+  height: 35vh;
+  background: #ffffff;
+  font-size: 11px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+}
+
 .descboxes {
   margin-top: 2rem;
   width: 70vw;
@@ -71,18 +98,13 @@
   }
 }
 
-.legend {
-  background-color: black;
-  font-size: 30px;
-  color: white;
-}
 .img {
-  height: 10rem !important;
+  height: 4rem !important;
   width: auto !important;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  // padding-left: 1rem;
+  // padding-right: 1rem;
 }
 
 .box1 {
@@ -113,9 +135,38 @@
   margin-top: -1rem;
 }
 .carobox {
-  margin-left: 5rem;
-  margin-top: 8rem;
-  background-color: black;
   border-radius: 15px;
+
   // margin-left: 5rem;
+}
+
+.h1 {
+  color: black;
+  font-size: 2rem;
+  margin-top: 0;
+}
+.Carouselh1Box {
+  display: flex;
+  justify-content: center;
+}
+.card1box {
+  height: 28.5vh;
+  display: flex;
+  // flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.card {
+  margin-top: 2rem;
+  // margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 25rem;
+  height: 18rem;
+  box-shadow: 0px 0px 16px grey;
+  border-radius: 10px;
+  border: 1px solid black;
 }

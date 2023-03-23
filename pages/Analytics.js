@@ -402,7 +402,7 @@ const Analytics = () => {
           <div className={styles.mainicon}>
             <div className={styles.icon}>
               <Icon
-                icon="mdi:company"
+                icon="ri:building-2-line"
                 width={"4rem"}
                 onClick={() => {
                   router.push("Archive");

@@ -321,7 +321,7 @@ const Students = () => {
     <div className={styles.main}>
       <div className={styles.main1}>
         <div className={styles.container2}>
-          <h1 className={styles.h1List}>ALL STUDENTS</h1>
+          <h1 className={styles.h1LnC}>ALL STUDENTS</h1>
         </div>
         <div className={styles.container3}>
           <DataGrid
@@ -363,7 +363,7 @@ const Students = () => {
         </div>
       </div>
       <div className={styles.main2}>
-        <h1 className={styles.h1}>STUDENT</h1>
+        <h1 className={styles.h1LnC}>STUDENT</h1>
         {selected != undefined ? (
           <>
             <div className={styles.dp}>
@@ -382,19 +382,19 @@ const Students = () => {
             <h1 className={styles.h1}>{selected.name}</h1>
             <p className={styles.p}>{selected.email}</p>
             <div className={styles.card}>
-              <p className={styles.p1}>Company</p>
+              <p className={styles.p1}>Company :</p>
               <p className={styles.p2}>{selected.company}</p>
             </div>
             <div className={styles.card}>
-              <p className={styles.p1}>Department</p>
+              <p className={styles.p1}>Department :</p>
               <p className={styles.p2}>{selected.department}</p>
             </div>
             <div className={styles.card}>
-              <p className={styles.p1}>CGPA</p>
+              <p className={styles.p1}>CGPA :</p>
               <p className={styles.p2}>{selected.cgpa}</p>
             </div>
             <div className={styles.card}>
-              <p className={styles.p1}>Package</p>
+              <p className={styles.p1}>Package :</p>
               <p className={styles.p2}>{selected.package}</p>
             </div>
             <div className={styles.buttons}>
