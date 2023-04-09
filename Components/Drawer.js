@@ -99,7 +99,7 @@ function Drawer() {
             <p>Archive</p>
           </div>
         </div>
-        <div
+        {/* <div
           className={styles.mainitem}
           onClick={() => {
             router.push("Placed");
@@ -115,7 +115,7 @@ function Drawer() {
             <Icon icon="mdi:handshake" color="white" width={"2.5rem"} />
             <p>Placed</p>
           </div>
-        </div>
+        </div> */}
         <div
           className={styles.mainitem}
           onClick={() => {

@@ -1,5 +1,7 @@
 import "../styles/globals.scss";
 import DrawerLayout from "../Layout/DrawerLayout";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const path = require("path");
 function MyApp({ Component, pageProps }) {
@@ -10,6 +12,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <DrawerLayout>
       <Component {...pageProps} />
+      <ToastContainer />
     </DrawerLayout>
   );
 }

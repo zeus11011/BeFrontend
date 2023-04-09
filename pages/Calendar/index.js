@@ -52,32 +52,29 @@ const CalendarView = () => {
             </div>
             <div className={styles.buttons}>
               <div className={styles.buttonBox}>
-                <button name="save" onClick="" className={styles.button}>
+                <button name="save" className={styles.button}>
                   <Icon
                     style={{ color: "black", height: "30", width: "30" }}
                     icon="mdi:add"
                     width={"4rem"}
-                    onClick={""}
                   ></Icon>
                 </button>
               </div>
               <div className={styles.buttonBox2}>
-                <button name="save" onClick="" className={styles.button}>
+                <button name="save" className={styles.button}>
                   <Icon
                     style={{ color: "black", height: "30", width: "30" }}
                     icon="mdi:edit"
                     width={"4rem"}
-                    onClick={""}
                   ></Icon>
                 </button>
               </div>
               <div className={styles.buttonBox}>
-                <button name="save" onClick="" className={styles.button}>
+                <button name="save" className={styles.button}>
                   <Icon
                     style={{ color: "black", height: "30", width: "30" }}
                     icon="mdi:delete"
                     width={"4rem"}
-                    onClick={""}
                   ></Icon>
                 </button>
               </div>

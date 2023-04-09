@@ -15,6 +15,8 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
+import axios from "axios";
+const { URL } = require("../creds");
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -50,26 +52,6 @@ const options = {
     },
   },
 };
-
-const labels = ["COMP", "IT", "MECH", "CIVIL", "ENE", "ETC"];
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      // label: "Students Placed",
-      data: [40, 38, 10, 11, 8, 15],
-      backgroundColor: [
-        "#806BFF",
-        "#A15BF9",
-        "#23B9F9",
-        "#2200F4",
-        "#47FFDE",
-        "#002966",
-      ],
-    },
-  ],
-};
-
 const Sdata = [
   {
     id: 1,
@@ -358,13 +340,39 @@ const Sdata = [
   // Add more dummy student data as needed
 ];
 const Analytics = () => {
-  const [students, setStudents] = useState(Sdata);
-  const [currentpage, setCurrentpage] = useState("/Analytics");
+  const [students, setStudents] = useState([]);
   const router = useRouter();
+  const [placeddata, setPlaceddata] = useState([]);
   useEffect(() => {
-    console.log(router.pathname, "name");
-    setCurrentpage(router.pathname);
-  }, [router]);
+    axios
+      .get(URL + "/placed")
+      .then((res) => {
+        console.log(res.data.doc);
+        setPlaceddata(res.data.doc);
+        var t = [];
+        Object.values(res.data.doc).map((ele) => {
+          t = t.concat(ele);
+        });
+
+        setStudents(
+          t.map((ele) => {
+            return {
+              id: ele._id,
+              company: ele.offerid.nameCompany,
+              name: ele.studentid.name,
+              roll: "101",
+              department: ele.studentid.branch,
+              package: ele.package,
+              email: ele.studentid.email,
+            };
+          })
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className={styles.main}>
       <div className={styles.descboxes}>
@@ -417,33 +425,33 @@ const Analytics = () => {
       <div className={styles.barchartsection}>
         <p>DEPARTMENT VIEW</p>
         <div className={styles.barchartcont}>
-          <Bar options={options} data={data} />
+          <Bar
+            options={options}
+            data={{
+              labels: Object.keys(placeddata),
+              datasets: [
+                {
+                  label: "Students Placed",
+                  data: Object.values(placeddata).map((ele) => {
+                    return ele.length;
+                  }),
+                  backgroundColor: [
+                    "#806BFF",
+                    "#23B9F9",
+                    "#2200F4",
+                    "#47FFDE",
+                    "#002966",
+                  ],
+                },
+              ],
+            }}
+          />
         </div>
       </div>
 
       <div className={styles.bottomsec}>
         <div className={styles.listCon}>
           <div className={styles.list}>
-            {/* <TableScrollbar>
-              <table className={styles.table} scro>
-                <thead className={styles.thead}>
-                  <tr className={styles.tr}>
-                    <th className={styles.th}>Name</th>
-                    <th className={styles.th}>Department</th>
-                    <th className={styles.th}>Company</th>
-                  </tr>
-                </thead>
-                <tbody className={styles.tbody}>
-                  {students.map((student) => (
-                    <tr key={student.roll}>
-                      <td className={styles.td}>{student.name}</td>
-                      <td className={styles.td}>{student.department}</td>
-                      <td className={styles.td}>{student.company}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </TableScrollbar> */}
             <DataGrid
               rows={students}
               columns={columns}
@@ -463,13 +471,12 @@ const Analytics = () => {
                 fontWeight: 500,
                 width: 700,
               }}
-              hideFooter
-              isColumnSelectable={(params) => {
-                setSelected(params.column);
-              }}
-              isRowSelectable={(params) => {
-                setSelected(params.row);
-              }}
+              // isColumnSelectable={(params) => {
+              //   setSelected(params.column);
+              // }}
+              // isRowSelectable={(params) => {
+              //   setSelected(params.row);
+              // }}
               pageSizeOptions={[10, 20, 30]}
 
               // se
@@ -478,8 +485,27 @@ const Analytics = () => {
         </div>
 
         <div className={styles.doughnut}>
-          <p>Analysis</p>
-          <Doughnut data={data} />
+          {/* <p>Analysis</p> */}
+          <Doughnut
+            data={{
+              labels: Object.keys(placeddata),
+              datasets: [
+                {
+                  label: "Students Placed",
+                  data: Object.values(placeddata).map((ele) => {
+                    return ele.length;
+                  }),
+                  backgroundColor: [
+                    "#806BFF",
+                    "#23B9F9",
+                    "#2200F4",
+                    "#47FFDE",
+                    "#002966",
+                  ],
+                },
+              ],
+            }}
+          />
         </div>
       </div>
     </div>
