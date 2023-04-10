@@ -58,24 +58,29 @@ const data = [
     id: 1,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2022, 2, 23),
     name: "John Doe",
     roll: "101",
     department: "CS",
     package: "6 LPA",
     email: "johndoe@email.com",
+    date: new Date(2021, 5, 20),
   },
   {
     id: 2,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2022, 2, 23),
     name: "Jane Doe",
     roll: "102",
     department: "MEC",
     package: "5 LPA",
     email: "janedoe@email.com",
+    date: new Date(2021, 5, 20),
   },
 
   {
+    date: new Date(2021, 5, 20),
     id: 3,
     cgpa: "8.5",
     company: "TCS",
@@ -86,6 +91,7 @@ const data = [
     email: "jimsmith@email.com",
   },
   {
+    date: new Date(2021, 5, 20),
     id: 4,
     cgpa: "8.5",
     company: "TCS",
@@ -96,6 +102,7 @@ const data = [
     email: "sarahjohnson@email.com",
   },
   {
+    date: new Date(2021, 5, 20),
     id: 5,
     cgpa: "8.5",
     company: "TCS",
@@ -109,6 +116,7 @@ const data = [
     id: 6,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2022, 2, 23),
     name: "Emily Davis",
     roll: "106",
     department: "MEC",
@@ -119,6 +127,7 @@ const data = [
     id: 7,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2022, 2, 23),
     name: "Michael Brown",
     roll: "107",
     department: "EE",
@@ -129,6 +138,7 @@ const data = [
     id: 8,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2022, 2, 23),
     name: "John Doe",
     roll: "101",
     department: "CS",
@@ -140,6 +150,7 @@ const data = [
     id: 9,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2022, 2, 23),
     name: "Jane Doe",
     roll: "102",
     department: "MEC",
@@ -151,6 +162,7 @@ const data = [
     id: 10,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2022, 2, 23),
     name: "Jim Smith",
     roll: "103",
     department: "EE",
@@ -161,6 +173,7 @@ const data = [
     id: 11,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2020, 2, 23),
     name: "Sarah Johnson",
     roll: "104",
     department: "Civil",
@@ -171,6 +184,7 @@ const data = [
     id: 12,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2020, 2, 23),
     name: "Bob Wilson",
     roll: "105",
     department: "CS",
@@ -181,6 +195,7 @@ const data = [
     id: 13,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2020, 2, 23),
     name: "Emily Davis",
     roll: "106",
     department: "IT",
@@ -191,6 +206,7 @@ const data = [
     id: 14,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2020, 2, 23),
     name: "Michael Brown",
     roll: "107",
     department: "IT",
@@ -201,6 +217,7 @@ const data = [
     id: 15,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2020, 2, 23),
     name: "Jennifer Clark",
     roll: "108",
     department: "Civil",
@@ -211,6 +228,7 @@ const data = [
     id: 16,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2020, 2, 23),
     name: "William Jones",
     roll: "109",
     department: "CS",
@@ -221,6 +239,7 @@ const data = [
     id: 17,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2020, 2, 23),
     name: "Amanda Smith",
     roll: "110",
     department: "MEC",
@@ -231,6 +250,7 @@ const data = [
     id: 18,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2022, 2, 23),
     name: "David Johnson",
     roll: "111",
     department: "EE",
@@ -241,6 +261,7 @@ const data = [
     id: 19,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2022, 2, 23),
     name: "James Davis",
     roll: "112",
     department: "Civil",
@@ -251,6 +272,7 @@ const data = [
     id: 20,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2021, 2, 23),
     name: "Daniel Wilson",
     roll: "113",
     department: "CS",
@@ -261,6 +283,7 @@ const data = [
     id: 21,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2022, 2, 23),
     name: "Emily Jones",
     roll: "114",
     department: "MEC",
@@ -271,6 +294,7 @@ const data = [
     id: 22,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2022, 2, 23),
     name: "Michael Smith",
     roll: "115",
     department: "EE",
@@ -281,6 +305,7 @@ const data = [
     id: 23,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2021, 2, 23),
     name: "Jennifer Davis",
     roll: "116",
     department: "Civil",
@@ -291,6 +316,7 @@ const data = [
     id: 24,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2022, 2, 23),
     name: "William Clark",
     roll: "117",
     department: "CS",
@@ -302,6 +328,7 @@ const data = [
     id: 25,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2021, 2, 23),
     name: "John Doe",
     roll: "101",
     department: "CS",
@@ -312,6 +339,7 @@ const data = [
     id: 26,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2021, 2, 23),
     name: "Jane Doe",
     roll: "102",
     department: "MEC",
@@ -322,6 +350,7 @@ const data = [
     id: 27,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2021, 2, 23),
     name: "Jim Smith",
     roll: "103",
     department: "EE",
@@ -332,6 +361,7 @@ const data = [
     id: 28,
     cgpa: "8.5",
     company: "TCS",
+    date: new Date(2021, 2, 23),
     name: "Sarah Johnson",
     roll: "104",
     department: "Civil",
@@ -358,16 +388,25 @@ const data2 = {
 };
 const optionsB = [
   { value: "Year", label: "Year" },
-  { value: "Year", label: "2000" },
-  { value: "Year", label: "2001" },
-  { value: "Year", label: "2002" },
-  { value: "Year", label: "2003" },
-  { value: "Year", label: "2004" },
-  { value: "Year", label: "2005" },
+  { value: "2020", label: "2020" },
+  { value: "2021", label: "2021" },
+  { value: "2022", label: "2022" },
+  { value: "2023", label: "2023" },
+  { value: "2024", label: "2024" },
+  { value: "2025", label: "2025" },
 ];
 
 const Archive = () => {
   const [students, setStudents] = useState(data);
+  // const [filteredYear, setFilteredYear] = useState("2020");
+
+  // const filterChangeHandler = (event) => {
+  //   filterChangeHandler(event.target.value);
+  // };
+
+  // const filteredExpenses = props.items.filter((expense) => {
+  //   return expense.date.getFullYear().toString() === filteredYear;
+  // });
   return (
     <div className={styles.main}>
       <div className={styles.container}>
@@ -389,6 +428,7 @@ const Archive = () => {
                   className={styles.dropdown}
                   placeholder={"2023"}
                   options={optionsB}
+                  // onChange={filterChangeHandler}
                 ></Select>
               </div>
               <div className={styles.list}>

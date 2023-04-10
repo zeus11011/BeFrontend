@@ -1,0 +1,146 @@
+@import "_mixin";
+
+.main {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100000;
+  @include center;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 80%;
+  width: 70%;
+  max-width: 70%;
+  min-width: 70%;
+  max-height: 80%;
+  min-height: 80%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.navCon {
+  //   height: 20rem;
+  width: 30%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.infoCon {
+  //   height: 20rem;
+  width: 70%;
+  border: 1px solid black;
+}
+.buttonBox {
+  margin-top: 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.dataBox {
+  height: 70%;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+.contentStyle {
+  width: 55vw;
+  height: 55vh;
+  line-height: "260px";
+  text-align: "center";
+  background-color: rgba(128, 128, 128, 0.156);
+  border-radius: 5px;
+  border: 1px dashed black;
+  margin-top: 16;
+}
+.steps {
+  width: 40%;
+  font-weight: 900;
+}
+
+.editButton {
+  background-color: black;
+  width: 8vw;
+  height: 5vh;
+  font-size: 2rem;
+  color: white;
+  padding-top: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 0.5rem;
+  border-radius: 12px;
+}
+
+.cancelButton {
+  background-color: black;
+  width: 8vw;
+  height: 5vh;
+  font-size: 2rem;
+  color: white;
+  padding-top: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 0.5rem;
+  border-radius: 12px;
+}
+
+.personalCon {
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.image {
+  margin-left: 5rem;
+}
+.details {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.detailBox {
+  padding-left: 2rem;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+}
+
+.box2 {
+  left: 10px;
+  font-size: 1rem;
+}
+.textfiled {
+  font-size: 22px;
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 1px solid black;
+}
+.inputFields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  //   flex-wrap: wrap;
+}
+
+// .editModal {
+//   z-index: 10000001;
+// }
