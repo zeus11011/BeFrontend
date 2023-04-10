@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/Card.module.scss";
+import { Icon } from "@iconify/react";
 import Image from "next/image";
 import { Button, message, Steps, theme, ConfigProvider, Modal } from "antd";
 
@@ -216,6 +217,10 @@ const EditModal = ({ toggleModal }) => {
     <>
       {isModalOpen ? (
         <Modal
+          mousePosition={{
+            x: 300,
+            y: 300,
+          }}
           className={styles.editModal}
           destroyOnClose
           open={toggleEditModal}
@@ -237,6 +242,21 @@ const EditModal = ({ toggleModal }) => {
       )}
       <div className={styles.main}>
         <div className={styles.container}>
+          <div className={styles.cancelIcon}>
+            <Button className={styles.cancelIconButton} onClick={toggleModal}>
+              {" "}
+              <Icon
+                style={{
+                  color: "black",
+                  height: "30",
+                  width: "30",
+                  // paddingBottom: "4rem",
+                }}
+                icon="ic:baseline-cancel"
+                width={"2rem"}
+              ></Icon>
+            </Button>
+          </div>
           <div className={styles.dataBox}>
             <>
               <ConfigProvider
