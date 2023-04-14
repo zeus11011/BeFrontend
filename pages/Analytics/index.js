@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import styles from "../styles/Analytics.module.scss";
+import styles from "../../styles/Analytics.module.scss";
 import { Icon } from "@iconify/react";
 import TableScrollbar from "react-table-scrollbar";
 import { useRouter } from "next/router";
 import { Bar, Doughnut } from "react-chartjs-2";
 import { DataGrid } from "@mui/x-data-grid";
+
+import { InfinitySpin } from "react-loader-spinner";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -16,7 +19,8 @@ import {
   ArcElement,
 } from "chart.js";
 import axios from "axios";
-const { URL } = require("../creds");
+import { useSelector } from "react-redux";
+const { URL } = require("../../creds");
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -52,304 +56,21 @@ const options = {
     },
   },
 };
-const Sdata = [
-  {
-    id: 1,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "John Doe",
-    roll: "101",
-    department: "CS",
-    package: "6 LPA",
-    email: "johndoe@email.com",
-  },
-  {
-    id: 2,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Jane Doe",
-    roll: "102",
-    department: "MEC",
-    package: "5 LPA",
-    email: "janedoe@email.com",
-  },
 
-  {
-    id: 3,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Jim Smith",
-    roll: "103",
-    department: "EE",
-    package: "7 LPA",
-    email: "jimsmith@email.com",
-  },
-  {
-    id: 4,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Sarah Johnson",
-    roll: "104",
-    department: "Civil",
-    package: "6.5 LPA",
-    email: "sarahjohnson@email.com",
-  },
-  {
-    id: 5,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Bob Wilson",
-    roll: "105",
-    department: "CS",
-    package: "5.5 LPA",
-    email: "bobwilson@email.com",
-  },
-  {
-    id: 6,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Emily Davis",
-    roll: "106",
-    department: "MEC",
-    package: "6 LPA",
-    email: "emilydavis@email.com",
-  },
-  {
-    id: 7,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Michael Brown",
-    roll: "107",
-    department: "EE",
-    package: "7.5 LPA",
-    email: "michaelbrown@email.com",
-  },
-  {
-    id: 8,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "John Doe",
-    roll: "101",
-    department: "CS",
-    package: "6 LPA",
-    email: "johndoe@email.com",
-  },
-
-  {
-    id: 9,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Jane Doe",
-    roll: "102",
-    department: "MEC",
-    package: "5 LPA",
-    email: "janedoe@email.com",
-  },
-
-  {
-    id: 10,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Jim Smith",
-    roll: "103",
-    department: "EE",
-    package: "7 LPA",
-    email: "jimsmith@email.com",
-  },
-  {
-    id: 11,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Sarah Johnson",
-    roll: "104",
-    department: "Civil",
-    package: "6.5 LPA",
-    email: "sarahjohnson@email.com",
-  },
-  {
-    id: 12,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Bob Wilson",
-    roll: "105",
-    department: "CS",
-    package: "5.5 LPA",
-    email: "bobwilson@email.com",
-  },
-  {
-    id: 13,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Emily Davis",
-    roll: "106",
-    department: "IT",
-    package: "6 LPA",
-    email: "emilydavis@email.com",
-  },
-  {
-    id: 14,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Michael Brown",
-    roll: "107",
-    department: "IT",
-    package: "7.5 LPA",
-    email: "michaelbrown@email.com",
-  },
-  {
-    id: 15,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Jennifer Clark",
-    roll: "108",
-    department: "Civil",
-    package: "6 LPA",
-    email: "jenniferclark@email.com",
-  },
-  {
-    id: 16,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "William Jones",
-    roll: "109",
-    department: "CS",
-    package: "5.5 LPA",
-    email: "williamjones@email.com",
-  },
-  {
-    id: 17,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Amanda Smith",
-    roll: "110",
-    department: "MEC",
-    package: "6.5 LPA",
-    email: "amandasmith@email.com",
-  },
-  {
-    id: 18,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "David Johnson",
-    roll: "111",
-    department: "EE",
-    package: "7 LPA",
-    email: "davidjohnson@email.com",
-  },
-  {
-    id: 19,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "James Davis",
-    roll: "112",
-    department: "Civil",
-    package: "6 LPA",
-    email: "jamesdavis@email.com",
-  },
-  {
-    id: 20,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Daniel Wilson",
-    roll: "113",
-    department: "CS",
-    package: "5.5 LPA",
-    email: "danielwilson@email.com",
-  },
-  {
-    id: 21,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Emily Jones",
-    roll: "114",
-    department: "MEC",
-    package: "6.5 LPA",
-    email: "emilyjones@email.com",
-  },
-  {
-    id: 22,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Michael Smith",
-    roll: "115",
-    department: "EE",
-    package: "7 LPA",
-    email: "michaelsmith@email.com",
-  },
-  {
-    id: 23,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Jennifer Davis",
-    roll: "116",
-    department: "Civil",
-    package: "6 LPA",
-    email: "jenniferdavis@email.com",
-  },
-  {
-    id: 24,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "William Clark",
-    roll: "117",
-    department: "CS",
-    package: "5.5 LPA",
-    email: "williamclark@email.com",
-  },
-
-  {
-    id: 25,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "John Doe",
-    roll: "101",
-    department: "CS",
-    package: "6 LPA",
-    email: "johndoe@email.com",
-  },
-  {
-    id: 26,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Jane Doe",
-    roll: "102",
-    department: "MEC",
-    package: "5 LPA",
-    email: "janedoe@email.com",
-  },
-  {
-    id: 27,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Jim Smith",
-    roll: "103",
-    department: "EE",
-    package: "7 LPA",
-    email: "jimsmith@email.com",
-  },
-  {
-    id: 28,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Sarah Johnson",
-    roll: "104",
-    department: "Civil",
-    package: "6.5 LPA",
-    email: "sarahjohnson@email.com",
-  },
-  // Add more dummy student data as needed
-];
 const Analytics = () => {
   const [students, setStudents] = useState([]);
   const router = useRouter();
   const [placeddata, setPlaceddata] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [header, setHeader] = useState(null);
   useEffect(() => {
     axios
-      .get(URL + "/placed")
+      .get(URL + "/placed", { params: { year: new Date() } })
       .then((res) => {
-        console.log(res.data.doc);
+        console.log(res.data.doc, "docs asas");
         setPlaceddata(res.data.doc);
         var t = [];
+        setHeader(res.data.students);
         Object.values(res.data.doc).map((ele) => {
           t = t.concat(ele);
         });
@@ -367,12 +88,17 @@ const Analytics = () => {
             };
           })
         );
+        // console.log(res.data, "header");
+        setLoading(false);
       })
+
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
+  const user = useSelector((state) => state.user.value);
+  if (user == null) return <></>;
   return (
     <div className={styles.main}>
       <div className={styles.descboxes}>
@@ -389,7 +115,13 @@ const Analytics = () => {
             </div>
           </div>
           <p className={styles.head}>Total Students</p>
-          <p className={styles.p}>1600</p>
+          <p className={styles.p}>
+            {loading ? (
+              <InfinitySpin width="200" color="#4fa94d" />
+            ) : (
+              <>{header.studentdoc[0].count + header.studentdoc[1].count}</>
+            )}
+          </p>
         </div>
         <div className={styles.box}>
           <div className={styles.mainicon}>
@@ -404,7 +136,16 @@ const Analytics = () => {
             </div>
           </div>
           <p className={styles.head}>Students Placed</p>
-          <p className={styles.p}>160/1600</p>
+          <p className={styles.p}>
+            {loading ? (
+              <InfinitySpin width="200" color="#4fa94d" />
+            ) : (
+              <>
+                {header.studentdoc[1].count}/
+                {header.studentdoc[0].count + header.studentdoc[1].count}
+              </>
+            )}
+          </p>
         </div>
         <div className={styles.box}>
           <div className={styles.mainicon}>
@@ -419,7 +160,13 @@ const Analytics = () => {
             </div>
           </div>
           <p className={styles.head}>Company Arrived</p>
-          <p className={styles.p}>1600</p>
+          <p className={styles.p}>
+            {loading ? (
+              <InfinitySpin width="200" color="white" />
+            ) : (
+              <>{header.docs.length}</>
+            )}
+          </p>
         </div>
       </div>
       <div className={styles.barchartsection}>

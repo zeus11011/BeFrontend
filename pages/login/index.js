@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/Login.module.scss";
 import Image from "next/image";
 import { Checkbox } from "@mui/material";
 import Link from "next/link";
+import axios from "axios";
+import { URL } from "../../creds";
+import { useRouter } from "next/router";
 
-function admin() {
+function index() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [remember, setRemember] = useState(false);
+  const router = useRouter();
+  const login = () => {
+    axios
+      .post(URL + "/auth/admin/login", { email, password })
+      .then((res) => {
+        console.log(res.data);
+        localStorage.setItem("token", res.data.token);
+        router.push("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("token") != undefined) {
+      router.push("/");
+    }
+  }, []);
+
   return (
     <div className={styles.main}>
       <div className={styles.con1}>
@@ -26,6 +52,8 @@ function admin() {
                   name="email"
                   placeholder="Email"
                   className={styles.textfiled}
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                 ></input>
               </div>
             </div>
@@ -38,21 +66,23 @@ function admin() {
                   name="email"
                   placeholder="Password"
                   className={styles.textfiled}
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
                 ></input>
               </div>
             </div>
             <div className={styles.box5}>
               <Checkbox
                 label="checkbox"
-                value="true"
-                onChange=""
+                value={remember}
+                onChange={(event) => setRemember(event.target.value)}
                 className={styles.checkbox}
               ></Checkbox>
               Remember Password?
             </div>
             <div className={styles.box4}>
               <div className={styles.buttbox}>
-                <button name="login" onClick="" className={styles.button}>
+                <button className={styles.button} onClick={login}>
                   Log In
                 </button>
               </div>
@@ -70,8 +100,8 @@ function admin() {
     </div>
   );
 }
-export default admin;
+export default index;
 
-admin.getLayout = function PageLayout(page) {
+index.getLayout = function PageLayout(page) {
   return <> {page}</>;
 };

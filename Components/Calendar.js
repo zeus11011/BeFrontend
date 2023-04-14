@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 
 // import resourceTimelinePlugin from "@fullcalendar/resource-timeline"; // a plugin!
 import styled from "@emotion/styled";
-import { style } from "@mui/system";
+// import { style } from "@mui/system";
 import axios from "axios";
 const StyleWrapper = styled.div`
   // .fc-button.fc-prev-button,
@@ -57,14 +57,15 @@ const StyleWrapper = styled.div`
   --fc-today-bg-color: lightblue;
 `;
 
-const Calendar = () => {
+const Calendar = ({ hook }) => {
   const [modalopen, setModalopen] = useState(false);
   const [startdate, setStartdate] = useState(null);
   const [enddate, setEnddate] = useState(null);
   const [title, setTitle] = useState("");
   const [evets, setEvets] = useState([]);
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
+  const [eventtype, setEventtype] = useState("College");
+  useLayoutEffect(() => {
     fetchdata();
   }, []);
 
@@ -86,6 +87,7 @@ const Calendar = () => {
         start: startdate,
         end: enddate,
         title: title,
+        type: eventtype,
       })
       .then((res) => {
         console.log("data");
@@ -98,46 +100,45 @@ const Calendar = () => {
       });
     setModalopen(false);
   };
+  function dateDiffInDays(a, b) {
+    const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+    // Discard the time and time-zone information.
+    const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+    const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+
+    return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+  }
 
   const edit = (data) => {
-    console.log(data.oldEvent.extendedProps, "data", data.event);
-    axios
-      .post(URL + "/events/edit", {
-        id: data.oldEvent.extendedProps._id,
-        start: data.event.start,
-        end: data.event.end,
-      })
-      .then((res) => {
-        console.log("done");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const deleterecord = (data) => {
-    if (data.event.extendedProps._id != undefined) {
-      setLoading(true);
-      console.log(data.event.extendedProps._id, "event click");
+    if (dateDiffInDays(new Date(), new Date(data.start)) >= 0) {
+      console.log(data.oldEvent.extendedProps, "data", data.event);
       axios
-        .get(URL + "/events/delete", {
-          params: { id: data.event.extendedProps._id },
+        .post(URL + "/events/edit", {
+          id: data.oldEvent.extendedProps._id,
+          start: data.event.start,
+          end: data.event.end,
         })
         .then((res) => {
-          console.log(res);
-          toast.success("Deleted The event !", {
-            position: toast.POSITION.BOTTOM_RIGHT,
-            theme: "dark",
-          });
-          fetchdata();
+          console.log("done");
         })
         .catch((err) => {
-          toast.error("Error Deleting event !", {
-            position: toast.POSITION.BOTTOM_RIGHT,
-            theme: "dark",
-          });
           console.log(err);
         });
+    } else {
+      toast.error("Can't Edit Previos Events");
+    }
+  };
+
+  const selectevent = (data) => {
+    if (data.event.extendedProps._id != undefined) {
+      // setLoading(true);
+      console.log(data.event, "event click");
+      hook({
+        id: data.event.extendedProps._id,
+        title: data.event.title,
+        start: data.event.start,
+        end: data.event.end,
+      });
     } else {
     }
   };
@@ -218,7 +219,7 @@ const Calendar = () => {
             editable={true}
             eventDurationEditable={true}
             eventMouseEnter={(eve) => console.log(eve, "Eve")}
-            eventClick={deleterecord}
+            eventClick={selectevent}
           />
           {modalopen ? (
             <div className={styles.modal}>
@@ -233,8 +234,34 @@ const Calendar = () => {
                   />
                 </div>
                 <div>
-                  <p>From: {new Date(startdate).toString()}</p>
-                  <p>End: {new Date(enddate).toString()}</p>
+                  <label>Event Type</label>
+                  <select
+                    value={eventtype}
+                    onChange={(event) => {
+                      setEventtype(event.target.value);
+                    }}
+                  >
+                    <option value={"College"}>College event</option>
+                    <option value={"Company"}>Company Event</option>
+                  </select>
+                </div>
+                <div>
+                  <p>
+                    From:{" "}
+                    {new Date(startdate).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </p>
+                  <p>
+                    End:{" "}
+                    {new Date(enddate).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </p>
                 </div>
                 <div>
                   <button onClick={() => add()}>Confirm</button>

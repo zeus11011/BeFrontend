@@ -19,24 +19,32 @@ import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 
 import { Navigation, Pagination } from "swiper";
+import { useSelector } from "react-redux";
 
 export default function Home() {
-  const [currentpage, setCurrentpage] = useState("/");
+  const user = useSelector((state) => state.user.value);
+  // const [currentpage, setCurrentpage] = useState("/");
   const [number, setNumber] = useState(undefined);
   const router = useRouter();
+  const [companies, setCompanies] = useState([]);
+  console.log(user, "usersss");
   useEffect(() => {
     axios
       .get(URL + "/student/getdashboard")
       .then((res) => {
         console.log(res.data);
-        setNumber(res.data);
+        setNumber({
+          student: res.data.student,
+          companycount: res.data.companycount,
+        });
+        setCompanies(res.data.upcoming);
       })
       .catch((err) => {
         console.log(err);
       });
-    console.log(router.pathname, "name");
-    setCurrentpage(router.pathname);
-  }, [router]);
+  }, [user]);
+
+  if (user == null) return <></>;
   return (
     <div className={styles.main}>
       <div className={styles.descboxes}>
@@ -111,86 +119,64 @@ export default function Home() {
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper) => console.log(swiper)}
             >
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.card}>
-                    <img
-                      alt=""
-                      src={"/Infosys_logo.svg.png"}
-                      className={styles.img}
-                    ></img>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.card}>
-                    <img
-                      alt=""
-                      src={"/Infosys_logo.svg.png"}
-                      className={styles.img}
-                    ></img>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.card}>
-                    <img
-                      alt=""
-                      src={"/Infosys_logo.svg.png"}
-                      className={styles.img}
-                    ></img>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.card}>
-                    <img
-                      alt=""
-                      src={"/Infosys_logo.svg.png"}
-                      className={styles.img}
-                    ></img>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.card}>
-                    <img
-                      alt=""
-                      src={"/Infosys_logo.svg.png"}
-                      className={styles.img}
-                    ></img>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
+              {companies.length > 0 ? (
+                companies.map((ele, index) => {
+                  return (
+                    <SwiperSlide key={index}>
+                      <div className={styles.card1box}>
+                        <div className={styles.box}>
+                          <h1>{ele.nameCompany}</h1>
+                          <p className={styles.p}>
+                            {new Date(ele.dates[0].start).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              }
+                            )}{" "}
+                            To{" "}
+                            {new Date(ele.dates[0].end).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              }
+                            )}
+                          </p>
+                          Roles:
+                          <div
+                            style={{
+                              display: "grid",
+                              gridTemplateColumns: "1fr 1fr",
+                              columnGap: "10px",
+                            }}
+                          >
+                            {ele.roles.map((item, i) => {
+                              return <p key={i}>{item}</p>;
+                            })}
+                          </div>
+                          CTC:
+                          <div
+                            style={{
+                              display: "grid",
+                              gridTemplateColumns: "1fr 1fr",
+                              columnGap: "10px",
+                            }}
+                          >
+                            {ele.ctc.map((item, index) => {
+                              return <p>{item}</p>;
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  );
+                })
+              ) : (
+                <>Nothing to show</>
+              )}
             </Swiper>
           </div>
         </div>

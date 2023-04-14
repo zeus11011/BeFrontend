@@ -10,293 +10,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import axios from "axios";
 import { URL } from "../../creds.js";
-// const data = [
-//   {
-//     id: 1,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "John Doe",
-//     roll: "101",
-//     department: "CS",
-//     package: "6 LPA",
-//     email: "johndoe@email.com",
-//   },
-//   {
-//     id: 2,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Jane Doe",
-//     roll: "102",
-//     department: "MEC",
-//     package: "5 LPA",
-//     email: "janedoe@email.com",
-//   },
-
-//   {
-//     id: 3,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Jim Smith",
-//     roll: "103",
-//     department: "EE",
-//     package: "7 LPA",
-//     email: "jimsmith@email.com",
-//   },
-//   {
-//     id: 4,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Sarah Johnson",
-//     roll: "104",
-//     department: "Civil",
-//     package: "6.5 LPA",
-//     email: "sarahjohnson@email.com",
-//   },
-//   {
-//     id: 5,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Bob Wilson",
-//     roll: "105",
-//     department: "CS",
-//     package: "5.5 LPA",
-//     email: "bobwilson@email.com",
-//   },
-//   {
-//     id: 6,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Emily Davis",
-//     roll: "106",
-//     department: "MEC",
-//     package: "6 LPA",
-//     email: "emilydavis@email.com",
-//   },
-//   {
-//     id: 7,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Michael Brown",
-//     roll: "107",
-//     department: "EE",
-//     package: "7.5 LPA",
-//     email: "michaelbrown@email.com",
-//   },
-//   {
-//     id: 8,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "John Doe",
-//     roll: "101",
-//     department: "CS",
-//     package: "6 LPA",
-//     email: "johndoe@email.com",
-//   },
-
-//   {
-//     id: 9,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Jane Doe",
-//     roll: "102",
-//     department: "MEC",
-//     package: "5 LPA",
-//     email: "janedoe@email.com",
-//   },
-
-//   {
-//     id: 10,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Jim Smith",
-//     roll: "103",
-//     department: "EE",
-//     package: "7 LPA",
-//     email: "jimsmith@email.com",
-//   },
-//   {
-//     id: 11,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Sarah Johnson",
-//     roll: "104",
-//     department: "Civil",
-//     package: "6.5 LPA",
-//     email: "sarahjohnson@email.com",
-//   },
-//   {
-//     id: 12,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Bob Wilson",
-//     roll: "105",
-//     department: "CS",
-//     package: "5.5 LPA",
-//     email: "bobwilson@email.com",
-//   },
-//   {
-//     id: 13,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Emily Davis",
-//     roll: "106",
-//     department: "IT",
-//     package: "6 LPA",
-//     email: "emilydavis@email.com",
-//   },
-//   {
-//     id: 14,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Michael Brown",
-//     roll: "107",
-//     department: "IT",
-//     package: "7.5 LPA",
-//     email: "michaelbrown@email.com",
-//   },
-//   {
-//     id: 15,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Jennifer Clark",
-//     roll: "108",
-//     department: "Civil",
-//     package: "6 LPA",
-//     email: "jenniferclark@email.com",
-//   },
-//   {
-//     id: 16,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "William Jones",
-//     roll: "109",
-//     department: "CS",
-//     package: "5.5 LPA",
-//     email: "williamjones@email.com",
-//   },
-//   {
-//     id: 17,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Amanda Smith",
-//     roll: "110",
-//     department: "MEC",
-//     package: "6.5 LPA",
-//     email: "amandasmith@email.com",
-//   },
-//   {
-//     id: 18,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "David Johnson",
-//     roll: "111",
-//     department: "EE",
-//     package: "7 LPA",
-//     email: "davidjohnson@email.com",
-//   },
-//   {
-//     id: 19,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "James Davis",
-//     roll: "112",
-//     department: "Civil",
-//     package: "6 LPA",
-//     email: "jamesdavis@email.com",
-//   },
-//   {
-//     id: 20,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Daniel Wilson",
-//     roll: "113",
-//     department: "CS",
-//     package: "5.5 LPA",
-//     email: "danielwilson@email.com",
-//   },
-//   {
-//     id: 21,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Emily Jones",
-//     roll: "114",
-//     department: "MEC",
-//     package: "6.5 LPA",
-//     email: "emilyjones@email.com",
-//   },
-//   {
-//     id: 22,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Michael Smith",
-//     roll: "115",
-//     department: "EE",
-//     package: "7 LPA",
-//     email: "michaelsmith@email.com",
-//   },
-//   {
-//     id: 23,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Jennifer Davis",
-//     roll: "116",
-//     department: "Civil",
-//     package: "6 LPA",
-//     email: "jenniferdavis@email.com",
-//   },
-//   {
-//     id: 24,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "William Clark",
-//     roll: "117",
-//     department: "CS",
-//     package: "5.5 LPA",
-//     email: "williamclark@email.com",
-//   },
-
-//   {
-//     id: 25,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "John Doe",
-//     roll: "101",
-//     department: "CS",
-//     package: "6 LPA",
-//     email: "johndoe@email.com",
-//   },
-//   {
-//     id: 26,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Jane Doe",
-//     roll: "102",
-//     department: "MEC",
-//     package: "5 LPA",
-//     email: "janedoe@email.com",
-//   },
-//   {
-//     id: 27,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Jim Smith",
-//     roll: "103",
-//     department: "EE",
-//     package: "7 LPA",
-//     email: "jimsmith@email.com",
-//   },
-//   {
-//     id: 28,
-//     cgpa: "8.5",
-//     company: "TCS",
-//     name: "Sarah Johnson",
-//     roll: "104",
-//     department: "Civil",
-//     package: "6.5 LPA",
-//     email: "sarahjohnson@email.com",
-//   },
-//   // Add more dummy student data as needed
-// ];
+import { useSelector } from "react-redux";
 const columns = [
   {
     field: "prnumber",
@@ -310,7 +24,6 @@ const columns = [
     headerName: "Package",
     width: 120,
     renderCell: (param) => {
-      console.log(param, "render cell");
       if (param.row.placedDoc) return <>{param.row.placedDoc.package}</>;
       else return <>-</>;
     },
@@ -356,6 +69,9 @@ const Students = () => {
         console.log(err, "err");
       });
   };
+
+  const user = useSelector((state) => state.user.value);
+  if (user == null) return <></>;
   return (
     <div className={styles.main}>
       <div className={styles.main1}>
@@ -397,14 +113,14 @@ const Students = () => {
             }}
             hideFooter
             isColumnSelectable={(params) => {
+              console.log(params, "params afer selected columns");
               setSelected(params.column);
             }}
             isRowSelectable={(params) => {
+              console.log(params, "params afer selected row");
               setSelected(params.row);
             }}
             pageSizeOptions={[10, 20, 30]}
-
-            // se
           />
         </div>
         <div className={styles.addBoxCon}>
@@ -472,16 +188,6 @@ const Students = () => {
                   <Icon
                     style={{ color: "black", height: "30", width: "30" }}
                     icon="mdi:message-outline"
-                    width={"4rem"}
-                    onClick={""}
-                  ></Icon>
-                </button>
-              </div>
-              <div className={styles.buttonBox}>
-                <button name="save" onClick="" className={styles.button}>
-                  <Icon
-                    style={{ color: "black", height: "30", width: "30" }}
-                    icon="mdi:delete"
                     width={"4rem"}
                     onClick={""}
                   ></Icon>
