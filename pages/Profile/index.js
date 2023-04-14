@@ -1,12 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import styles from "../../styles/Profile.module.scss";
+import { useSelector } from "react-redux";
 
 const index = () => {
   const options = ["2000", "2001", "2002", "2003", "2004"];
   const onOptionChangeHandler = (event) => {
     console.log("User Selected Value - ", event.target.value);
   };
+
+  const user = useSelector((state) => state.user.value);
+  if (user == null) return <></>;
   return (
     <div className={styles.main}>
       <div className={styles.mainbox}>

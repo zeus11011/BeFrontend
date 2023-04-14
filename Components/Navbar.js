@@ -4,11 +4,16 @@ import { Inter } from "@next/font/google";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { logout } from "../store/Reducers/userSlice";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+  const router = useRouter();
   const handleBackdropClick = (event) => {
     if (event.target === event.currentTarget) {
       setIsOpen(false);
@@ -19,7 +24,6 @@ const Navbar = () => {
       setIsOpen(false);
     }
   };
-  const router = useRouter();
   const getName = () => {
     const name = router.pathname;
     console.log(name);
@@ -47,6 +51,12 @@ const Navbar = () => {
     zIndex: "10",
   };
 
+  const logoutuser = () => {
+    dispatch(logout());
+    router.push("/login");
+  };
+
+  const user = useSelector((state) => state.user.value);
   return (
     <div className={[inter.className, styles.main].join(" ")}>
       <div className={styles.namesec}>
@@ -74,7 +84,9 @@ const Navbar = () => {
           />
         </div>
         <div>
-          <h1 style={{ fontWeight: "bold", fontFamily: "inherit" }}>Don Joe</h1>
+          <h1 style={{ fontWeight: "bold", fontFamily: "inherit" }}>
+            {user ? user.name : ""}
+          </h1>
           <div>
             {isOpen && (
               <div
@@ -87,7 +99,10 @@ const Navbar = () => {
                   <button onClick={handleBackdropClick}>CLOSE</button>
                   <p>MY PROFILE</p>
                   <p>SETTINGS</p>
-                  <p>LOG OUT</p>
+                  <button onClick={logoutuser}>
+                    {" "}
+                    <p>LOG OUT</p>
+                  </button>
                   <p>CONTACT US</p>
                 </div>
               </div>

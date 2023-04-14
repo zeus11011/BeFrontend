@@ -4,15 +4,46 @@ import styles from "../styles/Drawer.module.scss";
 import { Montserrat } from "@next/font/google";
 import { Icon } from "@iconify/react";
 import { useRouter } from "next/router";
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
+import { URL } from "../creds";
+import { setUser } from "../store/Reducers/userSlice";
+import { toast } from "react-toastify";
 
 const font = Montserrat({ subsets: ["latin"] });
 function Drawer() {
+  const dispatch = useDispatch();
+
   const [currentpage, setCurrentpage] = useState("/");
   const router = useRouter();
   useEffect(() => {
+    // localStorage.removeItem("token");
+    // console.log(localStorage.getItem("token"), "otken adta");
+    // if (localStorage.getItem("token") === null) {
+    //   console.log("navigating");
+    //   router.push("/login");
+    //   // return;
+    // } else {
+
     console.log(router.pathname, "name");
     setCurrentpage(router.pathname);
+    // }
   }, [router]);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    console.log(token, "token");
+    if (token) {
+      axios
+        .get(URL + "/auth/admin/verify", { headers: { Authorization: token } })
+        .then((res) => {
+          console.log("tooken", res.data);
+          dispatch(setUser(res.data));
+        });
+    } else {
+      toast.error("Authentication error!!!", { theme: "dark" });
+      router.push("/login");
+    }
+  }, []);
   return (
     <div className={[styles.drawer, font.className].join(" ")}>
       <div className={styles.contmain}>
@@ -99,7 +130,7 @@ function Drawer() {
             <p>Archive</p>
           </div>
         </div>
-        <div
+        {/* <div
           className={styles.mainitem}
           onClick={() => {
             router.push("Placed");
@@ -115,7 +146,7 @@ function Drawer() {
             <Icon icon="mdi:handshake" color="white" width={"2.5rem"} />
             <p>Placed</p>
           </div>
-        </div>
+        </div> */}
         <div
           className={styles.mainitem}
           onClick={() => {

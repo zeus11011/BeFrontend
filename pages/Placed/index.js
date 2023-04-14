@@ -5,6 +5,7 @@ import styles from "../../styles/Placed.module.scss";
 import TableScrollbar from "react-table-scrollbar";
 import { DataGrid } from "@mui/x-data-grid";
 import { Icon } from "@iconify/react";
+import { useSelector } from "react-redux";
 
 const data = [
   {
@@ -318,6 +319,9 @@ const Placed = () => {
     console.log(d);
     setStudents(d);
   }, []);
+
+  const user = useSelector((state) => state.user.value);
+  if (user == null) return <></>;
   return (
     <div className={styles.main}>
       <div className={styles.main1}>
