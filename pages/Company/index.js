@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
+
 import { URL } from "../../creds";
 
 import { Navigation, Pagination } from "swiper";

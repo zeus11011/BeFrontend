@@ -33,3 +33,6 @@ a:hover {
 .swiper-pagination-bullet-active {
   background-color: #000 !important;
 }
+:where(.css-dev-only-do-not-override-1vtf12y).ant-modal-root .ant-modal-wrap {
+  z-index: 10000000;
+}
