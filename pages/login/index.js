@@ -7,7 +7,7 @@ import axios from "axios";
 import { URL } from "../../creds";
 import { useRouter } from "next/router";
 
-function index() {
+function Index() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
@@ -100,8 +100,8 @@ function index() {
     </div>
   );
 }
-export default index;
+export default Index;
 
-index.getLayout = function PageLayout(page) {
+Index.getLayout = function PageLayout(page) {
   return <> {page}</>;
 };
