@@ -95,7 +95,6 @@ const optionsB = Array.from(
   }
 );
 
-
 const optionsline = {
   responsive: true,
   plugins: {
@@ -106,36 +105,34 @@ const optionsline = {
       display: true,
       text: "Students Placed",
     },
-
   },
 };
 
-const data2 = {
-  labels: labels,
-  datasets: [
-    {
-      data: [40, 38, 10, 11, 8, 15],
-      backgroundColor: [
-        "#806BFF",
-        "#A15BF9",
-        "#23B9F9",
-        "#2200F4",
-        "#47FFDE",
-        "#002966",
-      ],
-    },
-  ],
-};
-const optionsB = [
-  { value: "Year", label: "Year" },
-  { value: "2020", label: "2020" },
-  { value: "2021", label: "2021" },
-  { value: "2022", label: "2022" },
-  { value: "2023", label: "2023" },
-  { value: "2024", label: "2024" },
-  { value: "2025", label: "2025" },
-];
-
+// const data2 = {
+//   labels: labels,
+//   datasets: [
+//     {
+//       data: [40, 38, 10, 11, 8, 15],
+//       backgroundColor: [
+//         "#806BFF",
+//         "#A15BF9",
+//         "#23B9F9",
+//         "#2200F4",
+//         "#47FFDE",
+//         "#002966",
+//       ],
+//     },
+//   ],
+// };
+// const optionsB = [
+//   { value: "Year", label: "Year" },
+//   { value: "2020", label: "2020" },
+//   { value: "2021", label: "2021" },
+//   { value: "2022", label: "2022" },
+//   { value: "2023", label: "2023" },
+//   { value: "2024", label: "2024" },
+//   { value: "2025", label: "2025" },
+// ];
 
 const Archive = () => {
   const [students, setStudents] = useState([]);
@@ -216,7 +213,7 @@ const Archive = () => {
                   datasets: [
                     {
                       label: "Students placed record",
-                      data: graph.years.map((ele) => {
+                      data: graph.years?.map((ele) => {
                         return ele.count;
                       }),
                       borderColor: "rgb(0, 0,0)",
@@ -331,7 +328,6 @@ const Archive = () => {
         <div className={styles.con2}>
           <div className={styles.listMainCon}>
             <div className={styles.listCon}>
-
               {/*<div className={styles.dpCon}>
                 <Select
                   className={styles.dropdown}

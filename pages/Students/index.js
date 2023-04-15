@@ -6,11 +6,6 @@ import TableScrollbar from "react-table-scrollbar";
 import { DataGrid } from "@mui/x-data-grid";
 import { Icon } from "@iconify/react";
 
-import EditModal from "../../Components/Modal";
-import { Button, Modal } from "antd";
-
-
-
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import axios from "axios";
@@ -37,7 +32,12 @@ const columns = [
     // field: "company",
     headerName: "Company",
     width: 150,
-    renderCell: ({ params }) => <>hi</>,
+    renderCell: (param) => {
+      // console.log(param, "parms from hi");
+      if (param.row.placedDoc)
+        return <>{param.row.placedDoc.offerid.nameCompany}</>;
+      else return <>-</>;
+    },
   },
   { field: "cgpa", headerName: "CGPA", width: 80 },
   { field: "email", headerName: "Email", width: 220 },
@@ -53,7 +53,6 @@ const dropdownoptions = [
 ];
 
 const Students = () => {
-
   const [students, setStudents] = useState([]);
   const [selected, setSelected] = useState(null);
   const [dept, setDept] = useState(dropdownoptions[0].value);
@@ -158,7 +157,13 @@ const Students = () => {
             <p className={styles.p}>{selected.email}</p>
             <div className={styles.card}>
               <p className={styles.p1}>Company :</p>
-              <p className={styles.p2}>{selected.company}</p>
+              <p className={styles.p2}>
+                {selected.placedDoc != undefined ? (
+                  selected.placedDoc.offerid.nameCompany
+                ) : (
+                  <>-</>
+                )}
+              </p>
             </div>
             <div className={styles.card}>
               <p className={styles.p1}>Department :</p>
@@ -177,40 +182,35 @@ const Students = () => {
                   <>-</>
                 )}
               </p>
-
             </div>
-          </div>
-        </div>
-        <div className={styles.main2}>
-          <h1 className={styles.h1LnC}>STUDENT</h1>
-          {selected != undefined ? (
-            <>
-              <div className={styles.dp}>
-                <Image
-                  alt=""
-                  src={"/dp.jpg"}
-                  width={150}
-                  height={150}
-                  className={styles.img}
-                  style={{
-                    borderRadius: "50%",
-                  }}
-                />
+            <div className={styles.buttons}>
+              <div className={styles.buttonBox}>
+                <button name="save" onClick="" className={styles.button}>
+                  <Icon
+                    style={{ color: "black", height: "30", width: "30" }}
+                    icon="mdi:edit"
+                    width={"4rem"}
+                    onClick={""}
+                  ></Icon>
+                </button>
               </div>
-              <h1 className={styles.h1}>{selected.name}</h1>
-              <p className={styles.p}>{selected.email}</p>
-              <div className={styles.card}>
-                <p className={styles.p1}>Company :</p>
-                <p className={styles.p2}>{selected.company}</p>
+              <div className={styles.buttonBox2}>
+                <button name="save" onClick="" className={styles.button}>
+                  <Icon
+                    style={{ color: "black", height: "30", width: "30" }}
+                    icon="mdi:message-outline"
+                    width={"4rem"}
+                    onClick={""}
+                  ></Icon>
+                </button>
               </div>
-
             </div>
           </>
         ) : (
           <></>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

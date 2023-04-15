@@ -97,7 +97,7 @@ const Company = () => {
                             }}
                           >
                             {ele.ctc.map((item, index) => {
-                              return <p>{item}</p>;
+                              return <p key={index}>{item}</p>;
                             })}
                           </div>
                         </div>
@@ -176,7 +176,7 @@ const Company = () => {
                             }}
                           >
                             {ele.ctc.map((item, index) => {
-                              return <p>{item}</p>;
+                              return <p key={index}>{item}</p>;
                             })}
                           </div>
                         </div>
@@ -255,7 +255,7 @@ const Company = () => {
                             }}
                           >
                             {ele.ctc.map((item, index) => {
-                              return <p>{item}</p>;
+                              return <p key={index}>{item}</p>;
                             })}
                           </div>
                         </div>
