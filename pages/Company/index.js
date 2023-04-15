@@ -5,9 +5,33 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
+
+import { URL } from "../../creds";
+
 import { Navigation, Pagination } from "swiper";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Company = () => {
+  const [pending, setPending] = useState([]);
+  const [ongoin, setOngoin] = useState([]);
+  const [upcoming, setUpcoming] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(URL + "/offerdetails/admin/companies")
+      .then((res) => {
+        console.log(res.data.ongoing);
+        setOngoin(res.data.ongoing);
+        setPending(res.data.pendingdocs);
+        setUpcoming(res.data.upcoming);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+  const user = useSelector((state) => state.user.value);
+  if (user == null) return <></>;
   return (
     <div className={styles.main}>
       <div className={styles.mainCon1}>
@@ -25,65 +49,71 @@ const Company = () => {
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper) => console.log(swiper)}
             >
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
+              {pending.length != 0 ? (
+                pending.map((ele, index) => {
+                  console.log(ele, "params");
+                  return (
+                    <SwiperSlide key={index}>
+                      <div className={styles.card1box}>
+                        <div className={styles.box}>
+                          <h1>{ele.nameCompany}</h1>
+                          <p className={styles.p}>
+                            {new Date(ele.dates[0]?.start).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              }
+                            )}{" "}
+                            To{" "}
+                            {new Date(ele.dates[0]?.end).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              }
+                            )}
+                          </p>
+                          Roles:
+                          <div
+                            style={{
+                              display: "grid",
+                              gridTemplateColumns: "1fr 1fr",
+                              columnGap: "10px",
+                            }}
+                          >
+                            {ele.roles.map((item, i) => {
+                              return <p key={i}>{item}</p>;
+                            })}
+                          </div>
+                          CTC:
+                          <div
+                            style={{
+                              display: "grid",
+                              gridTemplateColumns: "1fr 1fr",
+                              columnGap: "10px",
+                            }}
+                          >
+                            {ele.ctc.map((item, index) => {
+                              return <p>{item}</p>;
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  );
+                })
+              ) : (
+                <div className={styles.blankbox}>
+                  Nothing Copanies are there to show
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
+              )}
             </Swiper>
           </div>
         </div>
-        <div className={styles.company2box}>
+        <div className={styles.company1box}>
           <div className={styles.carobox}>
             <div className={styles.Carouselh1Box}>
               <h1 className={styles.h1}>On-Going Companies</h1>
@@ -98,65 +128,71 @@ const Company = () => {
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper) => console.log(swiper)}
             >
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
+              {ongoin.length != 0 ? (
+                ongoin.map((ele, index) => {
+                  console.log(ele, "params");
+                  return (
+                    <SwiperSlide key={index}>
+                      <div className={styles.card1box}>
+                        <div className={styles.box}>
+                          <h1>{ele.nameCompany}</h1>
+                          <p className={styles.p}>
+                            {new Date(ele.dates[0].start).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              }
+                            )}{" "}
+                            To{" "}
+                            {new Date(ele.dates[0].end).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              }
+                            )}
+                          </p>
+                          Roles:
+                          <div
+                            style={{
+                              display: "grid",
+                              gridTemplateColumns: "1fr 1fr",
+                              columnGap: "10px",
+                            }}
+                          >
+                            {ele.roles.map((item, i) => {
+                              return <p key={i}>{item}</p>;
+                            })}
+                          </div>
+                          CTC:
+                          <div
+                            style={{
+                              display: "grid",
+                              gridTemplateColumns: "1fr 1fr",
+                              columnGap: "10px",
+                            }}
+                          >
+                            {ele.ctc.map((item, index) => {
+                              return <p>{item}</p>;
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  );
+                })
+              ) : (
+                <div className={styles.blankbox}>
+                  Nothing Copanies are there to show
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
+              )}
             </Swiper>
           </div>
         </div>
-        <div className={styles.company3box}>
+        <div className={styles.company1box}>
           <div className={styles.carobox}>
             <div className={styles.Carouselh1Box}>
               <h1 className={styles.h1}>Up-Coming Company</h1>
@@ -171,61 +207,67 @@ const Company = () => {
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper) => console.log(swiper)}
             >
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
+              {upcoming.length != 0 ? (
+                upcoming.map((ele, index) => {
+                  console.log(ele, "params");
+                  return (
+                    <SwiperSlide key={index}>
+                      <div className={styles.card1box}>
+                        <div className={styles.box}>
+                          <h1>{ele.nameCompany}</h1>
+                          <p className={styles.p}>
+                            {new Date(ele.dates[0].start).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              }
+                            )}{" "}
+                            To{" "}
+                            {new Date(ele.dates[0].end).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              }
+                            )}
+                          </p>
+                          Roles:
+                          <div
+                            style={{
+                              display: "grid",
+                              gridTemplateColumns: "1fr 1fr",
+                              columnGap: "10px",
+                            }}
+                          >
+                            {ele.roles.map((item, i) => {
+                              return <p key={i}>{item}</p>;
+                            })}
+                          </div>
+                          CTC:
+                          <div
+                            style={{
+                              display: "grid",
+                              gridTemplateColumns: "1fr 1fr",
+                              columnGap: "10px",
+                            }}
+                          >
+                            {ele.ctc.map((item, index) => {
+                              return <p>{item}</p>;
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  );
+                })
+              ) : (
+                <div className={styles.blankbox}>
+                  Nothing Copanies are there to show
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={styles.card1box}>
-                  <div className={styles.box}>
-                    <h1>Infosys</h1>
-                    <p className={styles.p}>
-                      Nov 5, 2022 at 9.30 <br /> CGPA-8 <br />
-                      8-9Lk
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
+              )}
             </Swiper>
           </div>
         </div>

@@ -1,9 +1,17 @@
-import React, { useState, Component } from "react";
+import React, { useState, Component, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import styles from "../../styles/Archive.module.scss";
 import { Icon } from "@iconify/react";
 import TableScrollbar from "react-table-scrollbar";
-import { Bar, Doughnut } from "react-chartjs-2";
+import { ColorRing } from "react-loader-spinner";
+import {
+  Bar,
+  Doughnut,
+  getDatasetAtEvent,
+  getElementAtEvent,
+  getElementsAtEvent,
+  Line,
+} from "react-chartjs-2";
 import Select from "react-select";
 import { DataGrid } from "@mui/x-data-grid";
 import {
@@ -15,7 +23,12 @@ import {
   Tooltip,
   Legend,
   ArcElement,
+  PointElement,
+  LineElement,
 } from "chart.js";
+import axios from "axios";
+import { URL } from "../../creds";
+import { useSelector } from "react-redux";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -23,21 +36,40 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  ArcElement
+  ArcElement,
+  PointElement,
+  LineElement
 );
 const columns = [
-  { field: "name", headerName: "Name", width: 200, headerClassName: "column" },
-  { field: "company", headerName: "Company", width: 160 },
-  { field: "department", headerName: "Department", width: 200 },
+  {
+    field: "studentid",
+    headerName: "Name",
+    width: 200,
+    headerClassName: "column",
+    valueGetter: (params) => {
+      return params.row.studentid.name;
+    },
+  },
+  {
+    field: "company",
+    headerName: "Company",
+    width: 160,
+    valueGetter: (params) => {
+      return params.row.offerid.nameCompany;
+    },
+  },
+  {
+    field: "department",
+    headerName: "Department",
+    width: 200,
+    valueGetter: (params) => {
+      return params.row.studentid.branch;
+    },
+  },
   { field: "package", headerName: "Package", width: 140 },
 ];
-const datagridSX = {
-  "& .MuiDataGrid-columnHeaders": {
-    fontSize: 16,
-  },
-};
 
-const Chart = dynamic(() => import("../../Components/Chart/Chart"));
+// const Chart = dynamic(() => import("../../Components/Chart/Chart"));
 const options = {
   maintainAspectRatio: false,
   responsive: true,
@@ -47,329 +79,37 @@ const options = {
     },
     title: {
       display: true,
+      text: "Overview",
+      font: { size: 30 },
     },
   },
 };
 
-const labels = ["COMP", "IT", "MECH", "CIVIL", "ENE", "ETC"];
+const optionsB = Array.from(
+  { length: new Date().getFullYear() - 2018 },
+  (value, index) => {
+    return {
+      value: new Date().getFullYear() - index,
+      label: new Date().getFullYear() - index,
+    };
+  }
+);
 
-const data = [
-  {
-    id: 1,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2022, 2, 23),
-    name: "John Doe",
-    roll: "101",
-    department: "CS",
-    package: "6 LPA",
-    email: "johndoe@email.com",
-    date: new Date(2021, 5, 20),
-  },
-  {
-    id: 2,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2022, 2, 23),
-    name: "Jane Doe",
-    roll: "102",
-    department: "MEC",
-    package: "5 LPA",
-    email: "janedoe@email.com",
-    date: new Date(2021, 5, 20),
-  },
 
-  {
-    date: new Date(2021, 5, 20),
-    id: 3,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Jim Smith",
-    roll: "103",
-    department: "EE",
-    package: "7 LPA",
-    email: "jimsmith@email.com",
-  },
-  {
-    date: new Date(2021, 5, 20),
-    id: 4,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Sarah Johnson",
-    roll: "104",
-    department: "Civil",
-    package: "6.5 LPA",
-    email: "sarahjohnson@email.com",
-  },
-  {
-    date: new Date(2021, 5, 20),
-    id: 5,
-    cgpa: "8.5",
-    company: "TCS",
-    name: "Bob Wilson",
-    roll: "105",
-    department: "CS",
-    package: "5.5 LPA",
-    email: "bobwilson@email.com",
-  },
-  {
-    id: 6,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2022, 2, 23),
-    name: "Emily Davis",
-    roll: "106",
-    department: "MEC",
-    package: "6 LPA",
-    email: "emilydavis@email.com",
-  },
-  {
-    id: 7,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2022, 2, 23),
-    name: "Michael Brown",
-    roll: "107",
-    department: "EE",
-    package: "7.5 LPA",
-    email: "michaelbrown@email.com",
-  },
-  {
-    id: 8,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2022, 2, 23),
-    name: "John Doe",
-    roll: "101",
-    department: "CS",
-    package: "6 LPA",
-    email: "johndoe@email.com",
-  },
+const optionsline = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "top",
+    },
+    title: {
+      display: true,
+      text: "Students Placed",
+    },
 
-  {
-    id: 9,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2022, 2, 23),
-    name: "Jane Doe",
-    roll: "102",
-    department: "MEC",
-    package: "5 LPA",
-    email: "janedoe@email.com",
   },
+};
 
-  {
-    id: 10,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2022, 2, 23),
-    name: "Jim Smith",
-    roll: "103",
-    department: "EE",
-    package: "7 LPA",
-    email: "jimsmith@email.com",
-  },
-  {
-    id: 11,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2020, 2, 23),
-    name: "Sarah Johnson",
-    roll: "104",
-    department: "Civil",
-    package: "6.5 LPA",
-    email: "sarahjohnson@email.com",
-  },
-  {
-    id: 12,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2020, 2, 23),
-    name: "Bob Wilson",
-    roll: "105",
-    department: "CS",
-    package: "5.5 LPA",
-    email: "bobwilson@email.com",
-  },
-  {
-    id: 13,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2020, 2, 23),
-    name: "Emily Davis",
-    roll: "106",
-    department: "IT",
-    package: "6 LPA",
-    email: "emilydavis@email.com",
-  },
-  {
-    id: 14,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2020, 2, 23),
-    name: "Michael Brown",
-    roll: "107",
-    department: "IT",
-    package: "7.5 LPA",
-    email: "michaelbrown@email.com",
-  },
-  {
-    id: 15,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2020, 2, 23),
-    name: "Jennifer Clark",
-    roll: "108",
-    department: "Civil",
-    package: "6 LPA",
-    email: "jenniferclark@email.com",
-  },
-  {
-    id: 16,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2020, 2, 23),
-    name: "William Jones",
-    roll: "109",
-    department: "CS",
-    package: "5.5 LPA",
-    email: "williamjones@email.com",
-  },
-  {
-    id: 17,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2020, 2, 23),
-    name: "Amanda Smith",
-    roll: "110",
-    department: "MEC",
-    package: "6.5 LPA",
-    email: "amandasmith@email.com",
-  },
-  {
-    id: 18,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2022, 2, 23),
-    name: "David Johnson",
-    roll: "111",
-    department: "EE",
-    package: "7 LPA",
-    email: "davidjohnson@email.com",
-  },
-  {
-    id: 19,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2022, 2, 23),
-    name: "James Davis",
-    roll: "112",
-    department: "Civil",
-    package: "6 LPA",
-    email: "jamesdavis@email.com",
-  },
-  {
-    id: 20,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2021, 2, 23),
-    name: "Daniel Wilson",
-    roll: "113",
-    department: "CS",
-    package: "5.5 LPA",
-    email: "danielwilson@email.com",
-  },
-  {
-    id: 21,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2022, 2, 23),
-    name: "Emily Jones",
-    roll: "114",
-    department: "MEC",
-    package: "6.5 LPA",
-    email: "emilyjones@email.com",
-  },
-  {
-    id: 22,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2022, 2, 23),
-    name: "Michael Smith",
-    roll: "115",
-    department: "EE",
-    package: "7 LPA",
-    email: "michaelsmith@email.com",
-  },
-  {
-    id: 23,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2021, 2, 23),
-    name: "Jennifer Davis",
-    roll: "116",
-    department: "Civil",
-    package: "6 LPA",
-    email: "jenniferdavis@email.com",
-  },
-  {
-    id: 24,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2022, 2, 23),
-    name: "William Clark",
-    roll: "117",
-    department: "CS",
-    package: "5.5 LPA",
-    email: "williamclark@email.com",
-  },
-
-  {
-    id: 25,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2021, 2, 23),
-    name: "John Doe",
-    roll: "101",
-    department: "CS",
-    package: "6 LPA",
-    email: "johndoe@email.com",
-  },
-  {
-    id: 26,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2021, 2, 23),
-    name: "Jane Doe",
-    roll: "102",
-    department: "MEC",
-    package: "5 LPA",
-    email: "janedoe@email.com",
-  },
-  {
-    id: 27,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2021, 2, 23),
-    name: "Jim Smith",
-    roll: "103",
-    department: "EE",
-    package: "7 LPA",
-    email: "jimsmith@email.com",
-  },
-  {
-    id: 28,
-    cgpa: "8.5",
-    company: "TCS",
-    date: new Date(2021, 2, 23),
-    name: "Sarah Johnson",
-    roll: "104",
-    department: "Civil",
-    package: "6.5 LPA",
-    email: "sarahjohnson@email.com",
-  },
-  // Add more dummy student data as needed
-];
 const data2 = {
   labels: labels,
   datasets: [
@@ -396,72 +136,262 @@ const optionsB = [
   { value: "2025", label: "2025" },
 ];
 
+
 const Archive = () => {
-  const [students, setStudents] = useState(data);
-  // const [filteredYear, setFilteredYear] = useState("2020");
+  const [students, setStudents] = useState([]);
+  const [selects, setSelects] = useState(2023);
+  const [graph, setGraph] = useState({});
+  const [loading, setLoading] = useState(true);
+  const chartref = useRef();
+  const [doughnutdata, setDoughnutdata] = useState(null);
+  const [griddata, setGriddata] = useState([]);
 
-  // const filterChangeHandler = (event) => {
-  //   filterChangeHandler(event.target.value);
-  // };
+  useEffect(() => {
+    setLoading(true);
+    var temp = new Date().setFullYear(selects);
+    console.log(new Date(temp), "temp");
+    axios
+      .get(URL + "/placed/archive")
+      .then((res) => {
+        setGraph(res.data);
+        setDoughnutdata(res.data.accumilate);
+        fetchSelects();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  useEffect(() => {
+    fetchSelects();
+  }, [selects]);
 
-  // const filteredExpenses = props.items.filter((expense) => {
-  //   return expense.date.getFullYear().toString() === filteredYear;
-  // });
+  const fetchSelects = () => {
+    axios
+      .get(URL + "/placed", {
+        params: { year: new Date(new Date().setFullYear(selects)) },
+      })
+      .then((res) => {
+        setStudents(res.data);
+        var temp = [];
+
+        Object.keys(res.data.doc).map((ele) => {
+          temp = temp.concat(res.data.doc[ele]);
+        });
+        console.log(temp, "Ele");
+        setGriddata(temp);
+        setLoading(false);
+        // console.log(res.data, "fateched results of year" + selects);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const onChartclick = (event) => {
+    var t = getElementsAtEvent(chartref.current, event)[0];
+    if (!t) {
+      setDoughnutdata(graph.accumilate);
+      return;
+    }
+    setDoughnutdata(graph.years[t.index].students);
+  };
+
+  // if (loading) return <>Loading</>;
+  const user = useSelector((state) => state.user.value);
+  if (user == null) return <></>;
   return (
     <div className={styles.main}>
       <div className={styles.container}>
         <div className={styles.con1}>
           <div className={styles.graCon}>
-            <p>Overview</p>
-            <Chart />
+            {/* <Chart /> */}
+            {!loading ? (
+              <Line
+                ref={chartref}
+                options={optionsline}
+                data={{
+                  labels: graph.years?.map((ele) => {
+                    return ele.year;
+                  }),
+                  datasets: [
+                    {
+                      label: "Students placed record",
+                      data: graph.years.map((ele) => {
+                        return ele.count;
+                      }),
+                      borderColor: "rgb(0, 0,0)",
+                      backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    },
+                    // {
+                    //   label: "Dataset 2",
+                    //   data: [100, 200, 300, 5, 120, 500, 12],
+                    //   borderColor: "rgb(53, 162, 235)",
+                    //   backgroundColor: "rgba(53, 162, 235, 0.5)",
+                    // },
+                  ],
+                }}
+                onClick={onChartclick}
+              />
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <ColorRing
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="blocks-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="blocks-wrapper"
+                  colors={[
+                    "#806BFF",
+                    "#A15BF9",
+                    "#23B9F9",
+                    "#2200F4",
+                    "#47FFDE",
+                    "#002966",
+                  ]}
+                />
+              </div>
+            )}
           </div>
           <div className={styles.overCon}>
-            <p>Overview</p>
-            <Doughnut data={data2} />
+            {!loading ? (
+              <Doughnut
+                data={{
+                  labels: Object.keys(doughnutdata),
+                  datasets: [
+                    {
+                      data: Object.values(doughnutdata),
+                      backgroundColor: [
+                        "#806BFF",
+                        "#002966",
+                        "#2200F4",
+                        "#A15BF9",
+                        "#23B9F9",
+                        "#47FFDE",
+                      ],
+                    },
+                  ],
+                }}
+                options={{
+                  maintainAspectRatio: false,
+                  responsive: true,
+                  plugins: {
+                    legend: {
+                      display: true,
+                    },
+                    title: {
+                      display: true,
+                      text: "Student Placed",
+                      font: { size: 30 },
+                    },
+                  },
+                }}
+              />
+            ) : (
+              <ColorRing
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="blocks-loading"
+                wrapperStyle={{}}
+                wrapperClass="blocks-wrapper"
+                colors={[
+                  "#806BFF",
+                  "#A15BF9",
+                  "#23B9F9",
+                  "#2200F4",
+                  "#47FFDE",
+                  "#002966",
+                ]}
+              />
+            )}
           </div>
+        </div>
+        <div className={styles.dpCon}>
+          <h1>Current Year</h1>
+          <Select
+            className={styles.dropdown}
+            placeholder={selects}
+            options={optionsB}
+            value={selects}
+            onChange={(event) => {
+              console.log(event, "event");
+              setSelects(event.label);
+              console.log(selects, "selects value");
+            }}
+          ></Select>
         </div>
         <div className={styles.con2}>
           <div className={styles.listMainCon}>
             <div className={styles.listCon}>
-              <div className={styles.dpCon}>
+
+              {/*<div className={styles.dpCon}>
                 <Select
                   className={styles.dropdown}
                   placeholder={"2023"}
                   options={optionsB}
                   // onChange={filterChangeHandler}
                 ></Select>
-              </div>
+              </div>*/}
               <div className={styles.list}>
-                <DataGrid
-                  rows={students}
-                  columns={columns}
-                  sx={{
-                    ".MuiDataGrid-columnHeaderTitle": {
-                      fontWeight: "900 !important",
-                      overflow: "visible !important",
-                      fontSize: "1.35rem !important",
-                    },
-                    ".MuiDataGrid-columnHeaderTitleContainer": {
-                      display: "flex",
-                      justifyContent: "center",
-                    },
-                    ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
-                      { display: "flex", justifyContent: "center" },
-                    fontSize: 15,
-                    fontWeight: 500,
-                    width: 700,
-                  }}
-                  hideFooter
-                  isColumnSelectable={(params) => {
-                    setSelected(params.column);
-                  }}
-                  isRowSelectable={(params) => {
-                    setSelected(params.row);
-                  }}
-                  pageSizeOptions={[10, 20, 30]}
+                {!loading ? (
+                  <DataGrid
+                    rows={griddata}
+                    columns={columns}
+                    getRowId={(ele) => {
+                      return ele._id;
+                    }}
+                    sx={{
+                      ".MuiDataGrid-columnHeaderTitle": {
+                        fontWeight: "900 !important",
+                        overflow: "visible !important",
+                        fontSize: "1.35rem !important",
+                      },
+                      ".MuiDataGrid-columnHeaderTitleContainer": {
+                        display: "flex",
+                        justifyContent: "center",
+                      },
+                      ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                        { display: "flex", justifyContent: "center" },
+                      fontSize: 15,
+                      fontWeight: 500,
+                      width: "100%",
+                    }}
+                    // isColumnSelectable={(params) => {
+                    //   setSelected(params.column);
+                    // }}
+                    // isRowSelectable={(params) => {
+                    //   setSelected(params.row);
+                    // }}
+                    pageSizeOptions={[10, 20, 30]}
 
-                  // se
-                />
+                    // se
+                  />
+                ) : (
+                  <ColorRing
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="blocks-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="blocks-wrapper"
+                    colors={[
+                      "#806BFF",
+                      "#A15BF9",
+                      "#23B9F9",
+                      "#2200F4",
+                      "#47FFDE",
+                      "#002966",
+                    ]}
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -469,7 +399,46 @@ const Archive = () => {
           <div className={styles.barCon}>
             <p>DEPARTMENT VIEW</p>
             <div className={styles.barchartcont}>
-              <Bar options={options} data={data2} />
+              {!loading ? (
+                <Bar
+                  options={options}
+                  data={{
+                    labels: Object.keys(students.doc),
+                    datasets: [
+                      {
+                        data: Object.values(students.doc).map((ele) => {
+                          return ele.length;
+                        }),
+                        backgroundColor: [
+                          "#806BFF",
+                          "#A15BF9",
+                          "#23B9F9",
+                          "#2200F4",
+                          "#47FFDE",
+                          "#002966",
+                        ],
+                      },
+                    ],
+                  }}
+                />
+              ) : (
+                <ColorRing
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="blocks-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="blocks-wrapper"
+                  colors={[
+                    "#806BFF",
+                    "#A15BF9",
+                    "#23B9F9",
+                    "#2200F4",
+                    "#47FFDE",
+                    "#002966",
+                  ]}
+                />
+              )}
             </div>
           </div>
         </div>
