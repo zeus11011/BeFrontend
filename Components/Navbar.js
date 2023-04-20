@@ -6,13 +6,13 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { logout } from "../store/Reducers/userSlice";
+import ProfileDropdown from "./ProfileDropdown";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const dispatch = useDispatch();
+
   const router = useRouter();
   const handleBackdropClick = (event) => {
     if (event.target === event.currentTarget) {
@@ -51,12 +51,6 @@ const Navbar = () => {
     zIndex: "10",
   };
 
-  const logoutuser = () => {
-    dispatch(logout());
-    router.push("/login");
-  };
-
-  const user = useSelector((state) => state.user.value);
   return (
     <div className={[inter.className, styles.main].join(" ")}>
       <div className={styles.namesec}>
@@ -70,6 +64,9 @@ const Navbar = () => {
             <Icon icon="mdi:bell-outline" height={"4rem"} />
           )}
         </div>
+        <div>
+          <ProfileDropdown />
+        </div>
         <div className={styles.profile}>
           <Image
             onClick={() => {
@@ -82,38 +79,6 @@ const Navbar = () => {
             className={styles.img}
             style={{ borderRadius: "50%", marginTop: "1rem" }}
           />
-        </div>
-        <div>
-          <h1 style={{ fontWeight: "bold", fontFamily: "inherit" }}>
-            {user ? user.name : ""}
-          </h1>
-          <div>
-            {isOpen && (
-              <div
-                className={styles.backdropstyles}
-                onClick={handleBackdropClick}
-                onKeyDown={handleKeyDown}
-                tabIndex={0}
-              >
-                <div style={drawerStyles}>
-                  <button onClick={handleBackdropClick}>CLOSE</button>
-                  <p>MY PROFILE</p>
-                  <p>SETTINGS</p>
-                  <button onClick={logoutuser}>
-                    {" "}
-                    <p>LOG OUT</p>
-                  </button>
-                  <p>CONTACT US</p>
-                </div>
-              </div>
-            )}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={styles.button}
-            >
-              Open Drawer
-            </button>
-          </div>
         </div>
       </div>
     </div>

@@ -95,7 +95,7 @@ export default function Home() {
                 icon="ri:building-2-line"
                 width={"4rem"}
                 onClick={() => {
-                  router.push("Archive");
+                  router.push("Company");
                 }}
               />
             </div>
