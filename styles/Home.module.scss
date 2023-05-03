@@ -55,6 +55,7 @@
   .box {
     background-color: black;
     elevation: 10;
+
     width: 20%;
     min-width: 320px;
     color: white;
@@ -91,6 +92,7 @@
       font-size: 2rem;
       font-weight: 900;
       margin-top: 4rem;
+      margin-bottom: 2rem;
     }
     .p {
       margin-top: 1rem;
@@ -190,4 +192,43 @@
   align-items: center;
   height: 18rem;
   font-size: 2rem;
+}
+
+.cardName {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.cardDate {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.cardRoles {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cardPackage {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+
+.rolesHead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+.roles {
+  display: flex;
+  width: 70%;
+}
+.packageHead {
+  width: 20%;
 }
