@@ -125,49 +125,51 @@ export default function Home() {
                     <SwiperSlide key={index}>
                       <div className={styles.card1box}>
                         <div className={styles.box}>
-                          <h1>{ele.nameCompany}</h1>
-                          <p className={styles.p}>
-                            {new Date(ele.dates[0].start).toLocaleDateString(
-                              "en-US",
-                              {
-                                year: "numeric",
-                                month: "short",
-                                day: "numeric",
-                              }
-                            )}{" "}
-                            To{" "}
-                            {new Date(ele.dates[0].end).toLocaleDateString(
-                              "en-US",
-                              {
-                                year: "numeric",
-                                month: "short",
-                                day: "numeric",
-                              }
-                            )}
-                          </p>
-                          Roles:
-                          <div
-                            style={{
-                              display: "grid",
-                              gridTemplateColumns: "1fr 1fr",
-                              columnGap: "10px",
-                            }}
-                          >
-                            {ele.roles.map((item, i) => {
-                              return <p key={i}>{item}</p>;
-                            })}
+                          <div className={styles.cardName}>
+                            <h1>{ele.nameCompany}</h1>
                           </div>
-                          CTC:
-                          <div
-                            style={{
-                              display: "grid",
-                              gridTemplateColumns: "1fr 1fr",
-                              columnGap: "10px",
-                            }}
-                          >
-                            {ele.ctc.map((item, index) => {
-                              return <p>{item}</p>;
-                            })}
+                          <div className={styles.cardDate}>
+                            <p className={styles.p}>
+                              {new Date(ele.dates[0].start).toLocaleDateString(
+                                "en-US",
+                                {
+                                  year: "numeric",
+                                  month: "short",
+                                  day: "numeric",
+                                }
+                              )}{" "}
+                              To{" "}
+                              {new Date(ele.dates[0].end).toLocaleDateString(
+                                "en-US",
+                                {
+                                  year: "numeric",
+                                  month: "short",
+                                  day: "numeric",
+                                }
+                              )}
+                            </p>
+                          </div>
+                          <div className={styles.cardRoles}>
+                            <div className={styles.rolesHead}>
+                              <p> Roles:</p>
+                            </div>
+                            <div className={styles.roles}>
+                              {ele.roles.map((item, i) => {
+                                return <p key={i}>{item}</p>;
+                              })}
+                            </div>
+                          </div>
+                          <div className={styles.cardPackage}>
+                            <div className={styles.packageHead}>
+                              {" "}
+                              <p> CTC:</p>
+                            </div>
+
+                            <div className="">
+                              {ele.ctc.map((item, index) => {
+                                return <p>{item}</p>;
+                              })}
+                            </div>
                           </div>
                         </div>
                       </div>

@@ -64,7 +64,7 @@ const Navbar = () => {
             <Icon icon="mdi:bell-outline" height={"4rem"} />
           )}
         </div>
-        <div>
+        <div className={styles.dropdownCon}>
           <ProfileDropdown />
         </div>
         <div className={styles.profile}>
