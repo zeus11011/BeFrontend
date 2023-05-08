@@ -11,6 +11,7 @@ import "react-dropdown/style.css";
 import axios from "axios";
 import { URL } from "../../creds.js";
 import { useSelector } from "react-redux";
+
 const columns = [
   {
     field: "prnumber",
@@ -65,7 +66,7 @@ const Students = () => {
     console.log("getting", dept);
 
     axios
-      .get("http://localhost:3001/student/dept", { params: { dept: dept } })
+      .get(URL + "/student/dept", { params: { dept: dept } })
       .then((res) => {
         console.log(res, "data");
         setStudents(res.data);
