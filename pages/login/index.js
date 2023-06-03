@@ -34,7 +34,7 @@ function Index() {
   return (
     <div className={styles.main}>
       <div className={styles.con1}>
-        <Image src={"/gec.svg"} alt="" height={300} width={300} />
+        <Image src={"/gec.svg"} alt="" height={100} width={100} />
       </div>
       <div className={styles.con2}>
         <div className={styles.card}>
