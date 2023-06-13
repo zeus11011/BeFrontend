@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import ProfileDropdown from "./ProfileDropdown";
+import NotificationDropdown from "./NotificationDropdown";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -59,10 +60,15 @@ const Navbar = () => {
       <div className={styles.usersec}>
         <div>
           {true ? (
-            <Icon icon="mdi:bell-badge-outline" height={"4rem"} />
+            <div className={styles.dropdownCon}>
+            <NotificationDropdown icon="mdi:bell-badge-outline" />
+            </div>
           ) : (
-            <Icon icon="mdi:bell-outline" height={"4rem"} />
-          )}
+            <div className={styles.dropdownCon}>
+            <NotificationDropdown icon="mdi:bell-outline" />            
+            </div>
+            )}
+
         </div>
         <div className={styles.dropdownCon}>
           <ProfileDropdown />
