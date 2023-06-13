@@ -29,6 +29,10 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 .dropdown {
   font-size: 1.5rem;
@@ -121,11 +125,22 @@
 
 .card {
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  font-size: 1.7rem;
-  // font-size: 1rem;
+  font-size: 1.5rem; /* Adjust the font size as per your preference */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.cardContent {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.scrollable {
+  /* Rest of the code remains the same */
+  padding: 1rem 0;
+  overflow-y: auto;
 }
 
 .p1 {
@@ -153,36 +168,30 @@
   padding-top: 1rem;
 }
 .buttons {
-  // height: 10vh;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   margin-top: 2rem;
-  // flex-direction: x;
 }
+
 .buttonBox {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
 }
+
 .buttonBox2 {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
   border-right: 3px solid;
   border-left: 3px solid;
 }
-.addButtonBox {
-  //   margin-top: 1rem;
-}
+
 .button {
   background-color: white;
   font-size: 2rem;
-  // color: white;
-  padding-top: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 0.2rem;
+  padding: 0.5rem 1rem;
   border-radius: 12px;
-
-  border: 0px;
+  border: none;
   outline: none;
 }
 .addButton {

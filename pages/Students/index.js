@@ -183,6 +183,7 @@ const Students = () => {
           </div>
         </div>
         <div className={styles.main2}>
+        <div className={styles.cardContent}> 
           <h1 className={styles.h1LnC}>STUDENT</h1>
           {selected != undefined ? (
             <>
@@ -201,6 +202,7 @@ const Students = () => {
 
               <h1 className={styles.h1}>{selected.name}</h1>
               <p className={styles.p}>{selected.email}</p>
+              <div className={styles.scrollable}>
               <div className={styles.card}>
                 <p className={styles.p1}>Company :</p>
                 <p className={styles.p2}>
@@ -257,11 +259,13 @@ const Students = () => {
                   </button>
                 </div>
               </div>
+              </div>
             </>
           ) : (
             <></>
           )}
         </div>
+      </div>
       </div>
     </>
   );
