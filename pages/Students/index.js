@@ -241,7 +241,7 @@ const Students = () => {
                     className={styles.button}
                   >
                     <Icon
-                      style={{ color: "black", height: "30", width: "30" }}
+                      style={{ color: "black", height: "25", width: "25" }}
                       icon="mdi:edit"
                       width={"4rem"}
                       onClick={""}
@@ -251,7 +251,7 @@ const Students = () => {
                 <div className={styles.buttonBox2}>
                   <button name="save" onClick="" className={styles.button}>
                     <Icon
-                      style={{ color: "black", height: "30", width: "30" }}
+                      style={{ color: "black", height: "25", width: "25" }}
                       icon="mdi:message-outline"
                       width={"4rem"}
                       onClick={""}
