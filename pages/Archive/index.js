@@ -97,7 +97,7 @@ const optionsB = Array.from(
 );
 
 const optionsline = {
-  responsive: true,
+  // responsive: true,
   plugins: {
     legend: {
       position: "top",
@@ -209,6 +209,9 @@ const Archive = () => {
             {/* <Chart /> */}
             {!loading ? (
               <Line
+              height={333}
+              width={333}
+              style={{ margin: 'auto' }}
                 ref={chartref}
                 options={optionsline}
                 data={{

@@ -127,19 +127,15 @@ const Company = () => {
                               }
                             )}
                           </p>
-                          <div
-                            style={{
-                              display: "grid",
-                              gridTemplateColumns: "1fr 1fr",
-                              columnGap: "10px",
-                            }}
-                          >
-                            <span>Roles:</span>
-                            {ele.roles.map((item, i) => {
-                              return <p key={i}>{item}</p>;
-                            })}
-                          </div>
-                          <div>
+                          <div className={styles.rolesHead}>
+                              <p className={styles.rolp}> Roles:</p>
+                            </div>
+                            <div className={styles.roles}>
+                              {ele.roles.map((item, i) => {
+                                return <span key={i}>{item}</span>;
+                              })}
+                            </div>
+                          <div className="ctc">
                             <span>CTC:</span>
                             {ele.ctc.map((item, index) => {
                               return <p key={index}>{item}</p>;
@@ -212,25 +208,22 @@ const Company = () => {
                               }
                             )}
                           </p>
-                          Roles:
-                          <div
-                            style={{
-                              display: "grid",
-                              gridTemplateColumns: "1fr 1fr",
-                              columnGap: "10px",
-                            }}
-                          >
-                            {ele.roles.map((item, i) => {
-                              return <p key={i}>{item}</p>;
-                            })}
-                          </div>
+                          <div className={styles.rolesHead}>
+                              <p className={styles.rolp}> Roles:</p>
+                            </div>
+                            <div className={styles.roles}>
+                              {ele.roles.map((item, i) => {
+                                return <span key={i}>{item}</span>;
+                              })}
+                            </div>
                           CTC:
                           <div
                             style={{
                               // display: "grid",
                               // gridTemplateColumns: "1fr 1fr",
                               // columnGap: "10px",
-                            }}
+                              height: "100px"
+                             }}
                           >
                             {ele.ctc.map((item, index) => {
                               return <p key={index}>{item}</p>;
@@ -299,18 +292,14 @@ const Company = () => {
                               }
                             )}
                           </p>
-                          Roles:
-                          <div
-                            style={{
-                              display: "grid",
-                              gridTemplateColumns: "1fr 1fr",
-                              columnGap: "10px",
-                            }}
-                          >
-                            {ele.roles.map((item, i) => {
-                              return <p key={i}>{item}</p>;
-                            })}
-                          </div>
+                          <div className={styles.rolesHead}>
+                              <p className={styles.rolp}> Roles:</p>
+                            </div>
+                            <div className={styles.roles}>
+                              {ele.roles.map((item, i) => {
+                                return <span key={i}>{item}</span>;
+                              })}
+                            </div>
                           CTC:
                           <div
                             style={{

@@ -98,3 +98,15 @@
 .mainitem {
   width: 100%;
 }
+// nir
+
+
+@media screen and (min-width: 769px) and (max-width: 1000px){
+  .contmain > .mainitem > .item > p{
+    font-size: 1.5rem;
+  }
+
+  .logo{ 
+    width: 172px;
+  }
+}

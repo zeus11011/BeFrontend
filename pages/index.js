@@ -22,6 +22,9 @@ import "swiper/scss/pagination";
 import { Navigation, Pagination } from "swiper";
 import { useSelector } from "react-redux";
 
+import { Modal } from "antd";
+import Table from "./Analytics/Table";
+
 export default function Home() {
   const user = useSelector((state) => state.user.value);
   // const [currentpage, setCurrentpage] = useState("/");
@@ -29,6 +32,17 @@ export default function Home() {
   const router = useRouter();
   const [companies, setCompanies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  
+  const [showModal1, setShowModal1] = useState(false);
+
+  const handleBoxClick1 = () => {
+    setShowModal1(true);
+  };
+
+  const handleCloseModal1 = () => {
+    setShowModal1(false);
+  };
 
   console.log(user, "usersss");
   useEffect(() => {
@@ -64,9 +78,9 @@ export default function Home() {
               <Icon
                 icon="mdi:account-school-outline"
                 width={"4rem"}
-                onClick={() => {
-                  router.push("Analytics");
-                }}
+                // onClick={() => {
+                //   router.push("Analytics");
+                // }}
               />
             </div>
           </div>
@@ -83,9 +97,9 @@ export default function Home() {
               <Icon
                 icon="mdi:handshake"
                 width={"4rem"}
-                onClick={() => {
-                  router.push("Placed");
-                }}
+                // onClick={() => {
+                //   router.push("Placed");
+                // }}
               />
             </div>
           </div>
@@ -104,9 +118,9 @@ export default function Home() {
               <Icon
                 icon="ri:building-2-line"
                 width={"4rem"}
-                onClick={() => {
-                  router.push("Company");
-                }}
+                // onClick={() => {
+                //   router.push("Company");
+                // }}
               />
             </div>
           </div>
@@ -128,6 +142,7 @@ export default function Home() {
               slidesPerView={3}
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper) => console.log(swiper)}
+              onClick={handleBoxClick1}
             >
               {companies.length > 0 ? (
                 companies.map((ele, index) => {
@@ -140,7 +155,7 @@ export default function Home() {
                           </div>
                           <div className={styles.cardDate}>
                             <p className={styles.p}>
-                              {new Date(ele.dates[0].start).toLocaleDateString(
+                              {new Date(ele.dates[0]?.start).toLocaleDateString(
                                 "en-US",
                                 {
                                   year: "numeric",
@@ -149,7 +164,7 @@ export default function Home() {
                                 }
                               )}{" "}
                               To{" "}
-                              {new Date(ele.dates[0].end).toLocaleDateString(
+                              {new Date(ele.dates[0]?.end).toLocaleDateString(
                                 "en-US",
                                 {
                                   year: "numeric",
@@ -161,11 +176,11 @@ export default function Home() {
                           </div>
                           <div className={styles.cardRoles}>
                             <div className={styles.rolesHead}>
-                              <p> Roles:</p>
+                              <p className={styles.rolp}> Roles:</p>
                             </div>
                             <div className={styles.roles}>
                               {ele.roles.map((item, i) => {
-                                return <p key={i}>{item}</p>;
+                                return <span key={i}>{item}</span>;
                               })}
                             </div>
                           </div>
@@ -175,7 +190,7 @@ export default function Home() {
                               <p> CTC:</p>
                             </div>
 
-                            <div className="">
+                            <div className={styles.packageAm}>
                               {ele.ctc.map((item, index) => {
                                 return <p>{item}</p>;
                               })}
@@ -183,6 +198,14 @@ export default function Home() {
                           </div>
                         </div>
                       </div>
+                      <Modal
+                        visible={showModal1}
+                        onCancel={handleCloseModal1}
+                        footer={null}
+                        width={"72vw"}
+                      >
+                       <Table />
+                      </Modal>
                     </SwiperSlide>
                   );
                 })
