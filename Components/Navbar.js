@@ -76,14 +76,14 @@ const Navbar = () => {
         <div className={styles.profile}>
           <Image
             onClick={() => {
-              router.push("Profile");
+              router.push("/Profile");
             }}
             alt=""
             src={"/dp.jpg"}
             width={80}
             height={80}
             className={styles.img}
-            style={{ borderRadius: "50%", marginTop: "1rem" }}
+            style={{ borderRadius: "50%", marginTop: "0rem" }}
           />
         </div>
       </div>

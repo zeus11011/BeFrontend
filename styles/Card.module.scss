@@ -15,7 +15,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  right: -8em;
   bottom: 0;
   display: flex;
   justify-content: center;
@@ -44,9 +44,10 @@
 .dataBox {
   width: 100%;
   padding: 2em;
-  border: 1px solid #ccc;
+  // border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 2em;
+  // margin-bottom: 2em;
+  display: flex
 }
 
 .steps {
@@ -69,11 +70,13 @@
   font-size: 1em;
   border-radius: 5px;
   cursor: pointer;
+  background-color: black;
 }
 
 .personalCon {
   display: flex;
   flex-direction: column;
+  background-color: rgba(128, 128, 128, 0.156);
   align-items: center;
 }
 
@@ -88,17 +91,18 @@
 }
 
 .h1x {
-  font-size: 1.5em;
+  font-size: 2.5em;
   margin-bottom: 0.5em;
 }
 
 .h2x {
-  font-size: 1em;
+  font-size: 2em;
 }
 
 .inputFields {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  // flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -112,7 +116,7 @@
 }
 
 .h2 {
-  font-size: 1em;
+  font-size: 2em;
   margin-bottom: 0.5em;
 }
 
@@ -131,4 +135,9 @@
 .column {
   flex: 1;
   padding: 0.5em;
+}
+
+.formfields {
+  display: flex;
+  flex-direction: column;
 }
