@@ -94,6 +94,8 @@ const EditModal = ({ toggleModal }) => {
       return (
         <div className={styles.personalCon}>
           <div className={styles.inputFields}>
+          <div className={styles.row}>
+              <div className={styles.column}>
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>First Name</h2>
@@ -105,6 +107,9 @@ const EditModal = ({ toggleModal }) => {
                 ></input>
               </div>
             </div>
+            </div>
+
+            <div className={styles.column}>
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>Last Name</h2>
@@ -116,6 +121,11 @@ const EditModal = ({ toggleModal }) => {
                 ></input>
               </div>
             </div>
+            </div>
+            </div>
+
+            <div className={styles.row}>
+            <div className={styles.column}>
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>Email</h2>
@@ -127,6 +137,76 @@ const EditModal = ({ toggleModal }) => {
                 ></input>
               </div>
             </div>
+            </div>
+
+            <div className={styles.column}>
+            <div className={styles.box}>
+              <div className={styles.box2}>
+                <h2 className={styles.h2}>Phone Number</h2>
+                <input
+                  type="name"
+                  name="lastName"
+                  placeholder="Phone No."
+                  className={styles.textfiled}
+                ></input>
+              </div>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    if (title == "Company") {
+      return (
+        <div className={styles.personalCon}>
+          <div className={styles.inputFields}>
+          <div className={styles.row}>
+              <div className={styles.column}>
+            <div className={styles.box}>
+              <div className={styles.box2}>
+                <h2 className={styles.h2}>First Name</h2>
+                <input
+                  type="name"
+                  name="firstName"
+                  placeholder="FirstName"
+                  className={styles.textfiled}
+                ></input>
+              </div>
+            </div>
+            </div>
+
+            <div className={styles.column}>
+            <div className={styles.box}>
+              <div className={styles.box2}>
+                <h2 className={styles.h2}>Last Name</h2>
+                <input
+                  type="name"
+                  name="lastName"
+                  placeholder="LastName"
+                  className={styles.textfiled}
+                ></input>
+              </div>
+            </div>
+            </div>
+            </div>
+
+            <div className={styles.row}>
+            <div className={styles.column}>
+            <div className={styles.box}>
+              <div className={styles.box2}>
+                <h2 className={styles.h2}>Email</h2>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  className={styles.textfiled}
+                ></input>
+              </div>
+            </div>
+            </div>
+            
+            
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>Phone Number</h2>
@@ -140,57 +220,6 @@ const EditModal = ({ toggleModal }) => {
             </div>
           </div>
         </div>
-      );
-    }
-    if (title == "Company") {
-      return (
-        <div className={styles.personalCon}>
-          <div className={styles.inputFields}>
-            <div className={styles.box}>
-              <div className={styles.box2}>
-                <h2 className={styles.h2}>First Name</h2>
-                <input
-                  type="name"
-                  name="firstName"
-                  placeholder="FirstName"
-                  className={styles.textfiled}
-                ></input>
-              </div>
-            </div>
-            <div className={styles.box}>
-              <div className={styles.box2}>
-                <h2 className={styles.h2}>Last Name</h2>
-                <input
-                  type="name"
-                  name="lastName"
-                  placeholder="LastName"
-                  className={styles.textfiled}
-                ></input>
-              </div>
-            </div>
-            <div className={styles.box}>
-              <div className={styles.box2}>
-                <h2 className={styles.h2}>Email</h2>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className={styles.textfiled}
-                ></input>
-              </div>
-            </div>
-            <div className={styles.box}>
-              <div className={styles.box2}>
-                <h2 className={styles.h2}>Phone Number</h2>
-                <input
-                  type="name"
-                  name="lastName"
-                  placeholder="Phone No."
-                  className={styles.textfiled}
-                ></input>
-              </div>
-            </div>
-          </div>
         </div>
       );
     }
