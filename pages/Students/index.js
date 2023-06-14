@@ -11,6 +11,7 @@ import "react-dropdown/style.css";
 import axios from "axios";
 import { URL } from "../../creds.js";
 import { useSelector } from "react-redux";
+import Loader from '../../Components/Loader';
 
 import { Button, Modal } from "antd";
 
@@ -61,6 +62,20 @@ const Students = () => {
   const [dept, setDept] = useState(dropdownoptions[0].value);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  /*
+  // to run loader for some seconds. currently its said to stop loading once data is fetched in axios function
+  useEffect(() => {
+    const delay = 15000; // loading time in ms
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, delay);
+    
+    // Clean up the timer when the component unmounts
+    return () => clearTimeout(timer);
+  }, []);
+  */
 
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -89,13 +104,20 @@ const Students = () => {
       })
       .catch((err) => {
         console.log(err, "err");
-      });
+      }).finally(() => {
+        setIsLoading(false);
+      })
+      ;
   };
 
   const user = useSelector((state) => state.user.value);
   if (user == null) return <></>;
   return (
     <>
+    {isLoading ? (
+        <Loader />
+      ) : (
+      <div>
       {modalOpen ? <EditModal toggleModal={toggleModal} /> : <></>}
       {isModalOpen ? (
         <Modal
@@ -267,6 +289,8 @@ const Students = () => {
         </div>
       </div>
       </div>
+      </div>
+      )}
     </>
   );
 };
