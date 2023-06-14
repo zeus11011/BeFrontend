@@ -46,7 +46,7 @@
 .h1 {
   color: black;
   margin-top: 0;
-  font-size: 6rem;
+  font-size: 4rem;
 }
 .Carouselh1Box {
   display: flex;
@@ -70,23 +70,50 @@
     align-items: center;
     flex-direction: column;
     width: 25rem;
-    height: 21rem;
+    height: 21rem;    
     box-shadow: 0px 0px 16px grey;
     border-radius: 10px;
     padding-left: 1rem;
     padding-right: 1rem;
     h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
     div {
     }
-    p {
+    .p {
       font-size: 1.4rem;
       font-weight: 7600;
       margin: 0;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
       text-align: center;
+      position: relative;
+      top: -4%;
     }
+    .rolp{
+      font-size: 1.5rem;
+      position: relative;
+      top: -48%;
+      left: 2%;
+    }
+  }
+}
+
+.rolesHead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%; 
+}
+
+.roles {
+  // display: flex;
+  // width: 70%;
+  position: relative;
+  top: -2%;
+  left: 2%;
+  // display: inline-block;
+  span{
+    padding-right: 17px;
   }
 }
 
@@ -216,4 +243,8 @@
   overflow-x: scroll;
   // background-color: green;
   width: max-content;
+}
+
+.ctc{
+  background-color: red;
 }
