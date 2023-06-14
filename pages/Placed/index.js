@@ -7,7 +7,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Icon } from "@iconify/react";
 import { useSelector } from "react-redux";
 
-const data = [
+export const data = [
   {
     id: 1,
     cgpa: "8.5",
