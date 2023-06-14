@@ -11,11 +11,13 @@ import { URL } from "../../creds";
 import { Navigation, Pagination } from "swiper";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import Loader from '../../Components/Loader';
 
 const Company = () => {
   const [pending, setPending] = useState([]);
   const [ongoin, setOngoin] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -28,11 +30,18 @@ const Company = () => {
       })
       .catch((err) => {
         console.log(err);
-      });
+      }).finally(() => {
+        setIsLoading(false);
+      })
+      ;;
   });
   const user = useSelector((state) => state.user.value);
   if (user == null) return <></>;
   return (
+    <div>
+    {isLoading ? (
+      <Loader />
+    ) : (
     <div className={styles.main}>
       <div className={styles.mainCon1}>
         <div className={styles.company1box}>
@@ -273,6 +282,8 @@ const Company = () => {
         </div>
       </div>
     </div>
+  )}
+  </div>
   );
 };
 

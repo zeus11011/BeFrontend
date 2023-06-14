@@ -12,6 +12,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useRouter } from "next/router";
 import { URL } from "../creds";
 import axios from "axios";
+import Loader from '../Components/Loader';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
@@ -27,6 +28,8 @@ export default function Home() {
   const [number, setNumber] = useState(undefined);
   const router = useRouter();
   const [companies, setCompanies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   console.log(user, "usersss");
   useEffect(() => {
     axios
@@ -41,11 +44,18 @@ export default function Home() {
       })
       .catch((err) => {
         console.log(err);
-      });
+      }).finally(() => {
+        setIsLoading(false);
+      })
+      ;;
   }, [user]);
 
   if (user == null) return <></>;
   return (
+    <div>
+    {isLoading ? (
+        <Loader />
+      ) : (
     <div className={styles.main}>
       <div className={styles.descboxes}>
         <div className={styles.box}>
@@ -184,5 +194,7 @@ export default function Home() {
         </div>
       </div>
     </div>
+    )}
+  </div>
   );
 }
