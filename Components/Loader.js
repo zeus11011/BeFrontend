@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import lottie from 'lottie-web';
-import animationData from "../styles/loader.json"
+import animationData from "../styles/blackloader.json"
 
 const LoadingComponent = () => {
 
