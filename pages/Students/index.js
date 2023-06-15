@@ -42,7 +42,14 @@ const columns = [
       else return <>-</>;
     },
   },
-  { field: "cgpa", headerName: "CGPA", width: 80 },
+  {
+    field: "cgpa",
+    headerName: "CGPA",
+    width: 80,
+    renderCell: (param) => {
+      return <>{parseFloat(param.row.cgpa).toFixed(1)}</>;
+    },
+  },
   { field: "email", headerName: "Email", width: 220 },
 ];
 console.log(URL, "url");
@@ -52,7 +59,7 @@ const dropdownoptions = [
   { value: "ENE", label: "Electronics and Electrical" },
   { value: "ETC", label: "Electronics and Telecommunication" },
   { value: "IT", label: "Informartion Technology" },
-  { value: "COMP", label: "Computers" },
+  { value: "COMPUTER", label: "Computers" },
 ];
 
 const Students = () => {

@@ -32,7 +32,7 @@ export default function Home() {
     axios
       .get(URL + "/student/getdashboard")
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data, "data res");
         setNumber({
           student: res.data.student,
           companycount: res.data.companycount,
@@ -63,7 +63,7 @@ export default function Home() {
           <p className={styles.head}>Total Students</p>
           <p className={styles.p}>
             {number != undefined
-              ? number.student[0].count + number.student[1].count
+              ? number.student[0]?.count + number.student[1]?.count
               : 0}
           </p>
         </div>
@@ -82,9 +82,9 @@ export default function Home() {
           <p className={styles.head}>Students Placed</p>
           <p className={styles.p}>
             {number != undefined
-              ? number.student[0].count +
+              ? number.student[0]?.count +
                 "/" +
-                (number.student[0].count + number.student[1].count).toString()
+                (number.student[0]?.count + number.student[1]?.count).toString()
               : 0}
           </p>
         </div>
@@ -130,7 +130,7 @@ export default function Home() {
                           </div>
                           <div className={styles.cardDate}>
                             <p className={styles.p}>
-                              {new Date(ele.dates[0].start).toLocaleDateString(
+                              {new Date(ele.dates[0]?.start).toLocaleDateString(
                                 "en-US",
                                 {
                                   year: "numeric",
@@ -139,7 +139,7 @@ export default function Home() {
                                 }
                               )}{" "}
                               To{" "}
-                              {new Date(ele.dates[0].end).toLocaleDateString(
+                              {new Date(ele.dates[0]?.end).toLocaleDateString(
                                 "en-US",
                                 {
                                   year: "numeric",

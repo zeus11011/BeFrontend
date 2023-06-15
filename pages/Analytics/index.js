@@ -67,7 +67,7 @@ const Analytics = () => {
     axios
       .get(URL + "/placed", { params: { year: new Date() } })
       .then((res) => {
-        console.log(res.data.doc, "docs asas");
+        console.log(res.data.doc, "docs data");
         setPlaceddata(res.data.doc);
         var t = [];
         setHeader(res.data.students);
@@ -119,7 +119,7 @@ const Analytics = () => {
             {loading ? (
               <InfinitySpin width="200" color="#4fa94d" />
             ) : (
-              <>{header.studentdoc[0].count + header.studentdoc[1].count}</>
+              <>{header.studentdoc[0]?.count + header.studentdoc[1]?.count}</>
             )}
           </p>
         </div>
@@ -141,8 +141,8 @@ const Analytics = () => {
               <InfinitySpin width="200" color="#4fa94d" />
             ) : (
               <>
-                {header.studentdoc[1].count}/
-                {header.studentdoc[0].count + header.studentdoc[1].count}
+                {header.studentdoc[0]?.count}/
+                {header.studentdoc[0]?.count + header.studentdoc[1]?.count}
               </>
             )}
           </p>
