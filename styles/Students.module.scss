@@ -84,6 +84,7 @@
   line-height: 35px;
 }
 .h1LnC {
+  
   text-align: center;
   line-height: 41px;
   font-size: 2rem;
@@ -104,7 +105,7 @@
 }
 
 .profile {
-  width: 20rem;
+  width: 20rem; 
   justify-content: safe;
   display: flex;
   flex-direction: column;
@@ -121,6 +122,8 @@
   // height: 150px;
   border-radius: 50%;
   .img {
+    width: 150px;
+    height: 150px;
     border-radius: 150px !important;
   }
 }
@@ -209,4 +212,27 @@
   padding-right: 2rem;
   padding-bottom: 0.5rem;
   border-radius: 12px;
+}
+
+@media screen and (min-width: 549px) and (max-width: 840px) {
+  .dp {
+    
+    .img {
+      width: 120px;
+      height: 120px;
+      border-radius: 150px !important;
+    }
+  }
+
+  .card {
+    font-size: 1.4rem; /* Adjust the font size as per your preference */
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 549px) and (max-width: 1000px) {
+  
+  .addButton {
+    width: 10vw;
+  }
 }

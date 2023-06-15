@@ -213,8 +213,8 @@ const Students = () => {
                 <Image
                   alt=""
                   src={"/dp.jpg"}
-                  width={150}
-                  height={150}
+                  width={145}
+                  height={145}  
                   className={styles.img}
                   style={{
                     borderRadius: "50%",

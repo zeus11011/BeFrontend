@@ -14,8 +14,8 @@ const EditModal = ({ toggleModal }) => {
               <Image
                 alt=""
                 src={"/dp.jpg"}
-                height={80}
-                width={80}
+                height={90}
+                width={90}
                 style={{ borderRadius: "50%" }}
               ></Image>
             </div>
@@ -93,6 +93,11 @@ const EditModal = ({ toggleModal }) => {
     if (title == "Academic") {
       return (
         <div className={styles.personalCon}>
+          <div className={styles.takeSpace}
+            
+          >
+            
+          </div>
           <div className={styles.inputFields}>
           <div className={styles.row}>
               <div className={styles.column}>
@@ -160,6 +165,10 @@ const EditModal = ({ toggleModal }) => {
     if (title == "Company") {
       return (
         <div className={styles.personalCon}>
+          <div className={styles.takeSpace}
+            
+          ></div>
+          
           <div className={styles.inputFields}>
           <div className={styles.row}>
               <div className={styles.column}>

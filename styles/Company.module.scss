@@ -218,8 +218,12 @@
   height: 100%;
   padding: 2rem;
   width: 69vw;
+  overflow: hidden;
   
   // padding-bottom: 6.9rem;
+}
+.yourContent{
+  align-items: center;
 }
 .container2 {
   // margin-top: 2rem;
