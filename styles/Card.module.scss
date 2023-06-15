@@ -47,7 +47,7 @@
   // border: 1px solid #ccc;
   border-radius: 5px;
   // margin-bottom: 2em;
-  display: flex
+  display: flex;
 }
 
 .steps {
@@ -88,16 +88,18 @@
 }
 
 .image {
+  margin-top: 1em;
   margin-right: 1em;
 }
 
 .h1x {
   font-size: 2.5em;
-  margin-bottom: 0.5em;
+  // margin-bottom: 0.5em;
+  margin-top: 0.5em;
 }
 
 .h2x {
-  font-size: 2em;
+  font-size: 1.3em;
 }
 
 .inputFields {
@@ -117,7 +119,7 @@
 }
 
 .h2 {
-  font-size: 2em;
+  font-size: 1.5em;  
   margin-bottom: 0.5em;
 }
 
@@ -141,4 +143,86 @@
 .formfields {
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (min-width: 549px) and (max-width: 983px){
+  
+  .main {
+    overflow: scroll;
+    position: fixed;
+    right: 8%;
+    bottom: 0;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+  }
+  .container{
+    width: 82vw;
+  }
+
+  .dataBox{
+    width: 82vw;
+  }
+  .steps {
+    // background-color: red;
+    position: relative;
+    left: 12%;
+    top: 17%;
+    font-size: small;
+    position: absolute;
+    // width: 44vw;
+    
+  }
+
+  .contentStyle{
+    width: 100%; 
+  }
+
+  .buttonBox{
+
+  }
+
+
+  .textfiled{
+    width: min-content;
+    font-size: small;
+    position: relative;
+    left: 6rem;
+  }
+
+  .h2{
+    position: relative;
+    left: 6rem;
+  }
+
+  .image {
+    // margin-top: 1em;
+    margin-left: 11em;
+    position: relative;
+    top: -0.4em;
+
+  }
+
+  .takeSpace{
+    height: 120px
+  }
+
+  .detailBox{
+    font-size: 1.2rem;
+  }
+  // .h1x{
+  //   position: relative;
+  //   left: 2em;
+
+  // }
+  // .h2x{
+  //   position: relative;
+  //   top: 1em;
+  //   left: -18rem;
+
+  // }
 }

@@ -36,6 +36,9 @@ const user = useSelector((state) => state.user.value);
   if (user == null) return <></>;
   return (
 <div className={styles.main1}>
+          <div className="yourContent">
+            <h2>replace your own content</h2>
+          </div>
         <div className={styles.container2}>
           <h1 className={styles.h1LnC}>PLACED STUDENTS</h1>
         </div>
