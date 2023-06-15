@@ -1,21 +1,56 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/Company.module.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
+import { Modal } from "antd";
+import { DataGrid } from "@mui/x-data-grid";
+import Dropdown from "react-dropdown";
+
+import Table from "../Analytics/Table";
+
 
 import { URL } from "../../creds";
 
 import { Navigation, Pagination } from "swiper";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import Loader from '../../Components/Loader';
 
 const Company = () => {
   const [pending, setPending] = useState([]);
   const [ongoin, setOngoin] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // nir
+    //  analytic table
+    //  analytic table
+
+
+  const [showModal1, setShowModal1] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
+
+ 
+// nir
+
+ const handleBoxClick1 = () => {
+    setShowModal1(true);
+  };
+
+  const handleBoxClick2 = () => {
+    setShowModal2(true);
+  };
+
+  const handleCloseModal1 = () => {
+    setShowModal1(false);
+  };
+
+  const handleCloseModal2 = () => {
+    setShowModal2(false);
+  };
 
   useEffect(() => {
     axios
@@ -28,11 +63,24 @@ const Company = () => {
       })
       .catch((err) => {
         console.log(err);
-      });
+      }).finally(() => {
+        setIsLoading(false);
+      })
+      ;;
   });
   const user = useSelector((state) => state.user.value);
   if (user == null) return <></>;
+
+  // nir
+ const table = <> <h1>hiii</h1>
+  </>
+  
+  // nir
   return (
+    <div>
+    {isLoading ? (
+      <Loader />
+    ) : (
     <div className={styles.main}>
       <div className={styles.mainCon1}>
         <div className={styles.company1box}>
@@ -49,14 +97,17 @@ const Company = () => {
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper) => console.log(swiper)}
             >
-              {pending.length != 0 ? (
+              {pending.length !== 0 ? (
                 pending.map((ele, index) => {
                   console.log(ele, "params");
                   return (
                     <SwiperSlide key={index}>
-                      <div className={styles.card1box}>
+                      <div
+                        className={styles.card1box}
+                        onClick={handleBoxClick1}
+                      >
                         <div className={styles.box}>
-                          <h1>{ele.nameCompany}</h1>
+                          <h1 className="Ph">{ele.nameCompany}</h1>
                           <p className={styles.p}>
                             {new Date(ele.dates[0]?.start).toLocaleDateString(
                               "en-US",
@@ -76,38 +127,38 @@ const Company = () => {
                               }
                             )}
                           </p>
-                          Roles:
-                          <div
-                            style={{
-                              display: "grid",
-                              gridTemplateColumns: "1fr 1fr",
-                              columnGap: "10px",
-                            }}
-                          >
-                            {ele.roles.map((item, i) => {
-                              return <p key={i}>{item}</p>;
-                            })}
-                          </div>
-                          CTC:
-                          <div
-                            style={{
-                              display: "grid",
-                              gridTemplateColumns: "1fr 1fr",
-                              columnGap: "10px",
-                            }}
-                          >
+                          <div className={styles.rolesHead}>
+                              <p className={styles.rolp}> Roles:</p>
+                            </div>
+                            <div className={styles.roles}>
+                              {ele.roles.map((item, i) => {
+                                return <span key={i}>{item}</span>;
+                              })}
+                            </div>
+                          <div className="ctc">
+                            <span>CTC:</span>
                             {ele.ctc.map((item, index) => {
                               return <p key={index}>{item}</p>;
                             })}
                           </div>
                         </div>
                       </div>
+                      <Modal
+                        visible={showModal1}
+                        onCancel={handleCloseModal1}
+                        footer={null}
+                      >
+                        <h2>Modal Title</h2>
+                        <p>replace with your own content</p>
+                        <button onClick={handleCloseModal1}>Close</button>
+                        <button>Another Button</button>
+                      </Modal>
                     </SwiperSlide>
                   );
                 })
               ) : (
                 <div className={styles.blankbox}>
-                  Nothing Copanies are there to show
+                  No companies to show
                 </div>
               )}
             </Swiper>
@@ -133,9 +184,11 @@ const Company = () => {
                   console.log(ele, "params");
                   return (
                     <SwiperSlide key={index}>
-                      <div className={styles.card1box}>
+                      <div className={styles.card1box}
+                        onClick={handleBoxClick2}
+                      > 
                         <div className={styles.box}>
-                          <h1>{ele.nameCompany}</h1>
+                          <h1 className="onGh1">{ele.nameCompany}</h1>
                           <p className={styles.p}>
                             {new Date(ele.dates[0].start).toLocaleDateString(
                               "en-US",
@@ -155,25 +208,22 @@ const Company = () => {
                               }
                             )}
                           </p>
-                          Roles:
-                          <div
-                            style={{
-                              display: "grid",
-                              gridTemplateColumns: "1fr 1fr",
-                              columnGap: "10px",
-                            }}
-                          >
-                            {ele.roles.map((item, i) => {
-                              return <p key={i}>{item}</p>;
-                            })}
-                          </div>
+                          <div className={styles.rolesHead}>
+                              <p className={styles.rolp}> Roles:</p>
+                            </div>
+                            <div className={styles.roles}>
+                              {ele.roles.map((item, i) => {
+                                return <span key={i}>{item}</span>;
+                              })}
+                            </div>
                           CTC:
                           <div
                             style={{
-                              display: "grid",
-                              gridTemplateColumns: "1fr 1fr",
-                              columnGap: "10px",
-                            }}
+                              // display: "grid",
+                              // gridTemplateColumns: "1fr 1fr",
+                              // columnGap: "10px",
+                              height: "100px"
+                             }}
                           >
                             {ele.ctc.map((item, index) => {
                               return <p key={index}>{item}</p>;
@@ -181,6 +231,14 @@ const Company = () => {
                           </div>
                         </div>
                       </div>
+                      <Modal
+                        visible={showModal2}
+                        onCancel={handleCloseModal2}
+                        footer={null}
+                        width={"72vw"}
+                      >
+                       <Table />
+                      </Modal>
                     </SwiperSlide>
                   );
                 })
@@ -234,24 +292,20 @@ const Company = () => {
                               }
                             )}
                           </p>
-                          Roles:
-                          <div
-                            style={{
-                              display: "grid",
-                              gridTemplateColumns: "1fr 1fr",
-                              columnGap: "10px",
-                            }}
-                          >
-                            {ele.roles.map((item, i) => {
-                              return <p key={i}>{item}</p>;
-                            })}
-                          </div>
+                          <div className={styles.rolesHead}>
+                              <p className={styles.rolp}> Roles:</p>
+                            </div>
+                            <div className={styles.roles}>
+                              {ele.roles.map((item, i) => {
+                                return <span key={i}>{item}</span>;
+                              })}
+                            </div>
                           CTC:
                           <div
                             style={{
-                              display: "grid",
-                              gridTemplateColumns: "1fr 1fr",
-                              columnGap: "10px",
+                              // display: "grid",
+                              // gridTemplateColumns: "1fr 1fr",
+                              // columnGap: "10px",
                             }}
                           >
                             {ele.ctc.map((item, index) => {
@@ -273,6 +327,8 @@ const Company = () => {
         </div>
       </div>
     </div>
+  )}
+  </div>
   );
 };
 

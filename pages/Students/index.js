@@ -11,6 +11,7 @@ import "react-dropdown/style.css";
 import axios from "axios";
 import { URL } from "../../creds.js";
 import { useSelector } from "react-redux";
+import Loader from '../../Components/Loader';
 
 import { Button, Modal } from "antd";
 
@@ -68,6 +69,20 @@ const Students = () => {
   const [dept, setDept] = useState(dropdownoptions[0].value);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  /*
+  // to run loader for some seconds. currently its said to stop loading once data is fetched in axios function
+  useEffect(() => {
+    const delay = 15000; // loading time in ms
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, delay);
+    
+    // Clean up the timer when the component unmounts
+    return () => clearTimeout(timer);
+  }, []);
+  */
 
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -96,13 +111,20 @@ const Students = () => {
       })
       .catch((err) => {
         console.log(err, "err");
-      });
+      }).finally(() => {
+        setIsLoading(false);
+      })
+      ;
   };
 
   const user = useSelector((state) => state.user.value);
   if (user == null) return <></>;
   return (
     <>
+    {isLoading ? (
+        <Loader />
+      ) : (
+      <div>
       {modalOpen ? <EditModal toggleModal={toggleModal} /> : <></>}
       {isModalOpen ? (
         <Modal
@@ -190,6 +212,7 @@ const Students = () => {
           </div>
         </div>
         <div className={styles.main2}>
+        <div className={styles.cardContent}> 
           <h1 className={styles.h1LnC}>STUDENT</h1>
           {selected != undefined ? (
             <>
@@ -197,8 +220,8 @@ const Students = () => {
                 <Image
                   alt=""
                   src={"/dp.jpg"}
-                  width={150}
-                  height={150}
+                  width={145}
+                  height={145}  
                   className={styles.img}
                   style={{
                     borderRadius: "50%",
@@ -208,6 +231,7 @@ const Students = () => {
 
               <h1 className={styles.h1}>{selected.name}</h1>
               <p className={styles.p}>{selected.email}</p>
+              <div className={styles.scrollable}>
               <div className={styles.card}>
                 <p className={styles.p1}>Company :</p>
                 <p className={styles.p2}>
@@ -246,7 +270,7 @@ const Students = () => {
                     className={styles.button}
                   >
                     <Icon
-                      style={{ color: "black", height: "30", width: "30" }}
+                      style={{ color: "black", height: "25", width: "25" }}
                       icon="mdi:edit"
                       width={"4rem"}
                       onClick={""}
@@ -256,7 +280,7 @@ const Students = () => {
                 <div className={styles.buttonBox2}>
                   <button name="save" onClick="" className={styles.button}>
                     <Icon
-                      style={{ color: "black", height: "30", width: "30" }}
+                      style={{ color: "black", height: "25", width: "25" }}
                       icon="mdi:message-outline"
                       width={"4rem"}
                       onClick={""}
@@ -264,12 +288,16 @@ const Students = () => {
                   </button>
                 </div>
               </div>
+              </div>
             </>
           ) : (
             <></>
           )}
         </div>
       </div>
+      </div>
+      </div>
+      )}
     </>
   );
 };

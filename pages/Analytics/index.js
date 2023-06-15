@@ -129,9 +129,9 @@ const Analytics = () => {
               <Icon
                 icon="mdi:handshake"
                 width={"4rem"}
-                onClick={() => {
-                  router.push("Placed");
-                }}
+                // onClick={() => {
+                //   router.push("Placed");
+                // }}
               />
             </div>
           </div>
@@ -153,9 +153,9 @@ const Analytics = () => {
               <Icon
                 icon="ri:building-2-line"
                 width={"4rem"}
-                onClick={() => {
-                  router.push("Archive");
-                }}
+                // onClick={() => {
+                //   router.push("Archive");
+                // }}
               />
             </div>
           </div>
@@ -252,6 +252,7 @@ const Analytics = () => {
                 },
               ],
             }}
+            className={styles.cir}
           />
         </div>
       </div>

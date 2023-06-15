@@ -56,6 +56,7 @@ function Drawer() {
             onClick={() => {
               router.push("/");
             }}
+            className={styles.logo}
           />
         </div>
         <div
@@ -69,14 +70,14 @@ function Drawer() {
               currentpage === "/"
                 ? [styles.selected, styles.item].join(" ")
                 : styles.item
-            }
+            } 
           >
             <Icon
               icon="material-symbols:dashboard"
               color="white"
               width={"2.5rem"}
             />
-            <p>Dashboard</p>
+            <p id="one">Dashboard</p>
           </div>
         </div>
         <div

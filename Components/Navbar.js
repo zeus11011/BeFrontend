@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import ProfileDropdown from "./ProfileDropdown";
+import NotificationDropdown from "./NotificationDropdown";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -59,10 +60,15 @@ const Navbar = () => {
       <div className={styles.usersec}>
         <div>
           {true ? (
-            <Icon icon="mdi:bell-badge-outline" height={"4rem"} />
+            <div className={styles.dropdownCon}>
+            <NotificationDropdown icon="mdi:bell-badge-outline" />
+            </div>
           ) : (
-            <Icon icon="mdi:bell-outline" height={"4rem"} />
-          )}
+            <div className={styles.dropdownCon}>
+            <NotificationDropdown icon="mdi:bell-outline" />            
+            </div>
+            )}
+
         </div>
         <div className={styles.dropdownCon}>
           <ProfileDropdown />
@@ -70,14 +76,14 @@ const Navbar = () => {
         <div className={styles.profile}>
           <Image
             onClick={() => {
-              router.push("Profile");
+              router.push("/Profile");
             }}
             alt=""
             src={"/dp.jpg"}
             width={80}
             height={80}
             className={styles.img}
-            style={{ borderRadius: "50%", marginTop: "1rem" }}
+            style={{ borderRadius: "50%", marginTop: "0rem" }}
           />
         </div>
       </div>

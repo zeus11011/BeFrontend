@@ -14,6 +14,7 @@ import {
 } from "react-chartjs-2";
 import Select from "react-select";
 import { DataGrid } from "@mui/x-data-grid";
+import Loader from '../../Components/Loader';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -96,7 +97,7 @@ const optionsB = Array.from(
 );
 
 const optionsline = {
-  responsive: true,
+  // responsive: true,
   plugins: {
     legend: {
       position: "top",
@@ -142,6 +143,7 @@ const Archive = () => {
   const chartref = useRef();
   const [doughnutdata, setDoughnutdata] = useState(null);
   const [griddata, setGriddata] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
@@ -181,7 +183,10 @@ const Archive = () => {
       })
       .catch((err) => {
         console.log(err);
-      });
+      }).finally(() => {
+        setIsLoading(false);
+      })
+      ;;
   };
 
   const onChartclick = (event) => {
@@ -204,6 +209,9 @@ const Archive = () => {
             {/* <Chart /> */}
             {!loading ? (
               <Line
+              height={333}
+              width={333}
+              style={{ margin: 'auto' }}
                 ref={chartref}
                 options={optionsline}
                 data={{

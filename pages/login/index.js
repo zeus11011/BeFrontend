@@ -6,13 +6,17 @@ import Link from "next/link";
 import axios from "axios";
 import { URL } from "../../creds";
 import { useRouter } from "next/router";
+import Loader from '../../Components/Loader';
 
 function Index() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const router = useRouter();
   const login = () => {
+    setIsLoading(true);
     axios
       .post(URL + "/auth/admin/login", { email, password })
       .then((res) => {
@@ -22,7 +26,10 @@ function Index() {
       })
       .catch((err) => {
         console.log(err);
-      });
+      }).finally(() => {
+        setIsLoading(false);
+      })
+      ;
   };
 
   useEffect(() => {
@@ -32,6 +39,10 @@ function Index() {
   }, []);
 
   return (
+    <>
+    {isLoading ? (
+      <Loader />
+    ) : (
     <div className={styles.main}>
       <div className={styles.con1}>
         <Image src={"/gec.svg"} alt="" height={300} width={300} />
@@ -98,8 +109,11 @@ function Index() {
         </div>
       </div>
     </div>
+    )}
+    </>
   );
 }
+
 export default Index;
 
 Index.getLayout = function PageLayout(page) {

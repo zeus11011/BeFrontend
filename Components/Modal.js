@@ -14,8 +14,8 @@ const EditModal = ({ toggleModal }) => {
               <Image
                 alt=""
                 src={"/dp.jpg"}
-                height={80}
-                width={80}
+                height={90}
+                width={90}
                 style={{ borderRadius: "50%" }}
               ></Image>
             </div>
@@ -27,7 +27,9 @@ const EditModal = ({ toggleModal }) => {
             </div>
           </div>
           <div className={styles.inputFields}>
-            <div className={styles.box}>
+            <div className={styles.row}>
+              <div className={styles.column}>
+              <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>First Name</h2>
                 <input
@@ -37,8 +39,11 @@ const EditModal = ({ toggleModal }) => {
                   className={styles.textfiled}
                 ></input>
               </div>
-            </div>
-            <div className={styles.box}>
+              </div>
+              </div>
+            
+            <div className={styles.column}>
+              <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>Last Name</h2>
                 <input
@@ -49,6 +54,11 @@ const EditModal = ({ toggleModal }) => {
                 ></input>
               </div>
             </div>
+            </div>
+            </div>
+
+            <div className={styles.row}>
+              <div className={styles.column}>
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>Email</h2>
@@ -60,6 +70,9 @@ const EditModal = ({ toggleModal }) => {
                 ></input>
               </div>
             </div>
+            </div>
+
+            <div className={styles.column}>
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>Phone Number</h2>
@@ -71,6 +84,8 @@ const EditModal = ({ toggleModal }) => {
                 ></input>
               </div>
             </div>
+            </div>
+          </div>
           </div>
         </div>
       );
@@ -78,7 +93,14 @@ const EditModal = ({ toggleModal }) => {
     if (title == "Academic") {
       return (
         <div className={styles.personalCon}>
+          <div className={styles.takeSpace}
+            
+          >
+            
+          </div>
           <div className={styles.inputFields}>
+          <div className={styles.row}>
+              <div className={styles.column}>
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>First Name</h2>
@@ -90,6 +112,9 @@ const EditModal = ({ toggleModal }) => {
                 ></input>
               </div>
             </div>
+            </div>
+
+            <div className={styles.column}>
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>Last Name</h2>
@@ -101,6 +126,11 @@ const EditModal = ({ toggleModal }) => {
                 ></input>
               </div>
             </div>
+            </div>
+            </div>
+
+            <div className={styles.row}>
+            <div className={styles.column}>
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>Email</h2>
@@ -112,6 +142,9 @@ const EditModal = ({ toggleModal }) => {
                 ></input>
               </div>
             </div>
+            </div>
+
+            <div className={styles.column}>
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>Phone Number</h2>
@@ -122,6 +155,8 @@ const EditModal = ({ toggleModal }) => {
                   className={styles.textfiled}
                 ></input>
               </div>
+            </div>
+            </div>
             </div>
           </div>
         </div>
@@ -130,7 +165,13 @@ const EditModal = ({ toggleModal }) => {
     if (title == "Company") {
       return (
         <div className={styles.personalCon}>
+          <div className={styles.takeSpace}
+            
+          ></div>
+          
           <div className={styles.inputFields}>
+          <div className={styles.row}>
+              <div className={styles.column}>
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>First Name</h2>
@@ -142,6 +183,9 @@ const EditModal = ({ toggleModal }) => {
                 ></input>
               </div>
             </div>
+            </div>
+
+            <div className={styles.column}>
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>Last Name</h2>
@@ -153,6 +197,11 @@ const EditModal = ({ toggleModal }) => {
                 ></input>
               </div>
             </div>
+            </div>
+            </div>
+
+            <div className={styles.row}>
+            <div className={styles.column}>
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>Email</h2>
@@ -164,6 +213,9 @@ const EditModal = ({ toggleModal }) => {
                 ></input>
               </div>
             </div>
+            </div>
+            
+            
             <div className={styles.box}>
               <div className={styles.box2}>
                 <h2 className={styles.h2}>Phone Number</h2>
@@ -176,6 +228,7 @@ const EditModal = ({ toggleModal }) => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       );
     }
