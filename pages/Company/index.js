@@ -136,10 +136,10 @@ const Company = () => {
                               })}
                             </div>
                           <div className="ctc">
-                            <span>CTC:</span>
-                            {ele.ctc.map((item, index) => {
-                              return <p key={index}>{item}</p>;
-                            })}
+                            <span>CTC: {ele.ctc.map((item, index) => {
+                              return <p style={{display: "inline"}} key={index}>{item}</p>;
+                            })}</span>
+                            
                           </div>
                         </div>
                       </div>
@@ -216,18 +216,11 @@ const Company = () => {
                                 return <span key={i}>{item}</span>;
                               })}
                             </div>
-                          CTC:
-                          <div
-                            style={{
-                              // display: "grid",
-                              // gridTemplateColumns: "1fr 1fr",
-                              // columnGap: "10px",
-                              height: "100px"
-                             }}
-                          >
-                            {ele.ctc.map((item, index) => {
-                              return <p key={index}>{item}</p>;
-                            })}
+                            <div className="ctc">
+                            <span>CTC: {ele.ctc.map((item, index) => {
+                              return <p style={{display: "inline"}} key={index}>{item}</p>;
+                            })}</span>
+                            
                           </div>
                         </div>
                       </div>
@@ -300,17 +293,11 @@ const Company = () => {
                                 return <span key={i}>{item}</span>;
                               })}
                             </div>
-                          CTC:
-                          <div
-                            style={{
-                              // display: "grid",
-                              // gridTemplateColumns: "1fr 1fr",
-                              // columnGap: "10px",
-                            }}
-                          >
-                            {ele.ctc.map((item, index) => {
-                              return <p key={index}>{item}</p>;
-                            })}
+                            <div className="ctc">
+                            <span>CTC: {ele.ctc.map((item, index) => {
+                              return <p style={{display: "inline"}} key={index}>{item}</p>;
+                            })}</span>
+                            
                           </div>
                         </div>
                       </div>
