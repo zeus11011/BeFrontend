@@ -27,7 +27,7 @@
   // align-items: centers;
   justify-content: flex-start;
   width: 68vw;
-  height: 50vh;
+  height: 55vh;
   background: #ffffff;
   font-size: 11px;
   border-radius: 15px;
@@ -60,8 +60,10 @@
   flex-direction: column;
   justify-content: space-around;
   margin-bottom: 2rem;
+  flex-shrink: 1;
+  
+
   .box {
-    // background-color: red; //remove this
     margin-left: 2rem;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -70,7 +72,7 @@
     align-items: center;
     flex-direction: column;
     width: 25rem;
-    height: 21rem;    
+    height: 24rem;    
     box-shadow: 0px 0px 16px grey;
     border-radius: 10px;
     padding-left: 1rem;
@@ -78,7 +80,8 @@
     h1 {
       font-size: 2rem;
     }
-    div {
+    div { 
+        font-size: 1.5rem;
     }
     .p {
       font-size: 1.4rem;
@@ -249,6 +252,12 @@
   width: max-content;
 }
 
-.ctc{
-  background-color: red;
-}
+// .ctc{
+//   background-color: red;
+// }
+/* Container for the Swiper component */
+// .swiper-container {
+//   display: flex; /* Display the cards horizontally */
+//   flex-wrap: wrap; /* Allow cards to wrap to the next line on smaller screens */
+// }
+
