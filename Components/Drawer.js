@@ -51,8 +51,8 @@ function Drawer() {
           <Image
             src={"/gec.svg"}
             alt=""
-            height={100}
-            width={100}
+            height={200}
+            width={200}
             onClick={() => {
               router.push("/");
             }}
