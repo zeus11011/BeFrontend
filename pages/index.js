@@ -185,16 +185,16 @@ export default function Home() {
                             </div>
                           </div>
                           <div className={styles.cardPackage}>
-                            <div className={styles.packageHead}>
+                            <span className={styles.packageHead}>
                               {" "}
                               <p> CTC:</p>
-                            </div>
+                            </span>
 
-                            <div className={styles.packageAm}>
+                            <span className={styles.packageAm}>
                               {ele.ctc.map((item, index) => {
                                 return <p>{item}</p>;
                               })}
-                            </div>
+                            </span>
                           </div>
                         </div>
                       </div>
