@@ -261,3 +261,10 @@
 //   flex-wrap: wrap; /* Allow cards to wrap to the next line on smaller screens */
 // }
 
+.roles {
+  // background-color: chartreuse;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 28px;
+}
