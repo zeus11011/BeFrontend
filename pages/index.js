@@ -178,7 +178,7 @@ export default function Home() {
                             <div className={styles.rolesHead}>
                               <p className={styles.rolp}> Roles:</p>
                             </div>
-                            <div className={styles.roles}>
+                            <div className={styles.roles} >
                               {ele.roles.map((item, i) => {
                                 return <span key={i}>{item}</span>;
                               })}
