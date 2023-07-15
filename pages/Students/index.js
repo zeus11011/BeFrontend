@@ -11,13 +11,13 @@ import "react-dropdown/style.css";
 import axios from "axios";
 import { URL } from "../../creds.js";
 import { useSelector } from "react-redux";
-import Loader from '../../Components/Loader';
+import Loader from "../../Components/Loader";
 
 import { Button, Modal } from "antd";
 
 const columns = [
   {
-    field: "prnumber",
+    field: "rollno",
     headerName: "Roll No.",
     width: 80,
   },
@@ -60,7 +60,7 @@ const dropdownoptions = [
   { value: "ENE", label: "Electronics and Electrical" },
   { value: "ETC", label: "Electronics and Telecommunication" },
   { value: "IT", label: "Informartion Technology" },
-  { value: "COMPUTER", label: "Computers" },
+  { value: "COMP", label: "Computers" },
 ];
 
 const Students = () => {
@@ -111,192 +111,204 @@ const Students = () => {
       })
       .catch((err) => {
         console.log(err, "err");
-      }).finally(() => {
-        setIsLoading(false);
       })
-      ;
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const user = useSelector((state) => state.user.value);
   if (user == null) return <></>;
   return (
     <>
-    {isLoading ? (
+      {isLoading ? (
         <Loader />
       ) : (
-      <div>
-      {modalOpen ? <EditModal toggleModal={toggleModal} /> : <></>}
-      {isModalOpen ? (
-        <Modal
-          destroyOnClose
-          centered
-          open={toggleDeleteModal}
-          onCancel={handleCancel}
-          footer={[
-            <Button key={"delete"} onClick={""}>
-              Delete
-            </Button>,
-            <Button key={"cancel"} onClick={handleCancel}>
-              Cancel
-            </Button>,
-          ]}
-        >
-          <h1>Delete record?</h1>
-          <h3>delte foll persons all perosnal record</h3>
-        </Modal>
-      ) : (
-        <></>
-      )}
-      <div className={styles.main}>
-        <div className={styles.main1}>
-          <div className={styles.container2}>
-            <h1 className={styles.h1LnC}>ALL STUDENTS</h1>
-            <div>
-              <Dropdown
-                options={dropdownoptions}
-                onChange={(value) => {
-                  console.log(value, "value");
-                  setDept(value.value);
-                }}
-                value={dept}
-                placeholder="Select an option"
-              />
-            </div>
-          </div>
-          <div className={styles.container3}>
-            <DataGrid
-              rows={students}
-              columns={columns}
-              getRowId={(params) => {
-                return params._id;
-              }}
-              sx={{
-                ".MuiDataGrid-columnHeaderTitle": {
-                  fontWeight: "900 !important",
-                  overflow: "visible !important",
-                  fontSize: "1.35rem !important",
-                },
-                ".MuiDataGrid-columnHeaderTitleContainer": {
-                  display: "flex",
-                  justifyContent: "center",
-                },
-                ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
-                  { display: "flex", justifyContent: "center" },
-                fontSize: 15,
-                fontWeight: 500,
-              }}
-              hideFooter
-              isColumnSelectable={(params) => {
-                console.log(params, "params afer selected columns");
-                setSelected(params.column);
-              }}
-              isRowSelectable={(params) => {
-                console.log(params, "params afer selected row");
-                setSelected(params.row);
-              }}
-              pageSizeOptions={[10, 20, 30]}
-            />
-          </div>
-          <div className={styles.addBoxCon}>
-            <div className={styles.addButtonBox}>
-              <button
-                name="add"
-                onClick={() => {
-                  toggleModal();
-                }}
-                className={styles.addButton}
-              >
-                Add
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className={styles.main2}>
-        <div className={styles.cardContent}> 
-          <h1 className={styles.h1LnC}>STUDENT</h1>
-          {selected != undefined ? (
-            <>
-              <div className={styles.dp}>
-                <Image
-                  alt=""
-                  src={"/dp.jpg"}
-                  width={145}
-                  height={145}  
-                  className={styles.img}
-                  style={{
-                    borderRadius: "50%",
-                  }}
-                />
-              </div>
-
-              <h1 className={styles.h1}>{selected.name}</h1>
-              <p className={styles.p}>{selected.email}</p>
-              <div className={styles.scrollable}>
-              <div className={styles.card}>
-                <p className={styles.p1}>Company :</p>
-                <p className={styles.p2}>
-                  {selected.placedDoc != undefined ? (
-                    selected.placedDoc.offerid.nameCompany
-                  ) : (
-                    <>-</>
-                  )}
-                </p>
-              </div>
-              <div className={styles.card}>
-                <p className={styles.p1}>Department :</p>
-                <p className={styles.p2}>{selected.branch}</p>
-              </div>
-              <div className={styles.card}>
-                <p className={styles.p1}>CGPA :</p>
-                <p className={styles.p2}>{selected.cgpa}</p>
-              </div>
-              <div className={styles.card}>
-                <p className={styles.p1}>Package :</p>
-                <p className={styles.p2}>
-                  {selected.placedDoc !== undefined ? (
-                    <>{selected.placedDoc.package}</>
-                  ) : (
-                    <>-</>
-                  )}
-                </p>
-              </div>
-              <div className={styles.buttons}>
-                <div className={styles.buttonBox}>
-                  <button
-                    name="save"
-                    onClick={() => {
-                      toggleModal();
-                    }}
-                    className={styles.button}
-                  >
-                    <Icon
-                      style={{ color: "black", height: "25", width: "25" }}
-                      icon="mdi:edit"
-                      width={"4rem"}
-                      onClick={""}
-                    ></Icon>
-                  </button>
-                </div>
-                <div className={styles.buttonBox2}>
-                  <button name="save" onClick="" className={styles.button}>
-                    <Icon
-                      style={{ color: "black", height: "25", width: "25" }}
-                      icon="mdi:message-outline"
-                      width={"4rem"}
-                      onClick={""}
-                    ></Icon>
-                  </button>
-                </div>
-              </div>
-              </div>
-            </>
+        <div>
+          {modalOpen ? <EditModal toggleModal={toggleModal} /> : <></>}
+          {isModalOpen ? (
+            <Modal
+              destroyOnClose
+              centered
+              open={toggleDeleteModal}
+              onCancel={handleCancel}
+              footer={[
+                <Button key={"delete"} onClick={""}>
+                  Delete
+                </Button>,
+                <Button key={"cancel"} onClick={handleCancel}>
+                  Cancel
+                </Button>,
+              ]}
+            >
+              <h1>Delete record?</h1>
+              <h3>delte foll persons all perosnal record</h3>
+            </Modal>
           ) : (
             <></>
           )}
+          <div className={styles.main}>
+            <div className={styles.main1}>
+              <div className={styles.container2}>
+                <h1 className={styles.h1LnC}>ALL STUDENTS</h1>
+                <div>
+                  <Dropdown
+                    options={dropdownoptions}
+                    onChange={(value) => {
+                      console.log(value, "value");
+                      setDept(value.value);
+                    }}
+                    value={dept}
+                    placeholder="Select an option"
+                  />
+                </div>
+              </div>
+              <div className={styles.container3}>
+                <DataGrid
+                  rows={students}
+                  columns={columns}
+                  getRowId={(params) => {
+                    return params._id;
+                  }}
+                  sx={{
+                    ".MuiDataGrid-columnHeaderTitle": {
+                      fontWeight: "900 !important",
+                      overflow: "visible !important",
+                      fontSize: "1.35rem !important",
+                    },
+                    ".MuiDataGrid-columnHeaderTitleContainer": {
+                      display: "flex",
+                      justifyContent: "center",
+                    },
+                    ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      { display: "flex", justifyContent: "center" },
+                    fontSize: 15,
+                    fontWeight: 500,
+                  }}
+                  hideFooter
+                  isColumnSelectable={(params) => {
+                    console.log(params, "params afer selected columns");
+                    setSelected(params.column);
+                  }}
+                  isRowSelectable={(params) => {
+                    console.log(params, "params afer selected row");
+                    setSelected(params.row);
+                  }}
+                  pageSizeOptions={[10, 20, 30]}
+                />
+              </div>
+              <div className={styles.addBoxCon}>
+                <div className={styles.addButtonBox}>
+                  <button
+                    name="add"
+                    onClick={() => {
+                      toggleModal();
+                    }}
+                    className={styles.addButton}
+                  >
+                    Add
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className={styles.main2}>
+              <div className={styles.cardContent}>
+                <h1 className={styles.h1LnC}>STUDENT</h1>
+                {selected != undefined ? (
+                  <>
+                    <div className={styles.dp}>
+                      <Image
+                        alt=""
+                        src={"/dp.jpg"}
+                        width={145}
+                        height={145}
+                        className={styles.img}
+                        style={{
+                          borderRadius: "50%",
+                        }}
+                      />
+                    </div>
+
+                    <h1 className={styles.h1}>{selected.name}</h1>
+                    <p className={styles.p}>{selected.email}</p>
+                    <div className={styles.scrollable}>
+                      <div className={styles.card}>
+                        <p className={styles.p1}>Company :</p>
+                        <p className={styles.p2}>
+                          {selected.placedDoc != undefined ? (
+                            selected.placedDoc.offerid.nameCompany
+                          ) : (
+                            <>-</>
+                          )}
+                        </p>
+                      </div>
+                      <div className={styles.card}>
+                        <p className={styles.p1}>Department :</p>
+                        <p className={styles.p2}>{selected.branch}</p>
+                      </div>
+                      <div className={styles.card}>
+                        <p className={styles.p1}>CGPA :</p>
+                        <p className={styles.p2}>{selected.cgpa}</p>
+                      </div>
+                      <div className={styles.card}>
+                        <p className={styles.p1}>Package :</p>
+                        <p className={styles.p2}>
+                          {selected.placedDoc !== undefined ? (
+                            <>{selected.placedDoc.package}</>
+                          ) : (
+                            <>-</>
+                          )}
+                        </p>
+                      </div>
+                      <div className={styles.buttons}>
+                        <div className={styles.buttonBox}>
+                          <button
+                            name="save"
+                            onClick={() => {
+                              toggleModal();
+                            }}
+                            className={styles.button}
+                          >
+                            <Icon
+                              style={{
+                                color: "black",
+                                height: "25",
+                                width: "25",
+                              }}
+                              icon="mdi:edit"
+                              width={"4rem"}
+                              onClick={""}
+                            ></Icon>
+                          </button>
+                        </div>
+                        <div className={styles.buttonBox2}>
+                          <button
+                            name="save"
+                            onClick=""
+                            className={styles.button}
+                          >
+                            <Icon
+                              style={{
+                                color: "black",
+                                height: "25",
+                                width: "25",
+                              }}
+                              icon="mdi:message-outline"
+                              width={"4rem"}
+                              onClick={""}
+                            ></Icon>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
-      </div>
       )}
     </>
   );

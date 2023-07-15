@@ -14,7 +14,7 @@ import {
 } from "react-chartjs-2";
 import Select from "react-select";
 import { DataGrid } from "@mui/x-data-grid";
-import Loader from '../../Components/Loader';
+import Loader from "../../Components/Loader";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -141,7 +141,7 @@ const Archive = () => {
   const [graph, setGraph] = useState({});
   const [loading, setLoading] = useState(true);
   const chartref = useRef();
-  const [doughnutdata, setDoughnutdata] = useState(null);
+  const [doughnutdata, setDoughnutdata] = useState([]);
   const [griddata, setGriddata] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -183,10 +183,10 @@ const Archive = () => {
       })
       .catch((err) => {
         console.log(err);
-      }).finally(() => {
-        setIsLoading(false);
       })
-      ;;
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const onChartclick = (event) => {
@@ -209,9 +209,9 @@ const Archive = () => {
             {/* <Chart /> */}
             {!loading ? (
               <Line
-              height={333}
-              width={333}
-              style={{ margin: 'auto' }}
+                height={333}
+                width={333}
+                style={{ margin: "auto" }}
                 ref={chartref}
                 options={optionsline}
                 data={{

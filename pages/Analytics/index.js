@@ -20,6 +20,7 @@ import {
 } from "chart.js";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 const { URL } = require("../../creds");
 ChartJS.register(
   CategoryScale,
@@ -31,10 +32,10 @@ ChartJS.register(
   ArcElement
 );
 const columns = [
-  { field: "name", headerName: "Name", width: 190, headerClassName: "column" },
-  { field: "company", headerName: "Company", width: 150 },
-  { field: "department", headerName: "Department", width: 190 },
-  { field: "package", headerName: "Package", width: 170 },
+  { field: "name", headerName: "Name", width: 170, headerClassName: "column" },
+  { field: "company", headerName: "Company", width: 120 },
+  { field: "department", headerName: "Department", width: 120 },
+  { field: "package", headerName: "Package", width: 100 },
 ];
 
 const options = {
@@ -63,6 +64,11 @@ const Analytics = () => {
   const [placeddata, setPlaceddata] = useState([]);
   const [loading, setLoading] = useState(true);
   const [header, setHeader] = useState(null);
+  const [genderCharts, setGenderCharts] = useState({
+    placed: {},
+    unplaced: {},
+  });
+  const [categoryChart, setCategoryChart] = useState({});
   useEffect(() => {
     axios
       .get(URL + "/placed", { params: { year: new Date() } })
@@ -88,6 +94,9 @@ const Analytics = () => {
             };
           })
         );
+
+        getCategoryChart();
+        getGenderChart();
         // console.log(res.data, "header");
         setLoading(false);
       })
@@ -96,6 +105,29 @@ const Analytics = () => {
         console.log(err);
       });
   }, []);
+
+  const getGenderChart = () => {
+    axios
+      .get(URL + "/charts/genderchart")
+      .then((res) => {
+        setGenderCharts(res.data);
+        console.log(res.data, " gender charts data");
+      })
+      .catch((err) => {
+        toast.error("Error from server!!");
+      });
+  };
+
+  const getCategoryChart = () => {
+    axios
+      .get(URL + "/charts/categorychart")
+      .then((res) => {
+        setCategoryChart(res.data);
+      })
+      .catch((err) => {
+        toast.error("Error fetching some Date");
+      });
+  };
 
   const user = useSelector((state) => state.user.value);
   if (user == null) return <></>;
@@ -141,8 +173,10 @@ const Analytics = () => {
               <InfinitySpin width="200" color="#4fa94d" />
             ) : (
               <>
-                {header.studentdoc[0]?.count}/
-                {header.studentdoc[0]?.count + header.studentdoc[1]?.count}
+                {header.studentdoc[0]?._id
+                  ? header.studentdoc[0]?.count
+                  : header.studentdoc[1]?.count}
+                /{header.studentdoc[0]?.count + header.studentdoc[1]?.count}
               </>
             )}
           </p>
@@ -167,6 +201,49 @@ const Analytics = () => {
               <>{header.docs.length}</>
             )}
           </p>
+        </div>
+      </div>
+      <div>
+        <div>
+          {loading ? (
+            <>Loading</>
+          ) : (
+            <Bar
+              data={{
+                labels: Object.keys(categoryChart),
+                datasets: [
+                  {
+                    data: Object.values(categoryChart),
+                    label: "Companies",
+                    backgroundColor: "#ffe0f0",
+                  },
+                ],
+              }}
+            />
+          )}
+        </div>
+        <div>
+          {loading ? (
+            <>Loading</>
+          ) : (
+            <Bar
+              data={{
+                labels: ["Male", "Female"],
+                datasets: [
+                  {
+                    data: loading ? [] : Object.values(genderCharts.placed),
+                    backgroundColor: "rgba(255, 99, 132, 0.5)",
+                    label: "Placed",
+                  },
+                  {
+                    data: loading ? [] : Object.values(genderCharts.unplaced),
+                    backgroundColor: "rgba(53, 162, 235, 0.5)",
+                    label: "Not Placed",
+                  },
+                ],
+              }}
+            />
+          )}
         </div>
       </div>
       <div className={styles.barchartsection}>
@@ -205,7 +282,7 @@ const Analytics = () => {
               sx={{
                 ".MuiDataGrid-columnHeaderTitle": {
                   fontWeight: "900 !important",
-                  overflow: "visible !important",
+                  // overflow: "visible !important",
                   fontSize: "1.35rem !important",
                 },
                 ".MuiDataGrid-columnHeaderTitleContainer": {
@@ -216,7 +293,7 @@ const Analytics = () => {
                   { display: "flex", justifyContent: "center" },
                 fontSize: 15,
                 fontWeight: 500,
-                width: 700,
+                // width: 700,
               }}
               // isColumnSelectable={(params) => {
               //   setSelected(params.column);
@@ -224,7 +301,7 @@ const Analytics = () => {
               // isRowSelectable={(params) => {
               //   setSelected(params.row);
               // }}
-              pageSizeOptions={[10, 20, 30]}
+              pageSizeOptions={[5, 10, 15]}
 
               // se
             />

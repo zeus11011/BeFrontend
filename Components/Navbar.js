@@ -3,7 +3,7 @@ import styles from "../styles/Navbar.module.scss";
 import { Inter } from "@next/font/google";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import ProfileDropdown from "./ProfileDropdown";
@@ -13,18 +13,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const user = useSelector((state) => state.user.value);
 
   const router = useRouter();
-  const handleBackdropClick = (event) => {
-    if (event.target === event.currentTarget) {
-      setIsOpen(false);
-    }
-  };
-  const handleKeyDown = (event) => {
-    if (event.key === "Escape") {
-      setIsOpen(false);
-    }
-  };
+
   const getName = () => {
     const name = router.pathname;
     console.log(name);
@@ -52,6 +44,10 @@ const Navbar = () => {
     zIndex: "10",
   };
 
+  useEffect(() => {
+    console.log(user, "im user from nav");
+  }, []);
+
   return (
     <div className={[inter.className, styles.main].join(" ")}>
       <div className={styles.namesec}>
@@ -61,14 +57,13 @@ const Navbar = () => {
         <div>
           {true ? (
             <div className={styles.dropdownCon}>
-            <NotificationDropdown icon="mdi:bell-badge-outline" />
+              <NotificationDropdown icon="mdi:bell-badge-outline" />
             </div>
           ) : (
             <div className={styles.dropdownCon}>
-            <NotificationDropdown icon="mdi:bell-outline" />            
+              <NotificationDropdown icon="mdi:bell-outline" />
             </div>
-            )}
-
+          )}
         </div>
         <div className={styles.dropdownCon}>
           <ProfileDropdown />
@@ -78,8 +73,8 @@ const Navbar = () => {
             onClick={() => {
               router.push("/Profile");
             }}
-            alt=""
-            src={"/dp.jpg"}
+            alt="error showing img"
+            src={user != null || user != undefined ? user.profilepic : ""}
             width={80}
             height={80}
             className={styles.img}
