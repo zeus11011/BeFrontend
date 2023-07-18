@@ -144,6 +144,34 @@ const Archive = () => {
   const [doughnutdata, setDoughnutdata] = useState([]);
   const [griddata, setGriddata] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [genderCharts, setGenderCharts] = useState({
+    placed: {},
+    unplaced: {},
+  });
+  const [categoryChart, setCategoryChart] = useState({});
+
+  const getGenderChart = () => {
+    axios
+      .get(URL + "/charts/genderchart", { params: { year: selects } })
+      .then((res) => {
+        setGenderCharts(res.data);
+        console.log(res.data, " gender charts data");
+      })
+      .catch((err) => {
+        toast.error("Error from server!!");
+      });
+  };
+
+  const getCategoryChart = () => {
+    axios
+      .get(URL + "/charts/categorychart", { params: { year: selects } })
+      .then((res) => {
+        setCategoryChart(res.data);
+      })
+      .catch((err) => {
+        toast.error("Error fetching some Date");
+      });
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -162,6 +190,8 @@ const Archive = () => {
   }, []);
   useEffect(() => {
     fetchSelects();
+    getGenderChart();
+    getCategoryChart();
   }, [selects]);
 
   const fetchSelects = () => {
@@ -334,6 +364,53 @@ const Archive = () => {
           ></Select>
         </div>
         <div className={styles.con2}>
+          <div className={styles.barchartbisection}>
+            <div className={styles.barchartcont}>
+              <p>Category</p>
+              {loading ? (
+                <>Loading</>
+              ) : (
+                <Bar
+                  data={{
+                    labels: Object.keys(categoryChart),
+                    datasets: [
+                      {
+                        data: Object.values(categoryChart),
+                        label: "Companies",
+                        backgroundColor: "#ffe0f0",
+                      },
+                    ],
+                  }}
+                />
+              )}
+            </div>
+            <div className={styles.barchartcont}>
+              <p>Students</p>
+              {loading ? (
+                <>Loading</>
+              ) : (
+                <Bar
+                  data={{
+                    labels: ["Male", "Female"],
+                    datasets: [
+                      {
+                        data: loading ? [] : Object.values(genderCharts.placed),
+                        backgroundColor: "rgba(255, 99, 132, 0.5)",
+                        label: "Placed",
+                      },
+                      {
+                        data: loading
+                          ? []
+                          : Object.values(genderCharts.unplaced),
+                        backgroundColor: "rgba(53, 162, 235, 0.5)",
+                        label: "Not Placed",
+                      },
+                    ],
+                  }}
+                />
+              )}
+            </div>
+          </div>
           <div className={styles.listMainCon}>
             <div className={styles.listCon}>
               {/*<div className={styles.dpCon}>

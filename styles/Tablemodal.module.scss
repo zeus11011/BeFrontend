@@ -1,0 +1,41 @@
+.main {
+  padding: 1vw;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.grid {
+  display: flex;
+  padding: 0.8rem;
+  padding-left: 0;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+
+  p {
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-right: 2.5rem;
+    margin-top: 0;
+  }
+}
+
+.buttonlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    margin-right: 25px;
+    align-items: center;
+    display: flex;
+  }
+}
+.headerCells {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  p {
+    margin-left: 1rem;
+  }
+}

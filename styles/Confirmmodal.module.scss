@@ -1,0 +1,46 @@
+.main {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: scroll;
+}
+
+.details {
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  button {
+    margin-left: 3rem;
+    padding: 0.9rem;
+    font-size: 1.2em;
+    font-weight: 800;
+    border-radius: 5px;
+    color: white;
+  }
+  .confirm {
+    background-color: #53ac52;
+  }
+  .edit {
+    background-color: #3c83c1;
+  }
+}
+
+.grid {
+  display: flex;
+  padding: 0.8rem;
+  padding-left: 0;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+
+  p {
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-right: 2.5rem;
+    margin-top: 0;
+  }
+}
