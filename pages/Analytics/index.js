@@ -203,8 +203,9 @@ const Analytics = () => {
           </p>
         </div>
       </div>
-      <div>
-        <div>
+      <div className={styles.barchartbisection}>
+        <div className={styles.barchartcont}>
+          <p>Category</p>
           {loading ? (
             <>Loading</>
           ) : (
@@ -222,7 +223,8 @@ const Analytics = () => {
             />
           )}
         </div>
-        <div>
+        <div className={styles.barchartcont}>
+          <p>Students</p>
           {loading ? (
             <>Loading</>
           ) : (

@@ -47,7 +47,7 @@ const index = () => {
                   <div className={styles.personal1}>
                     <div className={styles.name}>
                       <div>
-                        <h2 className={styles.h2}>First Name</h2>
+                        <h2 className={styles.h2}>Name</h2>
                       </div>
                       <div>
                         <input
@@ -60,13 +60,13 @@ const index = () => {
                     </div>
                     <div className={styles.name2}>
                       <div>
-                        <h2 className={styles.h2}>Last Name</h2>
+                        <h2 className={styles.h2}>Email</h2>
                       </div>
                       <div>
                         <input
-                          type="text"
+                          type="email"
                           name="lname"
-                          placeholder="Surname"
+                          placeholder="Email"
                           className={styles.textfield_1}
                         ></input>
                       </div>
@@ -104,7 +104,7 @@ const index = () => {
                   </div>
                 </div>
               </div>
-              <div className={styles.container5}>
+              {/* <div className={styles.container5}>
                 <div className={[styles.div2, styles.border2].join(" ")}>
                   <h1 className={styles.h1}>Academic</h1>
                   <div className={styles.personal1}>
@@ -152,7 +152,7 @@ const index = () => {
                     <div className={styles.detail}></div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

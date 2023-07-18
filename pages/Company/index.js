@@ -6,10 +6,6 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import { Modal } from "antd";
-import { DataGrid } from "@mui/x-data-grid";
-import Dropdown from "react-dropdown";
-
-import Table from "../Analytics/Table";
 
 import { URL } from "../../creds";
 
@@ -18,13 +14,15 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import Loader from "../../Components/Loader";
 import ConfirmationModel from "../../Components/ConfirmationModel";
+import TabelModal from "../../Components/TabelModal";
 
 const Company = () => {
   const [pending, setPending] = useState([]);
   const [ongoin, setOngoin] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [ele, setEle] = useState({});
+  const [tablele, setTablele] = useState({});
   // nir
   //  analytic table
   //  analytic table
@@ -34,11 +32,14 @@ const Company = () => {
 
   // nir
 
-  const handleBoxClick1 = () => {
+  const handleBoxClick1 = (ele) => {
+    setEle(ele);
+    // console.log(ele, "element");
     setShowModal1(true);
   };
 
-  const handleBoxClick2 = () => {
+  const handleBoxClick2 = (ele) => {
+    setTablele(ele);
     setShowModal2(true);
   };
 
@@ -69,15 +70,6 @@ const Company = () => {
   const user = useSelector((state) => state.user.value);
   if (user == null) return <></>;
 
-  // nir
-  const table = (
-    <>
-      {" "}
-      <h1>hiii</h1>
-    </>
-  );
-
-  // nir
   return (
     <div>
       {isLoading ? (
@@ -101,12 +93,14 @@ const Company = () => {
                 >
                   {pending.length !== 0 ? (
                     pending.map((ele, index) => {
-                      console.log(ele, "params");
                       return (
                         <SwiperSlide key={index}>
                           <div
                             className={styles.card1box}
-                            onClick={handleBoxClick1}
+                            onClick={() => {
+                              console.log("clicked");
+                              handleBoxClick1(ele);
+                            }}
                           >
                             <div className={styles.box}>
                               <h1 className="Ph">{ele.nameCompany}</h1>
@@ -153,16 +147,6 @@ const Company = () => {
                               </div>
                             </div>
                           </div>
-                          <Modal
-                            open={showModal1}
-                            onCancel={handleCloseModal1}
-                            footer={null}
-                          >
-                            <ConfirmationModel
-                              data={ele}
-                              close={handleBoxClick1}
-                            />
-                          </Modal>
                         </SwiperSlide>
                       );
                     })
@@ -189,26 +173,26 @@ const Company = () => {
                 >
                   {ongoin.length != 0 ? (
                     ongoin.map((ele, index) => {
-                      console.log(ele, "params");
                       return (
                         <SwiperSlide key={index}>
                           <div
                             className={styles.card1box}
-                            onClick={handleBoxClick2}
+                            onClick={() => {
+                              handleBoxClick2(ele);
+                            }}
                           >
                             <div className={styles.box}>
                               <h1 className="onGh1">{ele.nameCompany}</h1>
                               <p className={styles.p}>
-                                {new Date(ele.dates.start).toLocaleDateString(
-                                  "en-US",
-                                  {
-                                    year: "numeric",
-                                    month: "short",
-                                    day: "numeric",
-                                  }
-                                )}{" "}
+                                {new Date(
+                                  ele.dates[0].start
+                                ).toLocaleDateString("en-US", {
+                                  year: "numeric",
+                                  month: "short",
+                                  day: "numeric",
+                                })}{" "}
                                 To{" "}
-                                {new Date(ele.dates.end).toLocaleDateString(
+                                {new Date(ele.dates[0].end).toLocaleDateString(
                                   "en-US",
                                   {
                                     year: "numeric",
@@ -226,30 +210,26 @@ const Company = () => {
                                 })}
                               </div>
                               <div className="ctc">
-                                <span>
-                                  CTC:{" "}
-                                  {ele.ctc.map((item, index) => {
-                                    return (
-                                      <p
-                                        style={{ display: "inline" }}
-                                        key={index}
-                                      >
-                                        {item}
-                                      </p>
-                                    );
-                                  })}
-                                </span>
+                                <span>CTC: </span>
+                                {ele.ctc.map((item, index) => {
+                                  return (
+                                    <p
+                                      style={{
+                                        display: "inline",
+                                        marginRight: 10,
+                                        // border: "1px solid black",
+                                        // borderRadius: "15px",
+                                        // padding: 5,
+                                      }}
+                                      key={index}
+                                    >
+                                      {item} LPA
+                                    </p>
+                                  );
+                                })}
                               </div>
                             </div>
                           </div>
-                          <Modal
-                            open={showModal2}
-                            onCancel={handleCloseModal2}
-                            footer={null}
-                            width={"72vw"}
-                          >
-                            <Table data={ele} />
-                          </Modal>
                         </SwiperSlide>
                       );
                     })
@@ -261,7 +241,7 @@ const Company = () => {
                 </Swiper>
               </div>
             </div>
-            <div className={styles.company1box}>
+            {/* <div className={styles.company1box}>
               <div className={styles.carobox}>
                 <div className={styles.Carouselh1Box}>
                   <h1 className={styles.h1}>Up-Coming Company</h1>
@@ -278,7 +258,6 @@ const Company = () => {
                 >
                   {upcoming.length != 0 ? (
                     upcoming.map((ele, index) => {
-                      console.log(ele, "params");
                       return (
                         <SwiperSlide key={index}>
                           <div className={styles.card1box}>
@@ -338,9 +317,33 @@ const Company = () => {
                   )}
                 </Swiper>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
+      )}
+      {showModal1 ? (
+        <Modal
+          width={"72vw"}
+          open={showModal1}
+          onCancel={handleCloseModal1}
+          footer={null}
+        >
+          <ConfirmationModel data={ele} close={setShowModal1} />
+        </Modal>
+      ) : (
+        <></>
+      )}
+      {showModal2 ? (
+        <Modal
+          open={showModal2}
+          onCancel={handleCloseModal2}
+          footer={null}
+          width={"72vw"}
+        >
+          <TabelModal data={ongoin} />
+        </Modal>
+      ) : (
+        <></>
       )}
     </div>
   );
