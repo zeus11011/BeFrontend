@@ -1,5 +1,5 @@
 .main {
-  height: 70vh;
+  // height: 0vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -7,25 +7,32 @@
 }
 
 .details {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .footer {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
   align-content: center;
   button {
     margin-left: 3rem;
-    padding: 0.9rem;
+    padding: 1rem;
+
     font-size: 1.2em;
     font-weight: 800;
     border-radius: 5px;
     color: white;
   }
   .confirm {
-    background-color: #53ac52;
+    background-color: black;
   }
   .edit {
-    background-color: #3c83c1;
+    background-color: black;
   }
 }
 
@@ -38,9 +45,65 @@
   align-items: center;
 
   p {
-    font-weight: 700;
-    font-size: 1.6rem;
+    font-weight: bold;
+    font-size: 2.5rem;
     margin-right: 2.5rem;
     margin-top: 0;
+  }
+  h4 {
+    margin-right: 2rem;
+  }
+}
+
+.nameCompany {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.dateCtcBox {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+.branches {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  p {
+    margin-left: 2rem;
+    font-size: 2.5rem;
+  }
+  h2 {
+    margin-left: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    border-radius: 5px;
+    width: 10rem;
+    // border: 1px solid black;
+    padding: 0.5rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    background-color: rgba(175, 175, 175, 0.663);
+  }
+}
+.roles {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  p {
+    margin-left: 2rem;
+    font-size: 2.5rem;
+  }
+}
+.description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  p {
+    margin-left: 2rem;
+    font-size: 2.5rem;
   }
 }

@@ -2,7 +2,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { URL } from "../creds";
-import style from "../styles/Tablemodal.module.scss";
+import styles from "../styles/Tablemodal.module.scss";
 import { Icon } from "@iconify/react";
 import { toast } from "react-toastify";
 var offerId = null;
@@ -74,7 +74,7 @@ const TabelModal = ({ data }) => {
       renderCell: (params) => {
         console.log(params.row, "params");
         return (
-          <div className={style.headerCells}>
+          <div className={styles.headerCells}>
             {params.value ? (
               <>
                 <p>Selected</p>
@@ -95,7 +95,7 @@ const TabelModal = ({ data }) => {
       width: 300,
       renderCell: (params) => {
         return (
-          <div className={style.buttonlay}>
+          <div className={styles.buttonlay}>
             {!params.row.removed ? (
               <button
                 onClick={() => {
@@ -140,36 +140,57 @@ const TabelModal = ({ data }) => {
       });
   }, [refresh]);
   return (
-    <div className={style.main}>
-      <div>
-        <h2>{details.nameCompany}</h2>
-        <h4>Dates:</h4>
-        <div className={style.grid}>
-          <p>{new Date(details.dates[0].start).toLocaleDateString()}</p>
-          <p>TO </p>
-          <p>{new Date(details.dates[0].end).toLocaleDateString()}</p>
+    <div className={styles.main}>
+      <div className={styles.details}>
+        <h2 className={styles.nameCompany}>{details.nameCompany}</h2>
+        <div className={styles.dateCtcBox}>
+          <div>
+            <div className={styles.grid}>
+              <h4>CTC :</h4>
+              {details?.ctc.map((ele, index) => {
+                return <p key={index}>{ele} LPA</p>;
+              })}
+            </div>
+          </div>
+          <div className={styles.grid}>
+            <h4>Dates :</h4>
+            <p>{new Date(details.dates[0]?.start).toLocaleDateString()}</p>
+            <p>TO</p>
+            <p>{new Date(details.dates[0]?.end).toLocaleDateString()}</p>
+          </div>
         </div>
-        <h4>Branches:</h4>
-        <div className={style.grid}>
-          {details?.branch.map((ele, index) => {
-            return <p key={index}>{ele}</p>;
-          })}
+
+        <div className={styles.branches}>
+          {" "}
+          <h4>Branches :</h4>
+          <div className={styles.grid}>
+            {details?.branch.map((ele, index) => {
+              return <h2 key={index}>{ele}</h2>;
+            })}
+          </div>
         </div>
-        <h4>Roles:</h4>
-        <div className={style.grid}>
-          {details?.roles.map((ele, index) => {
-            return <p key={index}>{ele}</p>;
-          })}
+        <div className={styles.roles}>
+          {" "}
+          <h4>Roles :</h4>
+          <div className={styles.grid}>
+            {details?.roles.map((ele, index) => {
+              return <p key={index}>{ele}</p>;
+            })}
+          </div>
         </div>
-        <h4>CTC:</h4>
-        <div className={style.grid}>
-          {details?.ctc.map((ele, index) => {
-            return <p key={index}>{ele} LPA</p>;
-          })}
+
+        <div className={styles.description}>
+          {" "}
+          <h4>Job Description :</h4>
+          <p>{details.jobdescription}</p>
         </div>
       </div>
       {loading ? (
-        <></>
+        <>
+          <div className={styles.loading}>
+            <p>Loading list...</p>
+          </div>
+        </>
       ) : (
         <DataGrid
           sx={{ fontSize: "1.5rem", fontWeight: "700" }}

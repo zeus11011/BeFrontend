@@ -338,7 +338,7 @@ const Company = () => {
           open={showModal2}
           onCancel={handleCloseModal2}
           footer={null}
-          width={"72vw"}
+          width={"80vw"}
         >
           <TabelModal data={ongoin} />
         </Modal>

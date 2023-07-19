@@ -36,7 +36,7 @@ const Table = () => {
   if (user == null) return <></>;
   return (
     <div>
-      <div className="yourContent">
+      <div className={styles.yourContent}>
         <h2>replace your own content</h2>
       </div>
       <div className={styles.container2}>

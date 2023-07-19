@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../styles/Confirmmodal.module.scss";
+import styles from "../styles/Tablemodal.module.scss";
 import axios from "axios";
 import { URL } from "../creds";
 import { toast } from "react-toastify";
@@ -57,33 +57,48 @@ const ConfirmationModel = ({ data, close }) => {
         }}
       >
         <div className={styles.details}>
-          <h2>{details.nameCompany}</h2>
-          <h4>Dates:</h4>
-          <div className={styles.grid}>
-            <p>{new Date(details.dates[0]?.start).toLocaleDateString()}</p>
-            <p>TO</p>
-            <p>{new Date(details.dates[0]?.end).toLocaleDateString()}</p>
+          <h2 className={styles.nameCompany}>{details.nameCompany}</h2>
+          <div className={styles.dateCtcBox}>
+            <div>
+              <div className={styles.grid}>
+                <h4>CTC :</h4>
+                {details?.ctc.map((ele, index) => {
+                  return <p key={index}>{ele} LPA</p>;
+                })}
+              </div>
+            </div>
+            <div className={styles.grid}>
+              <h4>Dates :</h4>
+              <p>{new Date(details.dates[0]?.start).toLocaleDateString()}</p>
+              <p>TO</p>
+              <p>{new Date(details.dates[0]?.end).toLocaleDateString()}</p>
+            </div>
           </div>
-          <h4>Branches:</h4>
-          <div className={styles.grid}>
-            {details?.branch.map((ele, index) => {
-              return <p key={index}>{ele}</p>;
-            })}
+
+          <div className={styles.branches}>
+            {" "}
+            <h4>Branches :</h4>
+            <div className={styles.grid}>
+              {details?.branch.map((ele, index) => {
+                return <h2 key={index}>{ele}</h2>;
+              })}
+            </div>
           </div>
-          <h4>Roles:</h4>
-          <div className={styles.grid}>
-            {details?.roles.map((ele, index) => {
-              return <p key={index}>{ele}</p>;
-            })}
+          <div className={styles.roles}>
+            {" "}
+            <h4>Roles :</h4>
+            <div className={styles.grid}>
+              {details?.roles.map((ele, index) => {
+                return <p key={index}>{ele}</p>;
+              })}
+            </div>
           </div>
-          <h4>CTC:</h4>
-          <div className={styles.grid}>
-            {details?.ctc.map((ele, index) => {
-              return <p key={index}>{ele} LPA</p>;
-            })}
+
+          <div className={styles.description}>
+            {" "}
+            <h4>Job Description :</h4>
+            <p>{details.jobdescription}</p>
           </div>
-          <h4>Job Description</h4>
-          <p>{details.jobdescription}</p>
         </div>
         {edit ? (
           <div>
@@ -135,20 +150,20 @@ const ConfirmationModel = ({ data, close }) => {
       ) : (
         <div className={styles.footer}>
           <button
-            className={styles.confirm}
-            onClick={() => {
-              setEdit(false);
-            }}
-          >
-            Cancle
-          </button>
-          <button
             className={styles.edit}
             onClick={() => {
               handelEdit();
             }}
           >
             Confirm Edit
+          </button>
+          <button
+            className={styles.confirm}
+            onClick={() => {
+              setEdit(false);
+            }}
+          >
+            Cancel
           </button>
         </div>
       )}

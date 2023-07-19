@@ -272,9 +272,9 @@ const Students = () => {
                             Edit
                             <Icon
                               style={{
-                                color: "black",
-                                height: "25",
-                                width: "25",
+                                color: "white",
+                                height: "20",
+                                width: "20",
                               }}
                               icon="mdi:edit"
                               width={"4rem"}
@@ -285,19 +285,20 @@ const Students = () => {
                         <div className={styles.buttonBox2}>
                           <button
                             name="mail"
-                            onClick=""
+                            onClick={() =>
+                              window.open("http://www.google.com/gmail")
+                            }
                             className={styles.button}
                           >
                             Contact
                             <Icon
                               style={{
-                                color: "black",
-                                height: "25",
-                                width: "25",
+                                color: "white",
+                                height: "20",
+                                width: "20",
                               }}
                               icon="quill:mail"
                               width={"4rem"}
-                              onClick={""}
                             ></Icon>
                           </button>
                         </div>

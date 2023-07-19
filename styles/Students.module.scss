@@ -186,46 +186,35 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin-top: 2rem;
 }
 
 .buttonBox {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  // padding-right: 0.5rem;
+  // padding-left: 0.5rem;
 }
 
 .buttonBox2 {
   align-items: center;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-  // border-right: 3px solid;
-  // border-left: 3px solid;
+  // padding-right: 0.5rem;
+  // padding-left: 0.5rem;
+
   .icon {
   }
 }
 
 .button {
+  width: 15rem;
   display: flex;
   // flex-direction: column;
-  width: 100%;
-  justify-content: center;
-  background-color: white;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  border: none;
-  outline: none;
-}
-.addButton {
+  // width: 100%;
+  justify-content: space-around;
   background-color: black;
-  width: 6vw;
-  height: 5vh;
-  font-size: 2rem;
   color: white;
-  padding-top: 0.5rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-bottom: 0.5rem;
+  font-size: 2rem;
+  // padding: 0.5rem 1rem;
+  border: 1px solid;
   border-radius: 12px;
 }
 

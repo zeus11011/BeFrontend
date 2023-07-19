@@ -221,7 +221,7 @@ export default function Home() {
                             visible={showModal1}
                             onCancel={handleCloseModal1}
                             footer={null}
-                            width={"72vw"}
+                            width={"90vw"}
                           >
                             <Table />
                           </Modal>
