@@ -57,10 +57,10 @@ console.log(URL, "url");
 const dropdownoptions = [
   { value: "MECH", label: "Mechanical" },
   { value: "CIVIL", label: "Civil" },
-  { value: "ENE", label: "Electronics and Electrical" },
-  { value: "ETC", label: "Electronics and Telecommunication" },
-  { value: "IT", label: "Informartion Technology" },
-  { value: "COMP", label: "Computers" },
+  { value: "ENE", label: "ENE" },
+  { value: "ETC", label: "ETC" },
+  { value: "IT", label: "IT" },
+  { value: "COMP", label: "Computer" },
 ];
 
 const Students = () => {
