@@ -31,7 +31,7 @@
   // padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 .dropdown {
@@ -42,8 +42,12 @@
 
 .container2 {
   font-size: 1rem;
+  // width: 40vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  h1 {
+    margin-left: 1rem;
+  }
 }
 .container3 {
   //   margin-bottom: 1rem;
@@ -84,7 +88,6 @@
   line-height: 35px;
 }
 .h1LnC {
-  
   text-align: center;
   line-height: 41px;
   font-size: 2rem;
@@ -105,7 +108,7 @@
 }
 
 .profile {
-  width: 20rem; 
+  width: 20rem;
   justify-content: safe;
   display: flex;
   flex-direction: column;
@@ -122,8 +125,10 @@
   // height: 150px;
   border-radius: 50%;
   .img {
-    width: 150px;
-    height: 150px;
+    margin: 1rem;
+    border: 1px solid black;
+    // width: 150px;
+    // height: 150px;
     border-radius: 150px !important;
   }
 }
@@ -138,8 +143,11 @@
 }
 
 .cardContent {
-  flex: 1;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  // ju
+  // flex: 1;
+  // overflow-y: auto;
 }
 
 .scrollable {
@@ -176,7 +184,7 @@
 }
 .buttons {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   margin-top: 2rem;
 }
@@ -187,13 +195,20 @@
 }
 
 .buttonBox2 {
+  align-items: center;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
-  border-right: 3px solid;
-  border-left: 3px solid;
+  // border-right: 3px solid;
+  // border-left: 3px solid;
+  .icon {
+  }
 }
 
 .button {
+  display: flex;
+  // flex-direction: column;
+  width: 100%;
+  justify-content: center;
   background-color: white;
   font-size: 2rem;
   padding: 0.5rem 1rem;
@@ -216,7 +231,6 @@
 
 @media screen and (min-width: 549px) and (max-width: 840px) {
   .dp {
-    
     .img {
       width: 120px;
       height: 120px;
@@ -231,8 +245,14 @@
 }
 
 @media screen and (min-width: 549px) and (max-width: 1000px) {
-  
   .addButton {
     width: 10vw;
   }
+}
+
+.DropdownBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
 }

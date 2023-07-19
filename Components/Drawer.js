@@ -51,8 +51,8 @@ function Drawer() {
           <Image
             src={"/gec.svg"}
             alt=""
-            height={200}
-            width={200}
+            height={180}
+            width={180}
             onClick={() => {
               router.push("/");
             }}
@@ -70,7 +70,7 @@ function Drawer() {
               currentpage === "/"
                 ? [styles.selected, styles.item].join(" ")
                 : styles.item
-            } 
+            }
           >
             <Icon
               icon="material-symbols:dashboard"
@@ -78,6 +78,44 @@ function Drawer() {
               width={"2.5rem"}
             />
             <p id="one">Dashboard</p>
+          </div>
+        </div>
+        <div
+          className={styles.mainitem}
+          onClick={() => {
+            router.push("Company");
+          }}
+        >
+          <div
+            className={
+              currentpage === "/Company"
+                ? [styles.selected, styles.item].join(" ")
+                : styles.item
+            }
+          >
+            <Icon icon="ri:building-2-line" color="white" width={"2.5rem"} />
+            <p>Company</p>
+          </div>
+        </div>
+        <div
+          className={styles.mainitem}
+          onClick={() => {
+            router.push("Students");
+          }}
+        >
+          <div
+            className={
+              currentpage === "/Students"
+                ? [styles.selected, styles.item].join(" ")
+                : styles.item
+            }
+          >
+            <Icon
+              icon="material-symbols:school-outline"
+              color="white"
+              width={"2.5rem"}
+            />
+            <p>Students</p>
           </div>
         </div>
         <div
@@ -156,44 +194,6 @@ function Drawer() {
             <p>Placed</p>
           </div>
         </div> */}
-        <div
-          className={styles.mainitem}
-          onClick={() => {
-            router.push("Students");
-          }}
-        >
-          <div
-            className={
-              currentpage === "/Students"
-                ? [styles.selected, styles.item].join(" ")
-                : styles.item
-            }
-          >
-            <Icon
-              icon="material-symbols:school-outline"
-              color="white"
-              width={"2.5rem"}
-            />
-            <p>Students</p>
-          </div>
-        </div>
-        <div
-          className={styles.mainitem}
-          onClick={() => {
-            router.push("Company");
-          }}
-        >
-          <div
-            className={
-              currentpage === "/Company"
-                ? [styles.selected, styles.item].join(" ")
-                : styles.item
-            }
-          >
-            <Icon icon="ri:building-2-line" color="white" width={"2.5rem"} />
-            <p>Company</p>
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -65,9 +65,7 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        <div className={styles.dropdownCon}>
-          <ProfileDropdown />
-        </div>
+
         <div className={styles.profile}>
           <Image
             onClick={() => {
@@ -80,6 +78,9 @@ const Navbar = () => {
             className={styles.img}
             style={{ borderRadius: "50%", marginTop: "0rem" }}
           />
+        </div>
+        <div className={styles.dropdownCon}>
+          <ProfileDropdown />
         </div>
       </div>
     </div>

@@ -33,11 +33,13 @@
   // padding: 2rem;
 }
 .company1box {
+  // color: white;
+  // background-color: black;
   display: flex;
   flex-direction: column;
   width: 70vw;
   height: 55vh;
-  background: #ffffff;
+  // background: #ffffff;
   font-size: 11px;
   border-radius: 15px;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -162,12 +164,14 @@
   justify-content: space-around;
   // margin-bottom: 2.5rem;
   .box {
+    color: white;
+    background-color: black;
     // margin-top: 1rem;
     // background-color: red;
     margin-right: 1rem;
     margin-bottom: 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
     width: 25rem;
@@ -178,8 +182,10 @@
     padding-right: 1rem;
     h1 {
       font-size: 2.2rem;
+      font-weight: bold;
+
       position: relative;
-      top: -57%;
+      // top: -57%;
     }
     div {
     }
@@ -192,16 +198,15 @@
       position: relative;
       top: -100%;
     }
-    .rolp{
+    .rolp {
       font-size: 1.9rem;
       position: relative;
       top: -100%;
       left: 190%;
     }
-    .roles{
+    .roles {
       font-size: 1.5rem;
     }
-    
   }
 }
 .blankbox {
@@ -239,6 +244,7 @@
 
 .rolesHead {
   display: flex;
+  // flex-direction:;
   justify-content: center;
   align-items: center;
   width: 20%;
@@ -249,7 +255,7 @@
   position: relative;
   right: 10%;
   // display: inline-block;
-  span{
+  span {
     padding-right: 10px;
   }
 }
@@ -262,16 +268,15 @@
   font-size: 1.5rem;
 }
 
-.packageAm{
+.packageAm {
   position: relative;
   top: 173%;
   right: 42%;
 }
 
-
-@media screen and (min-width: 750px) and (max-width: 1000px){
+@media screen and (min-width: 750px) and (max-width: 1000px) {
   .card1box {
-    .box{
+    .box {
       width: 100%;
       height: 37vh;
     }

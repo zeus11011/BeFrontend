@@ -151,7 +151,7 @@ const Students = () => {
             <div className={styles.main1}>
               <div className={styles.container2}>
                 <h1 className={styles.h1LnC}>ALL STUDENTS</h1>
-                <div>
+                <div className={styles.DropdownBox}>
                   <Dropdown
                     options={dropdownoptions}
                     onChange={(value) => {
@@ -197,7 +197,7 @@ const Students = () => {
                   pageSizeOptions={[10, 20, 30]}
                 />
               </div>
-              <div className={styles.addBoxCon}>
+              {/* <div className={styles.addBoxCon}>
                 <div className={styles.addButtonBox}>
                   <button
                     name="add"
@@ -209,7 +209,7 @@ const Students = () => {
                     Add
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className={styles.main2}>
               <div className={styles.cardContent}>
@@ -220,8 +220,8 @@ const Students = () => {
                       <Image
                         alt=""
                         src={"/dp.jpg"}
-                        width={145}
-                        height={145}
+                        width={100}
+                        height={100}
                         className={styles.img}
                         style={{
                           borderRadius: "50%",
@@ -269,6 +269,7 @@ const Students = () => {
                             }}
                             className={styles.button}
                           >
+                            Edit
                             <Icon
                               style={{
                                 color: "black",
@@ -283,17 +284,18 @@ const Students = () => {
                         </div>
                         <div className={styles.buttonBox2}>
                           <button
-                            name="save"
+                            name="mail"
                             onClick=""
                             className={styles.button}
                           >
+                            Contact
                             <Icon
                               style={{
                                 color: "black",
                                 height: "25",
                                 width: "25",
                               }}
-                              icon="mdi:message-outline"
+                              icon="quill:mail"
                               width={"4rem"}
                               onClick={""}
                             ></Icon>

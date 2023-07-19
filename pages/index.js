@@ -196,11 +196,11 @@ export default function Home() {
                               <div className={styles.cardRoles}>
                                 <div className={styles.rolesHead}>
                                   <p className={styles.rolp}> Roles:</p>
-                                </div>
-                                <div className={styles.roles}>
-                                  {ele.roles.map((item, i) => {
-                                    return <span key={i}>{item}</span>;
-                                  })}
+                                  <div className={styles.roles}>
+                                    {ele.roles.map((item, i) => {
+                                      return <span key={i}>{item}</span>;
+                                    })}
+                                  </div>
                                 </div>
                               </div>
                               <div className={styles.cardPackage}>
@@ -211,7 +211,7 @@ export default function Home() {
 
                                 <span className={styles.packageAm}>
                                   {ele.ctc.map((item, index) => {
-                                    return <p>{item}</p>;
+                                    return <p key={index}>{item}</p>;
                                   })}
                                 </span>
                               </div>
