@@ -57,20 +57,23 @@ function Index() {
               <div className={styles.maincont}>
                 <div className={styles.h1container}>
                   <h1 className={styles.h1}>ADMIN</h1>
-                  <h2 className={styles.h2C}>LOGIN STAFF | FACULTY</h2>
+                  <h2 className={styles.h2C}>LOGIN </h2>
                 </div>
 
                 <div className={styles.box}>
                   <div className={styles.box2}>
                     <h2 className={styles.h2}>Username</h2>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                      className={styles.textfiled}
-                      value={email}
-                      onChange={(event) => setEmail(event.target.value)}
-                    ></input>
+                    <div className={styles.userBox}>
+                      {" "}
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        className={styles.textfiled}
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                      ></input>
+                    </div>
                   </div>
                 </div>
 
