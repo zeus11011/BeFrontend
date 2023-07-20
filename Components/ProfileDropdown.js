@@ -19,10 +19,11 @@ const ProfileDropdown = () => {
     dispatch(logout());
     router.push("/login");
   };
+  console.log(user.name);
   return (
     <div>
       {" "}
-      <Dropdown title={user ? user.name : ""}>
+      <Dropdown title={user ? user.name : ""} placement="bottomEnd">
         <Dropdown.Item
           onClick={() => {
             router.push("Profile");
