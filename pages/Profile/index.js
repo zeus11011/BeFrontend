@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "../../styles/Profile.module.scss";
 import { useSelector } from "react-redux";
 
-const index = () => {
+const Index = () => {
   const options = ["2000", "2001", "2002", "2003", "2004"];
 
   const [name, setName] = useState("");
@@ -27,8 +27,8 @@ const index = () => {
               <Image
                 alt=""
                 src={user.profilepic}
-                height={160}
-                width={160}
+                height={120}
+                width={120}
                 style={{ borderRadius: "50%" }}
               ></Image>
             </div>
@@ -166,4 +166,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

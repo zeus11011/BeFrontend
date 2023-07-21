@@ -152,7 +152,7 @@ const TabelModal = ({ data }) => {
           <div>
             <div className={styles.branches}>
               {" "}
-              <h4>Branches :</h4>
+              <h3>Branches :</h3>
               <div className={styles.grid}>
                 {details?.branch.map((ele, index) => {
                   return <h2 key={index}>{ele}</h2>;
@@ -161,7 +161,7 @@ const TabelModal = ({ data }) => {
             </div>
           </div>
           <div className={styles.grid}>
-            <h4>Dates :</h4>
+            <h3>Dates :</h3>
             <p>{new Date(details.dates[0]?.start).toLocaleDateString()}</p>
             <p>TO</p>
             <p>{new Date(details.dates[0]?.end).toLocaleDateString()}</p>
@@ -169,14 +169,14 @@ const TabelModal = ({ data }) => {
         </div>
 
         <div className={styles.grid}>
-          <h4>CTC :</h4>
+          <h3>CTC :</h3>
           {details?.ctc.map((ele, index) => {
             return <p key={index}>{ele} LPA</p>;
           })}
         </div>
         <div className={styles.roles}>
           {" "}
-          <h4>Roles :</h4>
+          <h3>Roles :</h3>
           <div className={styles.grid}>
             {details?.roles.map((ele, index) => {
               return <p key={index}>{ele}</p>;
@@ -186,7 +186,7 @@ const TabelModal = ({ data }) => {
 
         <div className={styles.description}>
           {" "}
-          <h4>Job Description :</h4>
+          <h3>Job Description :</h3>
           <p>{details.jobdescription}</p>
         </div>
       </div>
