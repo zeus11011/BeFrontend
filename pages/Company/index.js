@@ -133,16 +133,9 @@ const Company = () => {
                               <div className="ctc">
                                 <span>
                                   CTC:{" "}
-                                  {ele.ctc.map((item, index) => {
-                                    return (
-                                      <p
-                                        style={{ display: "inline" }}
-                                        key={index}
-                                      >
-                                        {item}
-                                      </p>
-                                    );
-                                  })}
+                                  <p style={{ display: "inline" }} key={index}>
+                                    {ele.ctc}
+                                  </p>
                                 </span>
                               </div>
                             </div>
@@ -211,22 +204,19 @@ const Company = () => {
                               </div>
                               <div className="ctc">
                                 <span>CTC: </span>
-                                {ele.ctc.map((item, index) => {
-                                  return (
-                                    <p
-                                      style={{
-                                        display: "inline",
-                                        marginRight: 10,
-                                        // border: "1px solid black",
-                                        // borderRadius: "15px",
-                                        // padding: 5,
-                                      }}
-                                      key={index}
-                                    >
-                                      {item} LPA
-                                    </p>
-                                  );
-                                })}
+
+                                <p
+                                  style={{
+                                    display: "inline",
+                                    marginRight: 10,
+                                    // border: "1px solid black",
+                                    // borderRadius: "15px",
+                                    // padding: 5,
+                                  }}
+                                  key={index}
+                                >
+                                  {ele.ctc} LPA
+                                </p>
                               </div>
                             </div>
                           </div>

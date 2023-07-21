@@ -170,9 +170,7 @@ const TabelModal = ({ data }) => {
 
         <div className={styles.grid}>
           <h3>CTC :</h3>
-          {details?.ctc.map((ele, index) => {
-            return <p key={index}>{ele} LPA</p>;
-          })}
+          <p>{details?.ctc} LPA</p>;
         </div>
         <div className={styles.roles}>
           {" "}

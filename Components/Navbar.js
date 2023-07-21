@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import styles from "../styles/Navbar.module.scss";
-import { Inter } from "@next/font/google";
+import { Inter } from "next/font/google";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";

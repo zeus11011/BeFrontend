@@ -62,9 +62,8 @@ const ConfirmationModel = ({ data, close }) => {
             <div>
               <div className={styles.grid}>
                 <h4>CTC :</h4>
-                {details?.ctc.map((ele, index) => {
-                  return <p key={index}>{ele} LPA</p>;
-                })}
+
+                <p key={index}>{details?.ctc} LPA</p>
               </div>
             </div>
             <div className={styles.grid}>

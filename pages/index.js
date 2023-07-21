@@ -210,9 +210,7 @@ export default function Home() {
                                 </span>
 
                                 <span className={styles.packageAm}>
-                                  {ele.ctc.map((item, index) => {
-                                    return <p key={index}>{item}</p>;
-                                  })}
+                                  <p key={index}>{ele.ctc}</p>
                                 </span>
                               </div>
                             </div>

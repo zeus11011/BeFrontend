@@ -69,6 +69,7 @@ const Analytics = () => {
     unplaced: {},
   });
   const [categoryChart, setCategoryChart] = useState({});
+  const [ctccharts, setCtccharts] = useState([]);
   useEffect(() => {
     axios
       .get(URL + "/placed", { params: { year: new Date() } })
@@ -97,6 +98,7 @@ const Analytics = () => {
 
         getCategoryChart();
         getGenderChart();
+        getCTCChart();
         // console.log(res.data, "header");
         setLoading(false);
       })
@@ -123,6 +125,17 @@ const Analytics = () => {
       .get(URL + "/charts/categorychart")
       .then((res) => {
         setCategoryChart(res.data);
+      })
+      .catch((err) => {
+        toast.error("Error fetching some Date");
+      });
+  };
+
+  const getCTCChart = () => {
+    axios
+      .get(URL + "/charts/ctccharts")
+      .then((res) => {
+        setCtccharts(res.data);
       })
       .catch((err) => {
         toast.error("Error fetching some Date");
@@ -254,13 +267,12 @@ const Analytics = () => {
           <Bar
             options={options}
             data={{
-              labels: Object.keys(placeddata),
+              scales: { y: "CTC Offered" },
+              labels: ctccharts.map((ele) => ele.name),
               datasets: [
                 {
                   label: "Students Placed",
-                  data: Object.values(placeddata).map((ele) => {
-                    return ele.length;
-                  }),
+                  data: ctccharts.map((ele) => ele.ctc),
                   backgroundColor: [
                     "#806BFF",
                     "#23B9F9",

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Drawer.module.scss";
-import { Montserrat } from "@next/font/google";
+import { Montserrat } from "next/font/google";
 import { Icon } from "@iconify/react";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";

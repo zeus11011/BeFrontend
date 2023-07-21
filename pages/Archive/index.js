@@ -149,6 +149,7 @@ const Archive = () => {
     unplaced: {},
   });
   const [categoryChart, setCategoryChart] = useState({});
+  const [ctccharts, setCtccharts] = useState([]);
 
   const getGenderChart = () => {
     axios
@@ -167,6 +168,16 @@ const Archive = () => {
       .get(URL + "/charts/categorychart", { params: { year: selects } })
       .then((res) => {
         setCategoryChart(res.data);
+      })
+      .catch((err) => {
+        toast.error("Error fetching some Date");
+      });
+  };
+  const getCTCChart = () => {
+    axios
+      .get(URL + "/charts/ctccharts", { params: { year: selects } })
+      .then((res) => {
+        setCtccharts(res.data);
       })
       .catch((err) => {
         toast.error("Error fetching some Date");
@@ -192,6 +203,7 @@ const Archive = () => {
     fetchSelects();
     getGenderChart();
     getCategoryChart();
+    getCTCChart();
   }, [selects]);
 
   const fetchSelects = () => {
@@ -411,6 +423,51 @@ const Archive = () => {
               )}
             </div>
           </div>
+          <div className={styles.barCon}>
+            <p>Company Package</p>
+            <div className={styles.barchartcont}>
+              {!loading ? (
+                <Bar
+                  // title="false"
+                  options={options}
+                  data={{
+                    labels: ctccharts.map((ele) => ele.name),
+                    datasets: [
+                      {
+                        label: "Package offered",
+                        data: ctccharts.map((ele) => ele.ctc),
+                        backgroundColor: [
+                          "#806BFF",
+                          "#A15BF9",
+                          "#23B9F9",
+                          "#2200F4",
+                          "#47FFDE",
+                          "#002966",
+                        ],
+                      },
+                    ],
+                  }}
+                />
+              ) : (
+                <ColorRing
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="blocks-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="blocks-wrapper"
+                  colors={[
+                    "#806BFF",
+                    "#A15BF9",
+                    "#23B9F9",
+                    "#2200F4",
+                    "#47FFDE",
+                    "#002966",
+                  ]}
+                />
+              )}
+            </div>
+          </div>
           <div className={styles.listMainCon}>
             <div className={styles.listCon}>
               {/*<div className={styles.dpCon}>
@@ -481,54 +538,6 @@ const Archive = () => {
                   />
                 )}
               </div>
-            </div>
-          </div>
-
-          <div className={styles.barCon}>
-            <p>Company Package</p>
-            <div className={styles.barchartcont}>
-              {!loading ? (
-                <Bar
-                  // title="false"
-                  options={options}
-                  data={{
-                    labels: Object.keys(students.doc),
-                    datasets: [
-                      {
-                        label: "Package offered",
-                        data: Object.values(students.doc).map((ele) => {
-                          return ele.length;
-                        }),
-                        backgroundColor: [
-                          "#806BFF",
-                          "#A15BF9",
-                          "#23B9F9",
-                          "#2200F4",
-                          "#47FFDE",
-                          "#002966",
-                        ],
-                      },
-                    ],
-                  }}
-                />
-              ) : (
-                <ColorRing
-                  visible={true}
-                  height="80"
-                  width="80"
-                  ariaLabel="blocks-loading"
-                  wrapperStyle={{}}
-                  wrapperClass="blocks-wrapper"
-                  colors={[
-                    "#806BFF",
-                    "#A15BF9",
-                    "#23B9F9",
-                    "#2200F4",
-                    "#47FFDE",
-                    "#002966",
-                  ]}
-                />
-              )}
             </div>
           </div>
         </div>

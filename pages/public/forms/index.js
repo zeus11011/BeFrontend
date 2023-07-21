@@ -2,7 +2,7 @@ import { style } from "@mui/system";
 import Image from "next/image";
 import React from "react";
 import styles from "../../../styles/Form.module.scss";
-import { Inter } from "@next/font/google";
+import { Inter } from "next/font/google";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({ subsets: ["latin"] });
