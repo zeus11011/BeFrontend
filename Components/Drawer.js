@@ -38,6 +38,12 @@ function Drawer() {
         .then((res) => {
           console.log("tooken", res.data);
           dispatch(setUser(res.data));
+        })
+        .then((err) => {
+          if (err != undefined) {
+            toast.error(err + "!!!", { theme: "dark" });
+            router.push("/login");
+          }
         });
     } else {
       toast.error("Authentication error!!!", { theme: "dark" });

@@ -8,6 +8,7 @@ import { URL } from "../../creds";
 import { useRouter } from "next/router";
 import Loader from "../../Components/Loader";
 import { Icon } from "@iconify/react";
+import { toast } from "react-toastify";
 function Index() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -124,8 +125,13 @@ function Index() {
 
                   <div className={styles.box3}>
                     {"Forgot "}
-                    <div className={styles.link}>
-                      <Link href="/">{"Username / Password ?"}</Link>
+                    <div
+                      className={styles.link}
+                      onClick={() => {
+                        toast.info("Contact College admin!!");
+                      }}
+                    >
+                      <a>{"Username / Password ?"}</a>
                     </div>
                   </div>
                 </div>

@@ -176,21 +176,20 @@ export default function Home() {
                               <div className={styles.cardDate}>
                                 <p className={styles.p}>
                                   {new Date(
-                                    ele.dates?.start
+                                    ele.dates[0]?.start
                                   ).toLocaleDateString("en-US", {
                                     year: "numeric",
                                     month: "short",
                                     day: "numeric",
                                   })}{" "}
                                   To{" "}
-                                  {new Date(ele.dates?.end).toLocaleDateString(
-                                    "en-US",
-                                    {
-                                      year: "numeric",
-                                      month: "short",
-                                      day: "numeric",
-                                    }
-                                  )}
+                                  {new Date(
+                                    ele.dates[0]?.end
+                                  ).toLocaleDateString("en-US", {
+                                    year: "numeric",
+                                    month: "short",
+                                    day: "numeric",
+                                  })}
                                 </p>
                               </div>
                               <div className={styles.cardRoles}>

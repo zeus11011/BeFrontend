@@ -30,6 +30,8 @@ import {
 import axios from "axios";
 import { URL } from "../../creds";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -55,6 +57,7 @@ const columns = [
     field: "company",
     headerName: "Company",
     width: 160,
+
     valueGetter: (params) => {
       return params.row.offerid.nameCompany;
     },
