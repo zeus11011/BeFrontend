@@ -1,7 +1,8 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { Dropdown } from "rsuite";
-import "rsuite/dist/rsuite.min.css";
+import "rsuite/dist/rsuite-no-reset.min.css";
+
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/Reducers/userSlice";
 import { Icon } from "@iconify/react";
