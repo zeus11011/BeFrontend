@@ -78,11 +78,11 @@ const options = {
     legend: {
       display: false,
     },
-    title: {
-      display: true,
-      text: "Overview",
-      font: { size: 30 },
-    },
+    // title: {
+    //   display: true,
+    //   text: "Overview",
+    //   font: { size: 30 },
+    // },
   },
 };
 
@@ -366,7 +366,7 @@ const Archive = () => {
         <div className={styles.con2}>
           <div className={styles.barchartbisection}>
             <div className={styles.barchartcont}>
-              <p>Category</p>
+              <p>Package Category</p>
               {loading ? (
                 <>Loading</>
               ) : (
@@ -385,7 +385,7 @@ const Archive = () => {
               )}
             </div>
             <div className={styles.barchartcont}>
-              <p>Students</p>
+              <p>Total Students</p>
               {loading ? (
                 <>Loading</>
               ) : (
@@ -421,6 +421,9 @@ const Archive = () => {
                   // onChange={filterChangeHandler}
                 ></Select>
               </div>*/}
+              <div className={styles.listHeader}>
+                <p>Placed Students</p>
+              </div>
               <div className={styles.list}>
                 {!loading ? (
                   <DataGrid
@@ -433,15 +436,19 @@ const Archive = () => {
                       ".MuiDataGrid-columnHeaderTitle": {
                         fontWeight: "900 !important",
                         overflow: "visible !important",
-                        fontSize: "1.35rem !important",
+                        fontSize: "1.7rem !important",
                       },
                       ".MuiDataGrid-columnHeaderTitleContainer": {
                         display: "flex",
                         justifyContent: "center",
                       },
+                      ".MuiDataGrid-footerContainer": {
+                        height: "4rem",
+                        minHeight: "0",
+                      },
                       ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
                         { display: "flex", justifyContent: "center" },
-                      fontSize: 15,
+                      fontSize: 12,
                       fontWeight: 500,
                       width: "100%",
                     }}
@@ -478,15 +485,17 @@ const Archive = () => {
           </div>
 
           <div className={styles.barCon}>
-            <p>DEPARTMENT VIEW</p>
+            <p>Company Package</p>
             <div className={styles.barchartcont}>
               {!loading ? (
                 <Bar
+                  // title="false"
                   options={options}
                   data={{
                     labels: Object.keys(students.doc),
                     datasets: [
                       {
+                        label: "Package offered",
                         data: Object.values(students.doc).map((ele) => {
                           return ele.length;
                         }),

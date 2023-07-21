@@ -94,9 +94,9 @@ export default function Home() {
                   <Icon
                     icon="mdi:account-school-outline"
                     width={"4rem"}
-                    // onClick={() => {
-                    //   router.push("Analytics");
-                    // }}
+                    onClick={() => {
+                      router.push("/Analytics");
+                    }}
                   />
                 </div>
               </div>
@@ -113,9 +113,9 @@ export default function Home() {
                   <Icon
                     icon="mdi:handshake"
                     width={"4rem"}
-                    // onClick={() => {
-                    //   router.push("Placed");
-                    // }}
+                    onClick={() => {
+                      router.push("/Students");
+                    }}
                   />
                 </div>
               </div>
@@ -138,9 +138,9 @@ export default function Home() {
                   <Icon
                     icon="ri:building-2-line"
                     width={"4rem"}
-                    // onClick={() => {
-                    //   router.push("Company");
-                    // }}
+                    onClick={() => {
+                      router.push("/Company");
+                    }}
                   />
                 </div>
               </div>

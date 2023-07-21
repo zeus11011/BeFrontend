@@ -19,17 +19,16 @@ const columns = [
   {
     field: "rollno",
     headerName: "Roll No.",
-    width: 80,
+    width: 100,
   },
   { field: "name", headerName: "Name", width: 150, headerClassName: "column" },
-  { field: "branch", headerName: "Department", width: 180 },
+  { field: "branch", headerName: "Department", width: 150 },
   {
-    field: "package",
-    headerName: "Package",
-    width: 120,
+    field: "cgpa",
+    headerName: "CGPA",
+    width: 80,
     renderCell: (param) => {
-      if (param.row.placedDoc) return <>{param.row.placedDoc.package}</>;
-      else return <>-</>;
+      return <>{parseFloat(param.row.cgpa).toFixed(1)}</>;
     },
   },
   {
@@ -44,13 +43,15 @@ const columns = [
     },
   },
   {
-    field: "cgpa",
-    headerName: "CGPA",
-    width: 80,
+    field: "package",
+    headerName: "Package",
+    width: 120,
     renderCell: (param) => {
-      return <>{parseFloat(param.row.cgpa).toFixed(1)}</>;
+      if (param.row.placedDoc) return <>{param.row.placedDoc.package}</>;
+      else return <>-</>;
     },
   },
+
   { field: "email", headerName: "Email", width: 220 },
 ];
 console.log(URL, "url");
@@ -174,7 +175,7 @@ const Students = () => {
                     ".MuiDataGrid-columnHeaderTitle": {
                       fontWeight: "900 !important",
                       overflow: "visible !important",
-                      fontSize: "1.35rem !important",
+                      fontSize: "1.7rem !important",
                     },
                     ".MuiDataGrid-columnHeaderTitleContainer": {
                       display: "flex",
@@ -182,7 +183,7 @@ const Students = () => {
                     },
                     ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
                       { display: "flex", justifyContent: "center" },
-                    fontSize: 15,
+                    fontSize: 12,
                     fontWeight: 500,
                   }}
                   hideFooter

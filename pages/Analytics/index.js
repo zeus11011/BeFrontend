@@ -32,10 +32,10 @@ ChartJS.register(
   ArcElement
 );
 const columns = [
-  { field: "name", headerName: "Name", width: 170, headerClassName: "column" },
-  { field: "company", headerName: "Company", width: 120 },
-  { field: "department", headerName: "Department", width: 120 },
-  { field: "package", headerName: "Package", width: 100 },
+  { field: "name", headerName: "Name", width: 200, headerClassName: "column" },
+  { field: "company", headerName: "Company", width: 200 },
+  { field: "department", headerName: "Department", width: 180 },
+  { field: "package", headerName: "Package", width: 180 },
 ];
 
 const options = {
@@ -205,7 +205,7 @@ const Analytics = () => {
       </div>
       <div className={styles.barchartbisection}>
         <div className={styles.barchartcont}>
-          <p>Category</p>
+          <p>Package Category</p>
           {loading ? (
             <>Loading</>
           ) : (
@@ -224,7 +224,7 @@ const Analytics = () => {
           )}
         </div>
         <div className={styles.barchartcont}>
-          <p>Students</p>
+          <p>Total Students</p>
           {loading ? (
             <>Loading</>
           ) : (
@@ -249,7 +249,7 @@ const Analytics = () => {
         </div>
       </div>
       <div className={styles.barchartsection}>
-        <p>DEPARTMENT VIEW</p>
+        <p>Company Package</p>
         <div className={styles.barchartcont}>
           <Bar
             options={options}
@@ -277,6 +277,10 @@ const Analytics = () => {
 
       <div className={styles.bottomsec}>
         <div className={styles.listCon}>
+          <div className={styles.listHeader}>
+            <p>Placed Students</p>
+          </div>
+
           <div className={styles.list}>
             <DataGrid
               rows={students}
@@ -285,7 +289,7 @@ const Analytics = () => {
                 ".MuiDataGrid-columnHeaderTitle": {
                   fontWeight: "900 !important",
                   // overflow: "visible !important",
-                  fontSize: "1.35rem !important",
+                  fontSize: "2rem !important",
                 },
                 ".MuiDataGrid-columnHeaderTitleContainer": {
                   display: "flex",
@@ -293,7 +297,11 @@ const Analytics = () => {
                 },
                 ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
                   { display: "flex", justifyContent: "center" },
-                fontSize: 15,
+                ".MuiDataGrid-footerContainer": {
+                  height: "4rem",
+                  minHeight: "0",
+                },
+                fontSize: 12,
                 fontWeight: 500,
                 // width: 700,
               }}

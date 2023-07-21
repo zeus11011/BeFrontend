@@ -91,8 +91,8 @@
 .listCon {
   margin: auto;
   padding-top: 1rem;
-  width: 51.3vw;
-  height: 44vh;
+  width: 65vw;
+  height: 80vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -100,6 +100,18 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   padding-bottom: 0.5rem;
+}
+.listHeader {
+  margin-top: 2rem;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  p {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+  }
 }
 .list {
   margin-right: 12%;

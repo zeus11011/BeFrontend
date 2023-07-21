@@ -43,7 +43,7 @@ const TabelModal = ({ data }) => {
     {
       field: "rollno",
       headerName: "Roll No.",
-      width: 120,
+      width: 180,
     },
     {
       field: "name",
@@ -51,16 +51,9 @@ const TabelModal = ({ data }) => {
       width: 200,
       headerClassName: "column",
     },
-    { field: "email", headerName: "Email", width: 350 },
+
     { field: "branch", headerName: "Department", width: 180 },
-    {
-      field: "cgpa",
-      headerName: "CGPA",
-      width: 80,
-      renderCell: (params) => {
-        return <> {parseFloat(params.value).toFixed(2)}</>;
-      },
-    },
+
     {
       field: "rounds",
       headerName: "Current Round",
@@ -91,7 +84,17 @@ const TabelModal = ({ data }) => {
       },
     },
     {
-      headerName: "",
+      field: "cgpa",
+      headerName: "CGPA",
+      width: 80,
+      renderCell: (params) => {
+        return <> {parseFloat(params.value).toFixed(2)}</>;
+      },
+    },
+    { field: "email", headerName: "Email", width: 350 },
+
+    {
+      headerName: "Remove",
       width: 300,
       renderCell: (params) => {
         return (
@@ -142,14 +145,19 @@ const TabelModal = ({ data }) => {
   return (
     <div className={styles.main}>
       <div className={styles.details}>
-        <h2 className={styles.nameCompany}>{details.nameCompany}</h2>
+        <h2 className={styles.nameCompany}>
+          {details.nameCompany} Placement Drive
+        </h2>
         <div className={styles.dateCtcBox}>
           <div>
-            <div className={styles.grid}>
-              <h4>CTC :</h4>
-              {details?.ctc.map((ele, index) => {
-                return <p key={index}>{ele} LPA</p>;
-              })}
+            <div className={styles.branches}>
+              {" "}
+              <h4>Branches :</h4>
+              <div className={styles.grid}>
+                {details?.branch.map((ele, index) => {
+                  return <h2 key={index}>{ele}</h2>;
+                })}
+              </div>
             </div>
           </div>
           <div className={styles.grid}>
@@ -160,14 +168,11 @@ const TabelModal = ({ data }) => {
           </div>
         </div>
 
-        <div className={styles.branches}>
-          {" "}
-          <h4>Branches :</h4>
-          <div className={styles.grid}>
-            {details?.branch.map((ele, index) => {
-              return <h2 key={index}>{ele}</h2>;
-            })}
-          </div>
+        <div className={styles.grid}>
+          <h4>CTC :</h4>
+          {details?.ctc.map((ele, index) => {
+            return <p key={index}>{ele} LPA</p>;
+          })}
         </div>
         <div className={styles.roles}>
           {" "}
@@ -192,12 +197,40 @@ const TabelModal = ({ data }) => {
           </div>
         </>
       ) : (
-        <DataGrid
-          sx={{ fontSize: "1.5rem", fontWeight: "700" }}
-          columns={columns}
-          rows={rows}
-          getRowId={(ele) => ele._id}
-        />
+        <>
+          <div className={styles.listHeader}>
+            <h2>Students Applying For {details.nameCompany}</h2>
+          </div>
+          <div className={styles.list}>
+            {" "}
+            <DataGrid
+              // sx={{ fontSize: "1.5rem", fontWeight: "700" }}
+              sx={{
+                ".MuiDataGrid-columnHeaderTitle": {
+                  fontWeight: "900 !important",
+                  overflow: "visible !important",
+                  fontSize: "1.7rem !important",
+                },
+                ".MuiDataGrid-columnHeaderTitleContainer": {
+                  display: "flex",
+                  justifyContent: "center",
+                },
+                ".MuiDataGrid-footerContainer": {
+                  height: "4rem",
+                  minHeight: "0",
+                },
+                ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                  { display: "flex", justifyContent: "center" },
+                fontSize: 12,
+                fontWeight: 500,
+                width: "100%",
+              }}
+              columns={columns}
+              rows={rows}
+              getRowId={(ele) => ele._id}
+            />
+          </div>
+        </>
       )}
     </div>
   );

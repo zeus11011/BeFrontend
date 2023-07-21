@@ -19,7 +19,7 @@ const ProfileDropdown = () => {
     dispatch(logout());
     router.push("/login");
   };
-  console.log(user.name);
+  // console.log(user.name);
   return (
     <div>
       {" "}
