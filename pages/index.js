@@ -152,7 +152,7 @@ export default function Home() {
             <div className={styles.company1box}>
               <div className={styles.carobox}>
                 <div className={styles.Carouselh1Box}>
-                  <h1 className={styles.h1}>On-Going Companies</h1>
+                  <h1 className={styles.h1}>Upcoming Companies</h1>
                 </div>
                 <Swiper
                   navigation

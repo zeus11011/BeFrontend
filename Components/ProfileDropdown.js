@@ -24,18 +24,32 @@ const ProfileDropdown = () => {
   return (
     <div>
       {" "}
-      <Dropdown title={user ? user.name : ""} placement="bottomEnd">
+      <Dropdown
+        title={user ? user.name : ""}
+        placement="bottomEnd"
+
+        // trigger="hover"
+      >
         <Dropdown.Item
           onClick={() => {
             router.push("Profile");
           }}
           icon={<MemberIcon />}
+          style={{ color: "black" }}
         >
           My Profile
         </Dropdown.Item>
-        <Dropdown.Item icon={<SearchPeopleIcon />}>About Us</Dropdown.Item>
-        <Dropdown.Item icon={<PhoneIcon />}>Contact Us</Dropdown.Item>
-        <Dropdown.Item icon={<ExitIcon />} onClick={logoutuser}>
+        <Dropdown.Item style={{ color: "black" }} icon={<SearchPeopleIcon />}>
+          About Us
+        </Dropdown.Item>
+        <Dropdown.Item style={{ color: "black" }} icon={<PhoneIcon />}>
+          Contact Us
+        </Dropdown.Item>
+        <Dropdown.Item
+          style={{ color: "black" }}
+          icon={<ExitIcon />}
+          onClick={logoutuser}
+        >
           LogOut
         </Dropdown.Item>
       </Dropdown>
