@@ -18,10 +18,15 @@ const NotificationDropdown = ({ icon }) => {
         <Dropdown.Item
           className={styles.dropdownitem}
           icon={<SearchPeopleIcon />}
+          style={{ color: "black" }}
         >
           test 1
         </Dropdown.Item>
-        <Dropdown.Item className={styles.dropdownitem} icon={<PhoneIcon />}>
+        <Dropdown.Item
+          style={{ color: "black" }}
+          className={styles.dropdownitem}
+          icon={<PhoneIcon />}
+        >
           test 2
         </Dropdown.Item>
       </Dropdown>

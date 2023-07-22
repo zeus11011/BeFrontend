@@ -211,14 +211,13 @@ export default function Home() {
                               </div>
                             </div>
                             <div className={styles.cardPackage}>
-                              <span className={styles.packageHead}>
-                                {" "}
-                                <p> CTC:</p>
-                              </span>
+                              <div className={styles.packageHead}>
+                                <p> CTC :</p>
+                              </div>
 
-                              <span className={styles.packageAm}>
+                              <div className={styles.packageAm}>
                                 <p key={index}>{ele.ctc}</p>
-                              </span>
+                              </div>
                             </div>
                           </div>
                         </div>
