@@ -81,7 +81,7 @@ const Index = () => {
                         <input
                           type="text"
                           name="fname"
-                          placeholder="Email"
+                          placeholder="Username"
                           className={styles.textfield_2}
                         ></input>
                       </div>
