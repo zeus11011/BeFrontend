@@ -5,7 +5,7 @@ import TableScrollbar from "react-table-scrollbar";
 import { useRouter } from "next/router";
 import { Bar, Doughnut } from "react-chartjs-2";
 import { DataGrid } from "@mui/x-data-grid";
-
+import { ColorRing } from "react-loader-spinner";
 import { InfinitySpin } from "react-loader-spinner";
 
 import {
@@ -141,7 +141,16 @@ const Analytics = () => {
         toast.error("Error fetching some Date");
       });
   };
-
+  const options = {
+    indexAxis: "y",
+    maintainAspectRatio: false,
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+  };
   const user = useSelector((state) => state.user.value);
   if (user == null) return <></>;
   return (
@@ -220,9 +229,40 @@ const Analytics = () => {
         <div className={styles.barchartcont}>
           <p>Package Category</p>
           {loading ? (
-            <>Loading</>
+            <>
+              {" "}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <ColorRing
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="blocks-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="blocks-wrapper"
+                  colors={[
+                    "#806BFF",
+                    "#A15BF9",
+                    "#23B9F9",
+                    "#2200F4",
+                    "#47FFDE",
+                    "#002966",
+                  ]}
+                />
+                Loading...
+              </div>
+            </>
           ) : (
             <Bar
+              // options={options}
               data={{
                 labels: Object.keys(categoryChart),
                 datasets: [
@@ -239,9 +279,40 @@ const Analytics = () => {
         <div className={styles.barchartcont}>
           <p>Total Students</p>
           {loading ? (
-            <>Loading</>
+            <>
+              {" "}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <ColorRing
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="blocks-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="blocks-wrapper"
+                  colors={[
+                    "#806BFF",
+                    "#A15BF9",
+                    "#23B9F9",
+                    "#2200F4",
+                    "#47FFDE",
+                    "#002966",
+                  ]}
+                />
+                Loading...
+              </div>
+            </>
           ) : (
             <Bar
+              // options={options}
               data={{
                 labels: ["Male", "Female"],
                 datasets: [
@@ -263,96 +334,228 @@ const Analytics = () => {
       </div>
       <div className={styles.barchartsection}>
         <p>Company Package</p>
-        <div className={styles.barchartcont}>
-          <Bar
-            options={options}
-            data={{
-              scales: { y: "CTC Offered" },
-              labels: ctccharts.map((ele) => ele.name),
-              datasets: [
-                {
-                  label: "Students Placed",
-                  data: ctccharts.map((ele) => ele.ctc),
-                  backgroundColor: [
+        {loading ? (
+          <>
+            {" "}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "100%",
+                height: "100%",
+              }}
+            >
+              <ColorRing
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="blocks-loading"
+                wrapperStyle={{}}
+                wrapperClass="blocks-wrapper"
+                colors={[
+                  "#806BFF",
+                  "#A15BF9",
+                  "#23B9F9",
+                  "#2200F4",
+                  "#47FFDE",
+                  "#002966",
+                ]}
+              />
+              Loading...
+            </div>
+          </>
+        ) : (
+          <>
+            {" "}
+            <div className={styles.barchartcont}>
+              <Bar
+                options={options}
+                data={{
+                  scales: { y: "CTC Offered" },
+                  labels: ctccharts.map((ele) => ele.name),
+                  datasets: [
+                    {
+                      label: "CTC Package",
+                      data: ctccharts.map((ele) => ele.ctc),
+                      backgroundColor: [
+                        "#806BFF",
+                        "#23B9F9",
+                        "#2200F4",
+                        "#8B7499",
+                        "#47FFDE",
+                        "#002966",
+
+                        // "#A52A2A",
+                        // "#FF00FF",
+                        // " #00FF00",
+                        // "#FFFF00",
+                        // "#FFA500",
+                      ],
+                    },
+                  ],
+                }}
+              />
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className={styles.bottomsec}>
+        <div className={styles.doughnutBox}>
+          <p>Analysis</p>
+          {loading ? (
+            <>
+              {" "}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <ColorRing
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="blocks-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="blocks-wrapper"
+                  colors={[
                     "#806BFF",
+                    "#A15BF9",
                     "#23B9F9",
                     "#2200F4",
                     "#47FFDE",
                     "#002966",
-                  ],
-                },
-              ],
-            }}
-          />
+                  ]}
+                />
+                Loading...
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={styles.doughnut}>
+                {" "}
+                <Doughnut
+                  data={{
+                    labels: Object.keys(placeddata),
+                    datasets: [
+                      {
+                        label: "Students Placed",
+                        data: Object.values(placeddata).map((ele) => {
+                          return ele.length;
+                        }),
+                        backgroundColor: [
+                          "#806BFF",
+                          "#23B9F9",
+                          "#2200F4",
+                          "#47FFDE",
+                          "#002966",
+                        ],
+                      },
+                    ],
+                  }}
+                  options={{
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: {
+                      legend: {
+                        display: true,
+                      },
+                      // title: {
+                      //   display: true,
+                      //   text: "Department Overview",
+                      //   font: { size: 30 },
+                      // },
+                    },
+                  }}
+                  className={styles.cir}
+                />
+              </div>
+            </>
+          )}
         </div>
-      </div>
-
-      <div className={styles.bottomsec}>
         <div className={styles.listCon}>
           <div className={styles.listHeader}>
             <p>Placed Students</p>
           </div>
-
-          <div className={styles.list}>
-            <DataGrid
-              rows={students}
-              columns={columns}
-              sx={{
-                ".MuiDataGrid-columnHeaderTitle": {
-                  fontWeight: "900 !important",
-                  // overflow: "visible !important",
-                  fontSize: "2rem !important",
-                },
-                ".MuiDataGrid-columnHeaderTitleContainer": {
+          {loading ? (
+            <>
+              {" "}
+              <div
+                style={{
                   display: "flex",
                   justifyContent: "center",
-                },
-                ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
-                  { display: "flex", justifyContent: "center" },
-                ".MuiDataGrid-footerContainer": {
-                  height: "4rem",
-                  minHeight: "0",
-                },
-                fontSize: 12,
-                fontWeight: 500,
-                // width: 700,
-              }}
-              // isColumnSelectable={(params) => {
-              //   setSelected(params.column);
-              // }}
-              // isRowSelectable={(params) => {
-              //   setSelected(params.row);
-              // }}
-              pageSizeOptions={[5, 10, 15]}
-
-              // se
-            />
-          </div>
-        </div>
-
-        <div className={styles.doughnut}>
-          {/* <p>Analysis</p> */}
-          <Doughnut
-            data={{
-              labels: Object.keys(placeddata),
-              datasets: [
-                {
-                  label: "Students Placed",
-                  data: Object.values(placeddata).map((ele) => {
-                    return ele.length;
-                  }),
-                  backgroundColor: [
+                  flexDirection: "column",
+                  alignItems: "center",
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <ColorRing
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="blocks-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="blocks-wrapper"
+                  colors={[
                     "#806BFF",
+                    "#A15BF9",
                     "#23B9F9",
                     "#2200F4",
                     "#47FFDE",
                     "#002966",
-                  ],
-                },
-              ],
-            }}
-            className={styles.cir}
-          />
+                  ]}
+                />
+                Loading...
+              </div>
+            </>
+          ) : (
+            <>
+              {" "}
+              <div className={styles.list}>
+                <DataGrid
+                  rows={students}
+                  columns={columns}
+                  sx={{
+                    ".MuiDataGrid-columnHeaderTitle": {
+                      fontWeight: "900 !important",
+                      // overflow: "visible !important",
+                      fontSize: "2rem !important",
+                    },
+                    ".MuiDataGrid-columnHeaderTitleContainer": {
+                      display: "flex",
+                      justifyContent: "center",
+                    },
+                    ".MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      { display: "flex", justifyContent: "center" },
+                    ".MuiDataGrid-footerContainer": {
+                      height: "4rem",
+                      minHeight: "0",
+                    },
+                    fontSize: 12,
+                    fontWeight: 500,
+                    // width: 700,
+                  }}
+                  // isColumnSelectable={(params) => {
+                  //   setSelected(params.column);
+                  // }}
+                  // isRowSelectable={(params) => {
+                  //   setSelected(params.row);
+                  // }}
+                  pageSizeOptions={[5, 10, 15]}
+
+                  // se
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

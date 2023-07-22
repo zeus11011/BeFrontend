@@ -6,7 +6,7 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import { Modal } from "antd";
-
+import { Tabs } from "antd";
 import { URL } from "../../creds";
 
 import { Navigation, Pagination } from "swiper";
@@ -76,211 +76,215 @@ const Company = () => {
         <Loader />
       ) : (
         <div className={styles.main}>
-          <div className={styles.mainCon1}>
-            <div className={styles.company1box}>
-              <div className={styles.carobox}>
-                <div className={styles.Carouselh1Box}>
-                  <h1 className={styles.h1}>Pending Requests</h1>
-                </div>
-                <Swiper
-                  navigation
-                  pagination={{ clickable: true }}
-                  modules={[Navigation, Pagination]}
-                  spaceBetween={0}
-                  slidesPerView={3}
-                  onSlideChange={() => console.log("slide change")}
-                  onSwiper={(swiper) => console.log(swiper)}
-                >
-                  {pending.length !== 0 ? (
-                    pending.map((ele, index) => {
-                      return (
-                        <SwiperSlide key={index}>
-                          <div
-                            className={styles.card1box}
-                            onClick={() => {
-                              console.log("clicked");
-                              handleBoxClick1(ele);
-                            }}
-                          >
-                            <div className={styles.box}>
-                              <h1 className="Ph">{ele.nameCompany}</h1>
-                              <p className={styles.p}>
-                                {new Date(
-                                  ele.dates[0]?.start
-                                ).toLocaleDateString("en-US", {
-                                  year: "numeric",
-                                  month: "short",
-                                  day: "numeric",
-                                })}{" "}
-                                To{" "}
-                                {new Date(ele.dates[0]?.end).toLocaleDateString(
-                                  "en-US",
-                                  {
+          <div className={styles.mainContainer}>
+            <div className={styles.mainCon1}>
+              <div className={styles.company1box}>
+                <div className={styles.carobox}>
+                  <div className={styles.Carouselh1Box}>
+                    <h1 className={styles.h1}>Pending Requests</h1>
+                  </div>
+                  <Swiper
+                    navigation
+                    pagination={{ clickable: true }}
+                    modules={[Navigation, Pagination]}
+                    spaceBetween={0}
+                    slidesPerView={3}
+                    onSlideChange={() => console.log("slide change")}
+                    onSwiper={(swiper) => console.log(swiper)}
+                  >
+                    {pending.length !== 0 ? (
+                      pending.map((ele, index) => {
+                        return (
+                          <SwiperSlide key={index}>
+                            <div
+                              className={styles.card1box}
+                              onClick={() => {
+                                console.log("clicked");
+                                handleBoxClick1(ele);
+                              }}
+                            >
+                              <div className={styles.box}>
+                                <h1 className="Ph">{ele.nameCompany}</h1>
+                                <p className={styles.p}>
+                                  {new Date(
+                                    ele.dates[0]?.start
+                                  ).toLocaleDateString("en-US", {
                                     year: "numeric",
                                     month: "short",
                                     day: "numeric",
-                                  }
-                                )}
-                              </p>
-                              <div className={styles.rolesHead}>
-                                <p className={styles.rolp}> Roles:</p>
-                              </div>
-                              <div className={styles.roles}>
-                                {ele.roles.map((item, i) => {
-                                  return <span key={i}>{item}</span>;
-                                })}
-                              </div>
-                              <div className="ctc">
-                                <span>
-                                  CTC:{" "}
-                                  <p style={{ display: "inline" }} key={index}>
-                                    {ele.ctc}
-                                  </p>
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </SwiperSlide>
-                      );
-                    })
-                  ) : (
-                    <div className={styles.blankbox}>No companies to show</div>
-                  )}
-                </Swiper>
-              </div>
-            </div>
-            <div className={styles.company1box}>
-              <div className={styles.carobox}>
-                <div className={styles.Carouselh1Box}>
-                  <h1 className={styles.h1}>On-Going Companies</h1>
-                </div>
-
-                <Swiper
-                  navigation
-                  pagination={{ clickable: true }}
-                  modules={[Navigation, Pagination]}
-                  spaceBetween={0}
-                  slidesPerView={3}
-                  onSlideChange={() => console.log("slide change")}
-                  onSwiper={(swiper) => console.log(swiper)}
-                >
-                  {ongoin.length != 0 ? (
-                    ongoin.map((ele, index) => {
-                      return (
-                        <SwiperSlide key={index}>
-                          <div
-                            className={styles.card1box}
-                            onClick={() => {
-                              handleBoxClick2(ele);
-                            }}
-                          >
-                            <div className={styles.box}>
-                              <h1 className="onGh1">{ele.nameCompany}</h1>
-                              <p className={styles.p}>
-                                {new Date(
-                                  ele.dates[0].start
-                                ).toLocaleDateString("en-US", {
-                                  year: "numeric",
-                                  month: "short",
-                                  day: "numeric",
-                                })}{" "}
-                                To{" "}
-                                {new Date(ele.dates[0].end).toLocaleDateString(
-                                  "en-US",
-                                  {
+                                  })}{" "}
+                                  To{" "}
+                                  {new Date(
+                                    ele.dates[0]?.end
+                                  ).toLocaleDateString("en-US", {
                                     year: "numeric",
                                     month: "short",
                                     day: "numeric",
-                                  }
-                                )}
-                              </p>
-                              <div className={styles.rolesHead}>
-                                <p className={styles.rolp}> Roles:</p>
-                              </div>
-                              <div className={styles.roles}>
-                                {ele.roles.map((item, i) => {
-                                  return <span key={i}>{item}</span>;
-                                })}
-                              </div>
-                              <div className="ctc">
-                                <span>CTC: </span>
-
-                                <p
-                                  style={{
-                                    display: "inline",
-                                    marginRight: 10,
-                                    // border: "1px solid black",
-                                    // borderRadius: "15px",
-                                    // padding: 5,
-                                  }}
-                                  key={index}
-                                >
-                                  {ele.ctc} LPA
+                                  })}
                                 </p>
+                                <div className={styles.rolesHead}>
+                                  <p className={styles.rolp}> Roles:</p>
+                                </div>
+                                <div className={styles.roles}>
+                                  {ele.roles.map((item, i) => {
+                                    return <span key={i}>{item}</span>;
+                                  })}
+                                </div>
+                                <div className="ctc">
+                                  <span>
+                                    CTC:{" "}
+                                    <p
+                                      style={{ display: "inline" }}
+                                      key={index}
+                                    >
+                                      {ele.ctc}
+                                    </p>
+                                  </span>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </SwiperSlide>
-                      );
-                    })
-                  ) : (
-                    <div className={styles.blankbox}>
-                      Nothing Copanies are there to show
-                    </div>
-                  )}
-                </Swiper>
-              </div>
-            </div>
-            {/* <div className={styles.company1box}>
-              <div className={styles.carobox}>
-                <div className={styles.Carouselh1Box}>
-                  <h1 className={styles.h1}>Up-Coming Company</h1>
+                          </SwiperSlide>
+                        );
+                      })
+                    ) : (
+                      <div className={styles.blankbox}>
+                        No companies to show
+                      </div>
+                    )}
+                  </Swiper>
                 </div>
+              </div>
+              <div className={styles.company1box}>
+                <div className={styles.carobox}>
+                  <div className={styles.Carouselh1Box}>
+                    <h1 className={styles.h1}>On-Going Companies</h1>
+                  </div>
 
-                <Swiper
-                  navigation
-                  pagination={{ clickable: true }}
-                  modules={[Navigation, Pagination]}
-                  spaceBetween={0}
-                  slidesPerView={3}
-                  onSlideChange={() => console.log("slide change")}
-                  onSwiper={(swiper) => console.log(swiper)}
-                >
-                  {upcoming.length != 0 ? (
-                    upcoming.map((ele, index) => {
-                      return (
-                        <SwiperSlide key={index}>
-                          <div className={styles.card1box}>
-                            <div className={styles.box}>
-                              <h1>{ele.nameCompany}</h1>
-                              <p className={styles.p}>
-                                {new Date(ele.dates.start).toLocaleDateString(
-                                  "en-US",
-                                  {
+                  <Swiper
+                    navigation
+                    pagination={{ clickable: true }}
+                    modules={[Navigation, Pagination]}
+                    spaceBetween={0}
+                    slidesPerView={3}
+                    onSlideChange={() => console.log("slide change")}
+                    onSwiper={(swiper) => console.log(swiper)}
+                  >
+                    {ongoin.length != 0 ? (
+                      ongoin.map((ele, index) => {
+                        return (
+                          <SwiperSlide key={index}>
+                            <div
+                              className={styles.card1box}
+                              onClick={() => {
+                                handleBoxClick2(ele);
+                              }}
+                            >
+                              <div className={styles.box}>
+                                <h1 className="onGh1">{ele.nameCompany}</h1>
+                                <p className={styles.p}>
+                                  {new Date(
+                                    ele.dates[0].start
+                                  ).toLocaleDateString("en-US", {
                                     year: "numeric",
                                     month: "short",
                                     day: "numeric",
-                                  }
-                                )}{" "}
-                                To{" "}
-                                {new Date(ele.dates.end).toLocaleDateString(
-                                  "en-US",
-                                  {
+                                  })}{" "}
+                                  To{" "}
+                                  {new Date(
+                                    ele.dates[0].end
+                                  ).toLocaleDateString("en-US", {
                                     year: "numeric",
                                     month: "short",
                                     day: "numeric",
-                                  }
-                                )}
-                              </p>
-                              <div className={styles.rolesHead}>
-                                <p className={styles.rolp}> Roles:</p>
+                                  })}
+                                </p>
+                                <div className={styles.rolesHead}>
+                                  <p className={styles.rolp}> Roles:</p>
+                                </div>
+                                <div className={styles.roles}>
+                                  {ele.roles.map((item, i) => {
+                                    return <span key={i}>{item}</span>;
+                                  })}
+                                </div>
+                                <div className="ctc">
+                                  <span>CTC: </span>
+
+                                  <p
+                                    style={{
+                                      display: "inline",
+                                      marginRight: 10,
+                                      // border: "1px solid black",
+                                      // borderRadius: "15px",
+                                      // padding: 5,
+                                    }}
+                                    key={index}
+                                  >
+                                    {ele.ctc} LPA
+                                  </p>
+                                </div>
                               </div>
-                              <div className={styles.roles}>
-                                {ele.roles.map((item, i) => {
-                                  return <span key={i}>{item}</span>;
-                                })}
-                              </div>
-                              <div className="ctc">
+                            </div>
+                          </SwiperSlide>
+                        );
+                      })
+                    ) : (
+                      <div className={styles.blankbox}>
+                        Nothing Copanies are there to show
+                      </div>
+                    )}
+                  </Swiper>
+                </div>
+              </div>
+              <div className={styles.company1box}>
+                <div className={styles.carobox}>
+                  <div className={styles.Carouselh1Box}>
+                    <h1 className={styles.h1}>Up-Coming Company</h1>
+                  </div>
+
+                  <Swiper
+                    navigation
+                    pagination={{ clickable: true }}
+                    modules={[Navigation, Pagination]}
+                    spaceBetween={0}
+                    slidesPerView={3}
+                    onSlideChange={() => console.log("slide change")}
+                    onSwiper={(swiper) => console.log(swiper)}
+                  >
+                    {upcoming.length != 0 ? (
+                      upcoming.map((ele, index) => {
+                        return (
+                          <SwiperSlide key={index}>
+                            <div className={styles.card1box}>
+                              <div className={styles.box}>
+                                <h1>{ele.nameCompany}</h1>
+                                <p className={styles.p}>
+                                  {new Date(ele.dates.start).toLocaleDateString(
+                                    "en-US",
+                                    {
+                                      year: "numeric",
+                                      month: "short",
+                                      day: "numeric",
+                                    }
+                                  )}{" "}
+                                  To{" "}
+                                  {new Date(ele.dates.end).toLocaleDateString(
+                                    "en-US",
+                                    {
+                                      year: "numeric",
+                                      month: "short",
+                                      day: "numeric",
+                                    }
+                                  )}
+                                </p>
+                                <div className={styles.rolesHead}>
+                                  <p className={styles.rolp}> Roles:</p>
+                                </div>
+                                <div className={styles.roles}>
+                                  {ele.roles.map((item, i) => {
+                                    return <span key={i}>{item}</span>;
+                                  })}
+                                </div>
+                                {/* <div className="ctc">
                                 <span>
                                   CTC:{" "}
                                   {ele.ctc.map((item, index) => {
@@ -294,20 +298,21 @@ const Company = () => {
                                     );
                                   })}
                                 </span>
+                              </div> */}
                               </div>
                             </div>
-                          </div>
-                        </SwiperSlide>
-                      );
-                    })
-                  ) : (
-                    <div className={styles.blankbox}>
-                      Nothing Copanies are there to show
-                    </div>
-                  )}
-                </Swiper>
+                          </SwiperSlide>
+                        );
+                      })
+                    ) : (
+                      <div className={styles.blankbox}>
+                        Nothing Copanies are there to show
+                      </div>
+                    )}
+                  </Swiper>
+                </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       )}

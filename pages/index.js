@@ -13,7 +13,8 @@ import { useRouter } from "next/router";
 import { URL } from "../creds";
 import axios from "axios";
 import Loader from "../Components/Loader";
-
+import { InfinitySpin } from "react-loader-spinner";
+import { ColorRing } from "react-loader-spinner";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import "swiper/scss/navigation";
@@ -33,16 +34,6 @@ export default function Home() {
   const router = useRouter();
   const [companies, setCompanies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  const [showModal1, setShowModal1] = useState(false);
-
-  const handleBoxClick1 = () => {
-    setShowModal1(true);
-  };
-
-  const handleCloseModal1 = () => {
-    setShowModal1(false);
-  };
 
   // her goes id of the offer letter
   const handelConfirmJobdesc = (id) => {
@@ -83,171 +74,194 @@ export default function Home() {
   if (user == null) return <></>;
   return (
     <div>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div className={styles.main}>
-          <div className={styles.descboxes}>
-            <div className={styles.box}>
-              <div className={styles.mainicon}>
-                <div className={styles.icon}>
-                  <Icon
-                    icon="mdi:account-school-outline"
-                    width={"4rem"}
-                    onClick={() => {
-                      router.push("/Analytics");
-                    }}
-                  />
-                </div>
+      <div className={styles.main}>
+        <div className={styles.descboxes}>
+          <div className={styles.box}>
+            <div className={styles.mainicon}>
+              <div className={styles.icon}>
+                <Icon
+                  icon="mdi:account-school-outline"
+                  width={"4rem"}
+                  onClick={() => {
+                    router.push("/Analytics");
+                  }}
+                />
               </div>
-              <p className={styles.head}>Total Students</p>
-              <p className={styles.p}>
-                {number != undefined
-                  ? number.student[0]?.count + number.student[1]?.count
-                  : 0}
-              </p>
             </div>
-            <div className={styles.box}>
-              <div className={styles.mainicon}>
-                <div className={styles.icon}>
-                  <Icon
-                    icon="mdi:handshake"
-                    width={"4rem"}
-                    onClick={() => {
-                      router.push("/Students");
-                    }}
-                  />
-                </div>
-              </div>
-              <p className={styles.head}>Students Placed</p>
-              <p className={styles.p}>
-                {number != undefined
-                  ? number.student[0]?._id
-                    ? number.student[0]?.count
-                    : number.student[1]?.count +
-                      "/" +
-                      (
-                        number.student[0]?.count + number.student[1]?.count
-                      ).toString()
-                  : 0}
-              </p>
-            </div>
-            <div className={styles.box}>
-              <div className={styles.mainicon}>
-                <div className={styles.icon}>
-                  <Icon
-                    icon="ri:building-2-line"
-                    width={"4rem"}
-                    onClick={() => {
-                      router.push("/Company");
-                    }}
-                  />
-                </div>
-              </div>
-              <p className={styles.head}>Company Arrived</p>
-              <p className={styles.p}>{number ? number.companycount : 0}</p>
-            </div>
+            <p className={styles.head}>Total Students</p>
+            <p className={styles.p}>
+              {isLoading ? (
+                <InfinitySpin width="200" color="#4fa94d" />
+              ) : (
+                <>
+                  {" "}
+                  {number != undefined
+                    ? number.student[0]?.count + number.student[1]?.count
+                    : 0}
+                </>
+              )}
+            </p>
           </div>
-          <div className={styles.mainCon1}>
-            <div className={styles.company1box}>
-              <div className={styles.carobox}>
-                <div className={styles.Carouselh1Box}>
-                  <h1 className={styles.h1}>Upcoming Companies</h1>
-                </div>
-                <Swiper
-                  navigation
-                  pagination={{ clickable: true }}
-                  modules={[Navigation, Pagination]}
-                  spaceBetween={0}
-                  slidesPerView={3}
-                  onSlideChange={() => console.log("slide change")}
-                  onSwiper={(swiper) => console.log(swiper)}
-                  onClick={handleBoxClick1}
-                >
-                  {companies.length > 0 ? (
-                    companies.map((ele, index) => {
-                      return (
-                        <SwiperSlide key={index}>
-                          <div className={styles.card1box}>
-                            <div className={styles.box}>
-                              <div className={styles.cardName}>
-                                <h1>{ele.nameCompany}</h1>
-                              </div>
-                              <div className={styles.cardDate}>
-                                <p className={styles.p}>
-                                  {new Date(
-                                    ele.dates[0]?.start
-                                  ).toLocaleDateString("en-US", {
+          <div className={styles.box}>
+            <div className={styles.mainicon}>
+              <div className={styles.icon}>
+                <Icon
+                  icon="mdi:handshake"
+                  width={"4rem"}
+                  onClick={() => {
+                    router.push("/Students");
+                  }}
+                />
+              </div>
+            </div>
+            <p className={styles.head}>Students Placed</p>
+            <p className={styles.p}>
+              {isLoading ? (
+                <InfinitySpin width="200" color="#4fa94d" />
+              ) : (
+                <>
+                  {" "}
+                  {number != undefined
+                    ? number.student[0]?._id
+                      ? number.student[0]?.count
+                      : number.student[1]?.count +
+                        "/" +
+                        (
+                          number.student[0]?.count + number.student[1]?.count
+                        ).toString()
+                    : 0}
+                </>
+              )}
+            </p>
+          </div>
+          <div className={styles.box}>
+            <div className={styles.mainicon}>
+              <div className={styles.icon}>
+                <Icon
+                  icon="ri:building-2-line"
+                  width={"4rem"}
+                  onClick={() => {
+                    router.push("/Company");
+                  }}
+                />
+              </div>
+            </div>
+            <p className={styles.head}>Company Arrived</p>
+            <p className={styles.p}>
+              {isLoading ? (
+                <InfinitySpin width="200" color="#4fa94d" />
+              ) : (
+                <> {number ? number.companycount : 0}</>
+              )}
+            </p>
+          </div>
+        </div>
+        <div className={styles.mainCon1}>
+          <div className={styles.company1box}>
+            <div className={styles.carobox}>
+              <div className={styles.Carouselh1Box}>
+                <h1 className={styles.h1}>Upcoming Companies</h1>
+              </div>
+              <Swiper
+                navigation
+                pagination={{ clickable: true }}
+                modules={[Navigation, Pagination]}
+                spaceBetween={0}
+                slidesPerView={3}
+                onSlideChange={() => console.log("slide change")}
+                onSwiper={(swiper) => console.log(swiper)}
+              >
+                {companies.length > 0 ? (
+                  companies.map((ele, index) => {
+                    return (
+                      <SwiperSlide key={index}>
+                        <div className={styles.card1box}>
+                          <div className={styles.box}>
+                            <div className={styles.cardName}>
+                              <h1>{ele.nameCompany}</h1>
+                            </div>
+                            <div className={styles.cardDate}>
+                              <p className={styles.p}>
+                                {new Date(
+                                  ele.dates[0]?.start
+                                ).toLocaleDateString("en-US", {
+                                  year: "numeric",
+                                  month: "short",
+                                  day: "numeric",
+                                })}{" "}
+                                To{" "}
+                                {new Date(ele.dates[0]?.end).toLocaleDateString(
+                                  "en-US",
+                                  {
                                     year: "numeric",
                                     month: "short",
                                     day: "numeric",
-                                  })}{" "}
-                                  To{" "}
-                                  {new Date(
-                                    ele.dates[0]?.end
-                                  ).toLocaleDateString("en-US", {
-                                    year: "numeric",
-                                    month: "short",
-                                    day: "numeric",
+                                  }
+                                )}
+                              </p>
+                            </div>
+                            <div className={styles.cardRoles}>
+                              <div className={styles.rolesHead}>
+                                <p className={styles.rolp}> Roles:</p>
+                                <div className={styles.roles}>
+                                  {ele.roles.map((item, i) => {
+                                    return <span key={i}>{item}</span>;
                                   })}
-                                </p>
-                              </div>
-                              <div className={styles.cardRoles}>
-                                <div className={styles.rolesHead}>
-                                  <p className={styles.rolp}> Roles:</p>
-                                  <div className={styles.roles}>
-                                    {ele.roles.map((item, i) => {
-                                      return <span key={i}>{item}</span>;
-                                    })}
-                                  </div>
                                 </div>
                               </div>
-                              <div className={styles.cardPackage}>
-                                <span className={styles.packageHead}>
-                                  {" "}
-                                  <p> CTC:</p>
-                                </span>
+                            </div>
+                            <div className={styles.cardPackage}>
+                              <span className={styles.packageHead}>
+                                {" "}
+                                <p> CTC:</p>
+                              </span>
 
-                                <span className={styles.packageAm}>
-                                  <p key={index}>{ele.ctc}</p>
-                                </span>
-                              </div>
+                              <span className={styles.packageAm}>
+                                <p key={index}>{ele.ctc}</p>
+                              </span>
                             </div>
                           </div>
-                          <Modal
-                            visible={showModal1}
-                            onCancel={handleCloseModal1}
-                            footer={null}
-                            width={"90vw"}
-                          >
-                            <Table />
-                          </Modal>
-                        </SwiperSlide>
-                      );
-                    })
-                  ) : (
-                    <>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          fontSize: "4rem",
-                          fontWeight: "600",
-                          marginTop: "6rem",
-                          height: "100%",
-                        }}
-                      >
-                        Nothing to show
-                      </div>
-                    </>
-                  )}
-                </Swiper>
-              </div>
+                        </div>
+                      </SwiperSlide>
+                    );
+                  })
+                ) : (
+                  <>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        width: "100%",
+                        height: "100%",
+                      }}
+                    >
+                      <ColorRing
+                        visible={true}
+                        height="80"
+                        width="80"
+                        ariaLabel="blocks-loading"
+                        wrapperStyle={{}}
+                        wrapperClass="blocks-wrapper"
+                        colors={[
+                          "#806BFF",
+                          "#A15BF9",
+                          "#23B9F9",
+                          "#2200F4",
+                          "#47FFDE",
+                          "#002966",
+                        ]}
+                      />
+                      Loading...
+                    </div>
+                  </>
+                )}
+              </Swiper>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

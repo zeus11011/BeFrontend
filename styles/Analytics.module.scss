@@ -11,7 +11,7 @@
 
 .descboxes {
   margin-top: 2rem;
-  margin-left: 5rem;
+  // margin-left: 5rem;
   display: flex;
   justify-content: space-between;
   width: 70vw;
@@ -64,7 +64,7 @@
 
 .barchartsection {
   margin-top: 10rem;
-  margin-left: 5rem;
+  // margin-left: 5rem;
   width: 70vw;
   display: flex;
   justify-content: center;
@@ -156,7 +156,7 @@
   z-index: 20;
   width: 70vw;
   margin-top: 10rem;
-  margin-left: 5rem;
+  // margin-left: 5rem;
   // margin-bottom: 10rem;
   padding: 3rem;
   display: flex;
@@ -167,9 +167,9 @@
   border-radius: 15px;
   font-size: 2rem;
 
-  .doughnut {
+  .doughnutBox {
     width: 51vw;
-    height: 53vh;
+    height: 55vh;
     text-align: center;
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -177,24 +177,28 @@
     border-radius: 15px;
     margin: auto;
     margin-top: 4rem;
+    margin-bottom: 6rem;
     // padding-top: 1rem;
     // padding-bottom: 1.5rem;
     p {
       font-size: 2.5rem;
       font-weight: 700;
-      margin-top: 0.5rem;
+      margin: 2rem;
     }
     .cir {
       margin: auto;
       // margin-top: 3rem;
       // margin-top: 5%;
     }
+    .doughnut {
+      height: 40vh;
+    }
   }
 }
 
 .barchartbisection {
   margin-top: 10rem;
-  margin-left: 5rem;
+  // margin-left: 5rem;
   width: 70vw;
   display: flex;
   justify-content: space-around;

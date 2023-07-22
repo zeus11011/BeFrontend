@@ -75,6 +75,7 @@ const columns = [
 
 // const Chart = dynamic(() => import("../../Components/Chart/Chart"));
 const options = {
+  indexAxis: "y",
   maintainAspectRatio: false,
   responsive: true,
   plugins: {
@@ -250,122 +251,135 @@ const Archive = () => {
     <div className={styles.main}>
       <div className={styles.container}>
         <div className={styles.con1}>
-          <div className={styles.graCon}>
-            {/* <Chart /> */}
-            {!loading ? (
-              <Line
-                height={333}
-                width={333}
-                style={{ margin: "auto" }}
-                ref={chartref}
-                options={optionsline}
-                data={{
-                  labels: graph.years?.map((ele) => {
-                    return ele.year;
-                  }),
-                  datasets: [
-                    {
-                      label: "Students placed record",
-                      data: graph.years?.map((ele) => {
-                        return ele.count;
-                      }),
-                      borderColor: "rgb(0, 0,0)",
-                      backgroundColor: "rgba(0, 0, 0, 0.5)",
-                    },
-                    // {
-                    //   label: "Dataset 2",
-                    //   data: [100, 200, 300, 5, 120, 500, 12],
-                    //   borderColor: "rgb(53, 162, 235)",
-                    //   backgroundColor: "rgba(53, 162, 235, 0.5)",
-                    // },
-                  ],
-                }}
-                onClick={onChartclick}
-              />
-            ) : (
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  width: "100%",
-                  height: "100%",
-                }}
-              >
-                <ColorRing
-                  visible={true}
-                  height="80"
-                  width="80"
-                  ariaLabel="blocks-loading"
-                  wrapperStyle={{}}
-                  wrapperClass="blocks-wrapper"
-                  colors={[
-                    "#806BFF",
-                    "#A15BF9",
-                    "#23B9F9",
-                    "#2200F4",
-                    "#47FFDE",
-                    "#002966",
-                  ]}
-                />
-              </div>
-            )}
+          <div className={styles.con1Header}>
+            <h1>OVERALL RECORD</h1>
           </div>
-          <div className={styles.overCon}>
-            {!loading ? (
-              <Doughnut
-                data={{
-                  labels: Object.keys(doughnutdata),
-                  datasets: [
-                    {
-                      data: Object.values(doughnutdata),
-                      backgroundColor: [
-                        "#806BFF",
-                        "#002966",
-                        "#2200F4",
-                        "#A15BF9",
-                        "#23B9F9",
-                        "#47FFDE",
-                      ],
+          <div className={styles.con1Box}>
+            <div className={styles.graCon}>
+              {!loading ? (
+                <Line
+                  height={333}
+                  width={333}
+                  style={{ margin: "auto" }}
+                  ref={chartref}
+                  options={optionsline}
+                  data={{
+                    labels: graph.years?.map((ele) => {
+                      return ele.year;
+                    }),
+                    datasets: [
+                      {
+                        label: "Students placed record",
+                        data: graph.years?.map((ele) => {
+                          return ele.count;
+                        }),
+                        borderColor: "rgb(0, 0,0)",
+                        backgroundColor: "rgba(0, 0, 0, 0.5)",
+                      },
+                    ],
+                  }}
+                  onClick={onChartclick}
+                />
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
+                  <ColorRing
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="blocks-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="blocks-wrapper"
+                    colors={[
+                      "#806BFF",
+                      "#A15BF9",
+                      "#23B9F9",
+                      "#2200F4",
+                      "#47FFDE",
+                      "#002966",
+                    ]}
+                  />
+                  Loading...
+                </div>
+              )}
+            </div>
+            <div className={styles.overCon}>
+              {!loading ? (
+                <Doughnut
+                  data={{
+                    labels: Object.keys(doughnutdata),
+                    datasets: [
+                      {
+                        data: Object.values(doughnutdata),
+                        backgroundColor: [
+                          "#806BFF",
+                          "#002966",
+                          "#2200F4",
+                          "#A15BF9",
+                          "#23B9F9",
+                          "#47FFDE",
+                        ],
+                      },
+                    ],
+                  }}
+                  options={{
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: {
+                      legend: {
+                        display: true,
+                      },
+                      title: {
+                        display: true,
+                        text: "Student Placed",
+                        font: { size: 30 },
+                      },
                     },
-                  ],
-                }}
-                options={{
-                  maintainAspectRatio: false,
-                  responsive: true,
-                  plugins: {
-                    legend: {
-                      display: true,
-                    },
-                    title: {
-                      display: true,
-                      text: "Student Placed",
-                      font: { size: 30 },
-                    },
-                  },
-                }}
-              />
-            ) : (
-              <ColorRing
-                visible={true}
-                height="80"
-                width="80"
-                ariaLabel="blocks-loading"
-                wrapperStyle={{}}
-                wrapperClass="blocks-wrapper"
-                colors={[
-                  "#806BFF",
-                  "#A15BF9",
-                  "#23B9F9",
-                  "#2200F4",
-                  "#47FFDE",
-                  "#002966",
-                ]}
-              />
-            )}
+                  }}
+                />
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
+                  <ColorRing
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="blocks-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="blocks-wrapper"
+                    colors={[
+                      "#806BFF",
+                      "#A15BF9",
+                      "#23B9F9",
+                      "#2200F4",
+                      "#47FFDE",
+                      "#002966",
+                    ]}
+                  />
+                  Loading...
+                </div>
+              )}
+            </div>
           </div>
         </div>
         <div className={styles.dpCon}>
-          <h1>Current Year</h1>
+          <h1>Choose Year</h1>
           <Select
             className={styles.dropdown}
             placeholder={selects}
@@ -383,7 +397,36 @@ const Archive = () => {
             <div className={styles.barchartcont}>
               <p>Package Category</p>
               {loading ? (
-                <>Loading</>
+                <>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <ColorRing
+                      visible={true}
+                      height="80"
+                      width="80"
+                      ariaLabel="blocks-loading"
+                      wrapperStyle={{}}
+                      wrapperClass="blocks-wrapper"
+                      colors={[
+                        "#806BFF",
+                        "#A15BF9",
+                        "#23B9F9",
+                        "#2200F4",
+                        "#47FFDE",
+                        "#002966",
+                      ]}
+                    />
+                    Loading...
+                  </div>
+                </>
               ) : (
                 <Bar
                   data={{
@@ -402,7 +445,36 @@ const Archive = () => {
             <div className={styles.barchartcont}>
               <p>Total Students</p>
               {loading ? (
-                <>Loading</>
+                <>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <ColorRing
+                      visible={true}
+                      height="80"
+                      width="80"
+                      ariaLabel="blocks-loading"
+                      wrapperStyle={{}}
+                      wrapperClass="blocks-wrapper"
+                      colors={[
+                        "#806BFF",
+                        "#A15BF9",
+                        "#23B9F9",
+                        "#2200F4",
+                        "#47FFDE",
+                        "#002966",
+                      ]}
+                    />
+                    Loading...
+                  </div>
+                </>
               ) : (
                 <Bar
                   data={{
@@ -431,7 +503,6 @@ const Archive = () => {
             <div className={styles.barchartcont}>
               {!loading ? (
                 <Bar
-                  // title="false"
                   options={options}
                   data={{
                     labels: ctccharts.map((ele) => ele.name),
@@ -443,8 +514,11 @@ const Archive = () => {
                           "#806BFF",
                           "#A15BF9",
                           "#23B9F9",
+                          // "#3C1552",
+
                           "#2200F4",
                           "#47FFDE",
+                          "#8B7499",
                           "#002966",
                         ],
                       },
@@ -452,22 +526,34 @@ const Archive = () => {
                   }}
                 />
               ) : (
-                <ColorRing
-                  visible={true}
-                  height="80"
-                  width="80"
-                  ariaLabel="blocks-loading"
-                  wrapperStyle={{}}
-                  wrapperClass="blocks-wrapper"
-                  colors={[
-                    "#806BFF",
-                    "#A15BF9",
-                    "#23B9F9",
-                    "#2200F4",
-                    "#47FFDE",
-                    "#002966",
-                  ]}
-                />
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
+                  <ColorRing
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="blocks-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="blocks-wrapper"
+                    colors={[
+                      "#806BFF",
+                      "#A15BF9",
+                      "#23B9F9",
+                      "#2200F4",
+                      "#47FFDE",
+                      "#002966",
+                    ]}
+                  />
+                  Loading...
+                </div>
               )}
             </div>
           </div>
@@ -523,22 +609,34 @@ const Archive = () => {
                     // se
                   />
                 ) : (
-                  <ColorRing
-                    visible={true}
-                    height="80"
-                    width="80"
-                    ariaLabel="blocks-loading"
-                    wrapperStyle={{}}
-                    wrapperClass="blocks-wrapper"
-                    colors={[
-                      "#806BFF",
-                      "#A15BF9",
-                      "#23B9F9",
-                      "#2200F4",
-                      "#47FFDE",
-                      "#002966",
-                    ]}
-                  />
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <ColorRing
+                      visible={true}
+                      height="80"
+                      width="80"
+                      ariaLabel="blocks-loading"
+                      wrapperStyle={{}}
+                      wrapperClass="blocks-wrapper"
+                      colors={[
+                        "#806BFF",
+                        "#A15BF9",
+                        "#23B9F9",
+                        "#2200F4",
+                        "#47FFDE",
+                        "#002966",
+                      ]}
+                    />
+                    Loading...
+                  </div>
                 )}
               </div>
             </div>
