@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Uploader } from "rsuite";
 import styles from "../styles/ResultUpload.module.scss";
+function previewFile(file, callback) {
+  const reader = new FileReader();
+  reader.onloadend = () => {
+    callback(reader.result);
+  };
+  reader.readAsDataURL(file);
+}
+
 const ResultUpload = () => {
+  const [fileInfo, setFileInfo] = React.useState(null);
   return (
     <div className={styles.main}>
       <div className={styles.header}>
@@ -11,10 +20,15 @@ const ResultUpload = () => {
         <Uploader
           action="//jsonplaceholder.typicode.com/posts/"
           draggable
-          shouldUpload={() => {
-            alert("File check passed, run upload");
-            return true;
+          onUpload={(file) => {
+            setUploading(true);
+            previewFile(file.blobFile, (value) => {
+              console.log(value, "from file");
+              setFileInfo(value);
+            });
           }}
+          autoUpload={false}
+          multiple={false}
         >
           <div
             style={{

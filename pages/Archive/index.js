@@ -258,21 +258,23 @@ const Archive = () => {
             <div className={styles.graCon}>
               {!loading ? (
                 <Line
-                  height={333}
-                  width={333}
+                  height={400}
+                  width={400}
                   style={{ margin: "auto" }}
                   ref={chartref}
                   options={optionsline}
                   data={{
-                    labels: graph.years?.map((ele) => {
-                      return ele.year;
-                    }),
+                    labels: ["2019", "2020", "2021", "2022", "2023"],
+                    // .map((ele) => {
+                    //   return ele.year;
+                    // }),
                     datasets: [
                       {
                         label: "Students placed record",
-                        data: graph.years?.map((ele) => {
-                          return ele.count;
-                        }),
+                        data: [30, 37, 42, 36, 39],
+                        // graph.years?.map((ele) => {
+                        //   return ele.count;
+                        // }),
                         borderColor: "rgb(0, 0,0)",
                         backgroundColor: "rgba(0, 0, 0, 0.5)",
                       },

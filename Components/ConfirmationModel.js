@@ -63,7 +63,7 @@ const ConfirmationModel = ({ data, close }) => {
               <div className={styles.grid}>
                 <h4>CTC :</h4>
 
-                <p key={index}>{details?.ctc} LPA</p>
+                <p>{details?.ctc} LPA</p>
               </div>
             </div>
             <div className={styles.grid}>

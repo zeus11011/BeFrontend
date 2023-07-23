@@ -10,7 +10,7 @@ var offerId = null;
 const TabelModal = ({ data }) => {
   const [rows, setRows] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [details, setDetails] = useState(data[0]);
+  const [details, setDetails] = useState(data);
   const [refresh, setRefresh] = useState(false);
   const handelremove = (studentid) => {
     axios
@@ -125,12 +125,12 @@ const TabelModal = ({ data }) => {
   useEffect(() => {
     console.log(data[0], "Data");
     setLoading(true);
-    offerId = data[0]._id;
+    // offerId = data[0]._id;
     // setRows(data[0]);
     axios
       .get(URL + "/offerdetails/admin/companystudents", {
         params: {
-          id: data[0]._id,
+          id: data?._id,
         },
       })
       .then((res) => {
@@ -146,7 +146,7 @@ const TabelModal = ({ data }) => {
     <div className={styles.main}>
       <div className={styles.details}>
         <h2 className={styles.nameCompany}>
-          {details.nameCompany} Placement Drive
+          {details?.nameCompany} Placement Drive
         </h2>
         <div className={styles.dateCtcBox}>
           <div>
@@ -162,9 +162,9 @@ const TabelModal = ({ data }) => {
           </div>
           <div className={styles.grid}>
             <h3>Dates :</h3>
-            <p>{new Date(details.dates[0]?.start).toLocaleDateString()}</p>
+            <p>{new Date(details?.dates[0]?.start).toLocaleDateString()}</p>
             <p>TO</p>
-            <p>{new Date(details.dates[0]?.end).toLocaleDateString()}</p>
+            <p>{new Date(details?.dates[0]?.end).toLocaleDateString()}</p>
           </div>
         </div>
 
@@ -185,7 +185,7 @@ const TabelModal = ({ data }) => {
         <div className={styles.description}>
           {" "}
           <h3>Job Description :</h3>
-          <p>{details.jobdescription}</p>
+          <p>{details?.jobdescription}</p>
         </div>
       </div>
       {loading ? (
@@ -197,7 +197,7 @@ const TabelModal = ({ data }) => {
       ) : (
         <>
           <div className={styles.listHeader}>
-            <h2>Students Applying For {details.nameCompany}</h2>
+            <h2>Students Applying For {details?.nameCompany}</h2>
           </div>
           <div className={styles.list}>
             {" "}

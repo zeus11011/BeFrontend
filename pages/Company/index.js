@@ -38,8 +38,9 @@ const Company = () => {
     setShowModal1(true);
   };
 
-  const handleBoxClick2 = (ele) => {
-    setTablele(ele);
+  const handleBoxClick2 = (id) => {
+    alert(id);
+    setTablele(ongoin[id]);
     setShowModal2(true);
   };
 
@@ -176,7 +177,7 @@ const Company = () => {
                             <div
                               className={styles.card1box}
                               onClick={() => {
-                                handleBoxClick2(ele);
+                                handleBoxClick2(index);
                               }}
                             >
                               <div className={styles.box}>
@@ -235,7 +236,7 @@ const Company = () => {
                   </Swiper>
                 </div>
               </div>
-              <div className={styles.company1box}>
+              {/* <div className={styles.company1box}>
                 <div className={styles.carobox}>
                   <div className={styles.Carouselh1Box}>
                     <h1 className={styles.h1}>Up-Coming Company</h1>
@@ -284,7 +285,7 @@ const Company = () => {
                                     return <span key={i}>{item}</span>;
                                   })}
                                 </div>
-                                {/* <div className="ctc">
+                                <div className="ctc">
                                 <span>
                                   CTC:{" "}
                                   {ele.ctc.map((item, index) => {
@@ -298,7 +299,7 @@ const Company = () => {
                                     );
                                   })}
                                 </span>
-                              </div> */}
+                              </div>
                               </div>
                             </div>
                           </SwiperSlide>
@@ -311,7 +312,7 @@ const Company = () => {
                     )}
                   </Swiper>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -335,7 +336,7 @@ const Company = () => {
           footer={null}
           width={"80vw"}
         >
-          <TabelModal data={ongoin} />
+          <TabelModal data={tablele} />
         </Modal>
       ) : (
         <></>

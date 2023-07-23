@@ -214,13 +214,15 @@ const Students = () => {
             </div>
             <div className={styles.main2}>
               <div className={styles.cardContent}>
-                <h1 className={styles.h1LnC}>STUDENT</h1>
+                {/* <h1 className={styles.h1LnC}>STUDENT</h1> */}
                 {selected != undefined ? (
                   <>
                     <div className={styles.dp}>
                       <Image
                         alt=""
-                        src={"/dp.jpg"}
+                        src={
+                          "https://res.cloudinary.com/dvnzzkvwt/image/upload/v1681581520/images_ngyy22.jpg"
+                        }
                         width={100}
                         height={100}
                         className={styles.img}
@@ -237,14 +239,14 @@ const Students = () => {
                         <p className={styles.p1}>Company :</p>
                         <p className={styles.p2}>
                           {selected.placedDoc != undefined ? (
-                            selected.placedDoc.offerid.nameCompany
+                            selected.placedDoc?.offerid.nameCompany
                           ) : (
                             <>-</>
                           )}
                         </p>
                       </div>
                       <div className={styles.card}>
-                        <p className={styles.p1}>Department :</p>
+                        <p className={styles.p1}>Department:</p>
                         <p className={styles.p2}>{selected.branch}</p>
                       </div>
                       <div className={styles.card}>
@@ -255,7 +257,7 @@ const Students = () => {
                         <p className={styles.p1}>Package :</p>
                         <p className={styles.p2}>
                           {selected.placedDoc !== undefined ? (
-                            <>{selected.placedDoc.package}</>
+                            <>{selected.placedDoc?.package}</>
                           ) : (
                             <>-</>
                           )}

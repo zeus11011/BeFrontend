@@ -4,6 +4,7 @@ import styles from "../../styles/Profile.module.scss";
 import { useSelector } from "react-redux";
 
 const Index = () => {
+  // const user = useSelector((state) => state.user);
   const options = ["2000", "2001", "2002", "2003", "2004"];
 
   const [name, setName] = useState("");
@@ -33,7 +34,7 @@ const Index = () => {
               ></Image>
             </div>
             <div className={styles.div}>
-              <h1 className={styles.h1x}>Don Joe</h1>
+              <h1 className={styles.h1x}>{user.name}</h1>
               <h2 className={styles.h2x}>
                 Update your photo and other details
               </h2>
@@ -75,13 +76,13 @@ const Index = () => {
                   <div className={styles.personal2}>
                     <div className={styles.detail}>
                       <div>
-                        <h2 className={styles.h2}>Username</h2>
+                        <h2 className={styles.h2}>Password</h2>
                       </div>
                       <div>
                         <input
                           type="text"
                           name="fname"
-                          placeholder="Username"
+                          placeholder="Password"
                           className={styles.textfield_2}
                         ></input>
                       </div>
@@ -89,7 +90,7 @@ const Index = () => {
                     <div className={styles.detail}>
                       <div>
                         {" "}
-                        <h2 className={styles.h2}>Password</h2>
+                        <h2 className={styles.h2}>Confirm Password</h2>
                       </div>
                       <div>
                         {" "}
