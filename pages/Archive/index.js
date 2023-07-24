@@ -47,7 +47,7 @@ const columns = [
   {
     field: "studentid",
     headerName: "Name",
-    width: 200,
+    width: 350,
     headerClassName: "column",
     valueGetter: (params) => {
       return params.row.studentid.name;
@@ -56,7 +56,7 @@ const columns = [
   {
     field: "company",
     headerName: "Company",
-    width: 160,
+    width: 350,
 
     valueGetter: (params) => {
       return params.row.offerid.nameCompany;

@@ -1,21 +1,36 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import styles from "../../styles/Profile.module.scss";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const Index = () => {
   // const user = useSelector((state) => state.user);
   const options = ["2000", "2001", "2002", "2003", "2004"];
 
   const [name, setName] = useState("");
-  const [lastname, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const imageInputref = useRef();
 
-  const onOptionChangeHandler = (event) => {
-    console.log("User Selected Value - ", event.target.value);
+  // const onOptionChangeHandler = (event) => {
+  //   console.log("User Selected Value - ", event.target.value);
+  // };
+
+  const uploadData = () => {
+    let regex = new RegExp(/\S+@\S+\.\S+/);
+    if (password != confirmPassword && password.length == 0) {
+      toast.error("Please Check Password");
+    } else if (name.length == 0) {
+      toast.error("Name is Empty");
+    } else if (email.length === 0 || !regex.test(email)) {
+      toast.error("Please put proper Email");
+    } else {
+      toast.success("chenging Profile data");
+    }
   };
-
   const user = useSelector((state) => state.user.value);
 
   if (user == null) return <></>;
@@ -56,6 +71,8 @@ const Index = () => {
                           name="fname"
                           placeholder="Name"
                           className={styles.textfield_1}
+                          value={name}
+                          onChange={(event) => setName(event.target.value)}
                         ></input>
                       </div>
                     </div>
@@ -69,6 +86,8 @@ const Index = () => {
                           name="lname"
                           placeholder="Email"
                           className={styles.textfield_1}
+                          value={email}
+                          onChange={(event) => setEmail(event.target.value)}
                         ></input>
                       </div>
                     </div>
@@ -84,6 +103,8 @@ const Index = () => {
                           name="fname"
                           placeholder="Password"
                           className={styles.textfield_2}
+                          value={password}
+                          onChange={(event) => setPassword(event.target.value)}
                         ></input>
                       </div>
                     </div>
@@ -97,8 +118,12 @@ const Index = () => {
                         <input
                           type="password"
                           name="lname"
-                          placeholder="Password"
+                          placeholder="Confirm Password"
                           className={styles.textfield_2}
+                          value={confirmPassword}
+                          onChange={(event) =>
+                            setConfirmPassword(event.target.value)
+                          }
                         ></input>
                       </div>
                     </div>
@@ -158,7 +183,7 @@ const Index = () => {
           </div>
         </div>
         <div className={styles.box}>
-          <button name="save" onClick="" className={styles.button}>
+          <button name="save" onClick={uploadData} className={styles.button}>
             SAVE
           </button>
         </div>

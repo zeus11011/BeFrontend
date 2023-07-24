@@ -10,7 +10,7 @@
   // margin-left: 5rem;
 }
 .calendar {
-  width: 70%;
+  width: 100%;
   display: flex;
   justify-content: center;
   // padding: 1rem;
@@ -19,6 +19,7 @@
   overflow: "auto";
 
   padding: 5rem;
+  padding-top: 0;
 }
 .mainContainer {
   height: 100%;

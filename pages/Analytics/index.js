@@ -32,10 +32,10 @@ ChartJS.register(
   ArcElement
 );
 const columns = [
-  { field: "name", headerName: "Name", width: 200, headerClassName: "column" },
-  { field: "company", headerName: "Company", width: 200 },
-  { field: "department", headerName: "Department", width: 180 },
-  { field: "package", headerName: "Package", width: 180 },
+  { field: "name", headerName: "Name", width: 350, headerClassName: "column" },
+  { field: "company", headerName: "Company", width: 350 },
+  { field: "department", headerName: "Department", width: 200 },
+  { field: "package", headerName: "Package", width: 200 },
 ];
 
 const options = {
@@ -543,13 +543,16 @@ const Analytics = () => {
                     fontWeight: 500,
                     // width: 700,
                   }}
+                  initialState={{
+                    pagination: { paginationModel: { pageSize: 5 } },
+                  }}
                   // isColumnSelectable={(params) => {
                   //   setSelected(params.column);
                   // }}
                   // isRowSelectable={(params) => {
                   //   setSelected(params.row);
                   // }}
-                  pageSizeOptions={[5, 10, 15]}
+                  pageSizeOptions={[15, 20, 25]}
 
                   // se
                 />

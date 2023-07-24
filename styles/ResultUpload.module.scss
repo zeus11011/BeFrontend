@@ -10,9 +10,20 @@
 }
 .uploadbox {
   justify-content: center;
+  border: 6px dashed #919292;
+  margin-bottom: 3rem;
+  border-radius: 10px;
 }
 .buttonbox {
   display: flex;
   justify-content: center;
   align-items: center;
+  button {
+    font-size: 2rem;
+    background-color: #21a6ff;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    color: white;
+    font-weight: 900;
+  }
 }

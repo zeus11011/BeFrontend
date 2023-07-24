@@ -8,7 +8,8 @@ import { URL } from "../../creds";
 import { useRouter } from "next/router";
 import Loader from "../../Components/Loader";
 import { Icon } from "@iconify/react";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Index() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,6 +51,7 @@ function Index() {
         <Loader />
       ) : (
         <div className={styles.main}>
+          <ToastContainer />
           <div className={styles.con1}>
             <Image src={"/gec.svg"} alt="" height={250} width={250} />
           </div>
@@ -123,14 +125,14 @@ function Index() {
                     </button>
                   </div>
 
-                  <div className={styles.box3}>
+                  <div
+                    className={styles.box3}
+                    onClick={() => {
+                      toast.info("Contact College admin!!");
+                    }}
+                  >
                     {"Forgot "}
-                    <div
-                      className={styles.link}
-                      onClick={() => {
-                        toast.info("Contact College admin!!");
-                      }}
-                    >
+                    <div className={styles.link}>
                       <a>{"Username / Password ?"}</a>
                     </div>
                   </div>

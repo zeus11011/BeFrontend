@@ -21,7 +21,6 @@ const ResultUpload = ({ onClose }) => {
       reader.onabort = () => console.log("file reading was aborted");
       reader.onerror = () => console.log("file reading has failed");
       reader.onload = () => {
-        // Do whatever you want with the file contents
         const binaryStr = JSON.parse(reader.result);
         setDataToSend(binaryStr);
       };
@@ -49,20 +48,24 @@ const ResultUpload = ({ onClose }) => {
       <div className={styles.header}>
         <h1>Upload Result here</h1>
       </div>
-      <div className={styles.uploadbox}>
-        <div
-          {...getRootProps()}
-          style={{
-            height: 200,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <input {...getInputProps()} />
-          <p>Drag 'n' drop some files here, or click to select files</p>
+      {dataToSend === null ? (
+        <div className={styles.uploadbox}>
+          <div
+            {...getRootProps()}
+            style={{
+              height: 200,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <input {...getInputProps()} />
+            <p>Drag 'n' drop some files here, or click to select files</p>
+          </div>
         </div>
-      </div>
+      ) : (
+        <></>
+      )}
       <div
         className={styles.buttonbox}
         onClick={() => {
