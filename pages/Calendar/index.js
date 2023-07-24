@@ -63,7 +63,7 @@ const CalendarView = () => {
             <Calendar hook={setSelected} />
           </div>
         </div>
-        <div className={styles.updates}>
+        {/* <div className={styles.updates}>
           <div className={styles.main2}>
             {data != null ? (
               <>
@@ -111,14 +111,7 @@ const CalendarView = () => {
                       : new Date(data.dates.end).toLocaleDateString("en-US")}
                   </p>
                 </div>
-                {/* <div className={styles.card}>
-              <p className={styles.p1}>Time</p>
-              <p className={styles.p2}>10-11am</p>
-            </div> */}
-                {/* <div className={styles.card}>
-              <p className={styles.p1}>Venue</p>
-              <p className={styles.p2}>IT Dept</p>
-            </div> */}
+                
                 <div className={styles.buttons}>
                   <div className={styles.buttonBox2}>
                     <button name="save" className={styles.button}>
@@ -150,7 +143,7 @@ const CalendarView = () => {
               </div>
             )}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

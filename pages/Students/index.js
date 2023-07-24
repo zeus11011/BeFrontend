@@ -264,7 +264,7 @@ const Students = () => {
                         </p>
                       </div>
                       <div className={styles.buttons}>
-                        <div className={styles.buttonBox}>
+                        {/* <div className={styles.buttonBox}>
                           <button
                             name="save"
                             onClick={() => {
@@ -284,7 +284,7 @@ const Students = () => {
                               onClick={""}
                             ></Icon>
                           </button>
-                        </div>
+                        </div> */}
                         <div className={styles.buttonBox2}>
                           <button
                             name="mail"

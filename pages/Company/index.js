@@ -23,18 +23,12 @@ const Company = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [ele, setEle] = useState({});
   const [tablele, setTablele] = useState({});
-  // nir
-  //  analytic table
-  //  analytic table
 
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
 
-  // nir
-
   const handleBoxClick1 = (ele) => {
     setEle(ele);
-    // console.log(ele, "element");
     setShowModal1(true);
   };
 

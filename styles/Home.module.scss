@@ -228,6 +228,9 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  .p {
+    font-size: 1.8rem;
+  }
 }
 
 .cardRoles {
@@ -268,12 +271,13 @@
   // position: relative;
   // left: 41%;
   // top: 32%;
-  // font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .packageAm {
   width: 5vw;
   text-align: center;
+  font-size: 1.8rem;
   // position: relative;
   // top: 173%;
   // right: 42%;

@@ -83,17 +83,17 @@
       font-size: 1.5rem;
     }
     .p {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: 7600;
       margin: 0;
       margin-bottom: 1rem;
       text-align: center;
-      position: relative;
+
       top: -4%;
     }
     .rolp {
       font-size: 1.5rem;
-      position: relative;
+      // position: relative;
       top: -48%;
       left: 2%;
     }
@@ -110,9 +110,9 @@
 .roles {
   // display: flex;
   // width: 70%;
-  position: relative;
-  top: -2%;
-  left: 2%;
+  display: flex;
+  justify-content: start;
+
   // display: inline-block;
   span {
     padding-right: 17px;
@@ -124,12 +124,7 @@
   margin-top: -1rem;
 }
 .carobox {
-  // background-color: black;
   border-radius: 15px;
-  // border: 1px solid black;
-  // margin-left: 5rem;
-  // display: flex;
-  // flex-direction: row;
 }
 
 .blankbox {

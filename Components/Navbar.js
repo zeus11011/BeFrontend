@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import ProfileDropdown from "./ProfileDropdown";
-import NotificationDropdown from "./NotificationDropdown";
+// import NotificationDropdown from "./NotificationDropdown";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -54,7 +54,7 @@ const Navbar = () => {
         <h1>{getName()}</h1>
       </div>
       <div className={styles.usersec}>
-        <div>
+        {/* <div>
           {true ? (
             <div className={styles.dropdownCon}>
               <NotificationDropdown icon="mdi:bell-badge-outline" />
@@ -64,7 +64,7 @@ const Navbar = () => {
               <NotificationDropdown icon="mdi:bell-outline" />
             </div>
           )}
-        </div>
+        </div> */}
 
         <div className={styles.profile}>
           <Image
