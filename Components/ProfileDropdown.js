@@ -31,7 +31,6 @@ const ProfileDropdown = () => {
     dispatch(logout());
     router.push("/login");
   };
-  // console.log(user.name);
   return (
     <>
       <>
@@ -43,7 +42,7 @@ const ProfileDropdown = () => {
             onCancel={handleCloseResult}
             footer={null}
           >
-            <ResultUpload />
+            <ResultUpload onClose={handleCloseResult} />
           </Modal>
         ) : (
           <></>
